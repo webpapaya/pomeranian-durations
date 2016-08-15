@@ -11,34 +11,34 @@ describe('fromIso', () => {
     const TWO_COMMON_YEAR_IN_SECONDS = ONE_COMMON_YEAR_IN_SECONDS * 2;
 
     [{
-      isoDurationString: 'PT0S',
+      isoDurationString: 'PT0s',
       seconds: 0,
     }, {
-      isoDurationString: 'PT6S',
+      isoDurationString: 'PT6s',
       seconds: 6,
     }, {
-      isoDurationString: 'PT7S',
+      isoDurationString: 'PT7s',
       seconds: 7,
     }, {
-      isoDurationString: 'PT10S',
+      isoDurationString: 'PT10s',
       seconds: 10,
     }, {
-      isoDurationString: 'PT59S',
+      isoDurationString: 'PT59s',
       seconds: 59,
     }, {
-      isoDurationString: `PT${ONE_MINUTE_IN_SECONDS}S`,
+      isoDurationString: `PT${ONE_MINUTE_IN_SECONDS}s`,
       minutes: 1,
     }, {
-      isoDurationString: `PT${ONE_HOUR_IN_SECONDS}S`,
+      isoDurationString: `PT${ONE_HOUR_IN_SECONDS}s`,
       hours: 1,
     }, {
-      isoDurationString: `PT${ONE_DAY_IN_SECONDS}S`,
+      isoDurationString: `PT${ONE_DAY_IN_SECONDS}s`,
       days: 1,
     }, {
-      isoDurationString: `PT${ONE_COMMON_YEAR_IN_SECONDS}S`,
+      isoDurationString: `PT${ONE_COMMON_YEAR_IN_SECONDS}s`,
       days: 365,
     }, {
-      isoDurationString: `PT${TWO_COMMON_YEAR_IN_SECONDS}S`,
+      isoDurationString: `PT${TWO_COMMON_YEAR_IN_SECONDS}s`,
       days: 730,
     }].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
       describe(`${isoDurationString} responds`, () => {
@@ -60,19 +60,19 @@ describe('fromIso', () => {
   describe('in minutes', () => {
     [
       {
-        isoDurationString: 'PT0M',
+        isoDurationString: 'PT0m',
         minutes: 0,
       }, {
-        isoDurationString: 'PT1M',
+        isoDurationString: 'PT1m',
         minutes: 1,
       }, {
-        isoDurationString: 'PT60M',
+        isoDurationString: 'PT60m',
         hours: 1,
       }, {
-        isoDurationString: 'PT1440M',
+        isoDurationString: 'PT1440m',
         days: 1,
       }, {
-        isoDurationString: 'PT525600M',
+        isoDurationString: 'PT525600m',
         days: 365,
       }
     ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
@@ -94,13 +94,13 @@ describe('fromIso', () => {
     describe('in hours', () => {
       [
         {
-          isoDurationString: 'PT0H',
+          isoDurationString: 'PT0h',
           hours: 0,
         }, {
-          isoDurationString: 'PT1H',
+          isoDurationString: 'PT1h',
           hours: 1,
         }, {
-          isoDurationString: 'PT24H',
+          isoDurationString: 'PT24h',
           days: 1,
         }
       ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {

@@ -5,9 +5,9 @@ const findUnit = (isoString, unit) => {
   return 0;
 };
 
-const findSeconds = (isoString) => findUnit(isoString, 'S');
-const findMinutes = (isoString) => findUnit(isoString, 'M');
-const findHours = (isoString) => findUnit(isoString, 'H');
+const findSeconds = (isoString) => findUnit(isoString, 's');
+const findMinutes = (isoString) => findUnit(isoString, 'm');
+const findHours = (isoString) => findUnit(isoString, 'h');
 const findDays = (isoString) => findUnit(isoString, 'D');
 
 const durationStringToSeconds = (isoString) => {
