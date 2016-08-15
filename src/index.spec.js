@@ -2,19 +2,17 @@ import { assertThat, equalTo } from 'hamjest';
 import { fromIso } from './index';
 
 describe('ISO duration to seconds', () => {
-  it('`PT6S` responds 6 seconds', () => {
-    const isoDurationString = 'PT6S';
-    assertThat(fromIso(isoDurationString).seconds, equalTo(6));
-  });
+  [
+    { isoDurationString: 'PT0S', seconds: 0 },
+    { isoDurationString: 'PT6S', seconds: 6 },
+    { isoDurationString: 'PT7S', seconds: 7 },
+    { isoDurationString: 'PT10S', seconds: 10 },
+    { isoDurationString: 'PT59S', seconds: 59 },
 
-  it('`PT7S` responds 7 seconds', () => {
-    const isoDurationString = 'PT7S';
-    assertThat(fromIso(isoDurationString).seconds, equalTo(7));
-  });
-
-  it('`PT10S` responds 10 seconds', () => {
-    const isoDurationString = 'PT10S';
-    assertThat(fromIso(isoDurationString).seconds, equalTo(10));
+  ].forEach(({ isoDurationString, seconds }) => {
+    it(`${isoDurationString} responds ${seconds} seconds`, () => {
+      assertThat(fromIso(isoDurationString).seconds, equalTo(seconds));
+    });
   });
 });
 
