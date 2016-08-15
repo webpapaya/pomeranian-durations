@@ -11,6 +11,11 @@ describe('ISO duration to seconds', () => {
     const isoDurationString = 'PT7S';
     assertThat(fromIso(isoDurationString).seconds, equalTo(7));
   });
+
+  it('`PT10S` responds 10 seconds', () => {
+    const isoDurationString = 'PT10S';
+    assertThat(fromIso(isoDurationString).seconds, equalTo(10));
+  });
 });
 
 
