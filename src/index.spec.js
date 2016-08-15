@@ -15,8 +15,8 @@ describe('fromIso', () => {
     it('PT1h1m asMinutes is 61m', () => assertThat(
       fromIso('PT1h1m').asMinutes(), equalTo(61)));
 
-    it('PT1D1h asHours is 25h', () => assertThat(
-      fromIso('PT1D1h').asHours(), equalTo(25)));
+    it('P1DT1h asHours is 25h', () => assertThat(
+      fromIso('P1DT1h').asHours(), equalTo(25)));
   });
 
 
@@ -26,6 +26,9 @@ describe('fromIso', () => {
 
     it('finds 6 months', () => assertThat(
       fromIso('P3Y6M4DT12H30M17S').findMonths(), equalTo(6)));
+
+    it('finds 4 days', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17S').findDays(), equalTo(4)));
   });
 
 
@@ -190,16 +193,16 @@ describe('fromIso', () => {
     describe('in days', () => {
       [
         {
-          isoDurationString: 'PT0D',
+          isoDurationString: 'P0D',
           days: 0,
         }, {
-          isoDurationString: 'PT1D',
+          isoDurationString: 'P1D',
           days: 1,
         }, {
-          isoDurationString: 'PT-1D',
+          isoDurationString: 'P-1D',
           days: -1,
         }, {
-          isoDurationString: 'PT365D',
+          isoDurationString: 'P365D',
           days: 365,
         }
       ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {

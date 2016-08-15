@@ -7,9 +7,12 @@ const ONE_DAY = ONE_HOUR * 24;
 
 const toInt = (number) => parseInt(number, 10);
 
-const extractTimeComponents = (isoString) => isoString.split("T")[1];
-const extractDateComponents = (isoString) =>
-  isoString.substring(isoString.lastIndexOf("P")+1,isoString.lastIndexOf("T"));
+const extractTimeComponents = (isoString) => isoString.split("T")[1] || "";
+const extractDateComponents = (isoString) => {
+  if(isoString.lastIndexOf('T') === -1) { return isoString.replace('P', ''); }
+  return isoString.substring(isoString.lastIndexOf("P")+1,isoString.lastIndexOf("T"));
+};
+
 
 const findUnit = (stringComponent, unit) => {
   const matchedUnit = stringComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
@@ -30,8 +33,8 @@ const findDateUnit = (isoString, unit) => {
 const findSeconds = (isoString) => findTimeUnit(isoString, 's');
 const findMinutes = (isoString) => findTimeUnit(isoString, 'm');
 const findHours = (isoString) => findTimeUnit(isoString, 'h');
-const findDays = (isoString) => findTimeUnit(isoString, 'D');
 
+const findDays = (isoString) => findDateUnit(isoString, 'D');
 const findMonths = (isoString) => findDateUnit(isoString, 'M');
 const findYears = (isoString) => findDateUnit(isoString, 'Y');
 
@@ -59,6 +62,7 @@ export const fromIso = (isoString) => {
     asMinutes: () => microseconds / ONE_MINUTE,
     asHours: () => microseconds / ONE_HOUR,
 
+    findDays: () => findDays(isoString),
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
 
