@@ -18,7 +18,7 @@ const findMinutes = (isoString) => findUnit(isoString, 'm');
 const findHours = (isoString) => findUnit(isoString, 'h');
 const findDays = (isoString) => findUnit(isoString, 'D');
 
-const durationStringToMicroSeconds = (isoString) => {
+const durationStringToMicroseconds = (isoString) => {
   return [
     findMicroseconds(isoString),
     findSeconds(isoString) * 1000000,
@@ -29,7 +29,7 @@ const durationStringToMicroSeconds = (isoString) => {
 };
 
 export const fromIso = (isoString) => {
-  const microseconds = durationStringToMicroSeconds(isoString);
+  const microseconds = durationStringToMicroseconds(isoString);
   const milliseconds = toInt(microseconds / 1000);
   const seconds = toInt(milliseconds / 1000);
   const minutes = toInt(seconds / 60);
