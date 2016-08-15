@@ -1,16 +1,13 @@
 const toInt = (number) => parseInt(number, 10);
 
-const findSeconds = (isoString) => {
-  const matchedSeconds = isoString.match(/[0-9]+S/);
+const findUnit = (isoString, unit) => {
+  const matchedSeconds = isoString.match(new RegExp(`[0-9]+${unit}`));
   if(matchedSeconds) { return toInt(matchedSeconds[0].slice(0, -1)); }
   return 0;
 };
 
-const findMinutes = (isoString) => {
-  const matchedMinutes = isoString.match(/[0-9]+M/);
-  if(matchedMinutes) { return toInt(matchedMinutes[0].slice(0, -1)); }
-  return 0;
-};
+const findSeconds = (isoString) => findUnit(isoString, 'S');
+const findMinutes = (isoString) => findUnit(isoString, 'M');
 
 export const fromIso = (isoString) => {
   const secondsInIsoString = findSeconds(isoString) + (findMinutes(isoString) * 60);
