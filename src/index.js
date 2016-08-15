@@ -11,25 +11,27 @@ const extractTimeComponents = (isoString) => isoString.split("T")[1];
 const extractDateComponents = (isoString) =>
   isoString.substring(isoString.lastIndexOf("P")+1,isoString.lastIndexOf("T"));
 
-
-const findTimeUnit = (isoString, unit) => {
-  const timeComponent = extractTimeComponents(isoString);
-  const matchedUnit = timeComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
+const findUnit = (stringComponent, unit) => {
+  const matchedUnit = stringComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
   if (!matchedUnit) { return 0; }
   return parseFloat(matchedUnit[0].slice(0, -1));
 };
 
+const findTimeUnit = (isoString, unit) => {
+  const timeComponent = extractTimeComponents(isoString);
+  return findUnit(timeComponent, unit);
+};
+
 const findDateUnit = (isoString, unit) => {
   const dateComponent = extractDateComponents(isoString);
-  const matchedUnit = dateComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
-  if (!matchedUnit) { return 0; }
-  return parseFloat(matchedUnit[0].slice(0, -1));
+  return findUnit(dateComponent, unit);
 };
 
 const findSeconds = (isoString) => findTimeUnit(isoString, 's');
 const findMinutes = (isoString) => findTimeUnit(isoString, 'm');
 const findHours = (isoString) => findTimeUnit(isoString, 'h');
 const findDays = (isoString) => findTimeUnit(isoString, 'D');
+
 const findMonths = (isoString) => findDateUnit(isoString, 'M');
 const findYears = (isoString) => findDateUnit(isoString, 'Y');
 
