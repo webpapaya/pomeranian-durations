@@ -32,6 +32,12 @@ describe('fromIso', () => {
 
     it('finds 12 hours', () => assertThat(
       fromIso('P3Y6M4DT12H30M17S').findHours(), equalTo(12)));
+
+    it('finds 12 minutes', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17S').findMinutes(), equalTo(30)));
+
+    it('finds 17 seconds', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17S').findSeconds(), equalTo(17)));
   });
 
 

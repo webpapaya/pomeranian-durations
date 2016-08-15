@@ -64,6 +64,8 @@ export const fromIso = (isoString) => {
     asMinutes: () => microseconds / ONE_MINUTE,
     asHours: () => microseconds / ONE_HOUR,
 
+    findSeconds: () => findSeconds(isoString),
+    findMinutes: () => findMinutes(isoString),
     findHours: () => findHours(isoString),
     findDays: () => findDays(isoString),
     findYears: () => findYears(isoString),
