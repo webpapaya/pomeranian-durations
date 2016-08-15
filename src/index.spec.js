@@ -2,10 +2,14 @@ import { assertThat, equalTo } from 'hamjest';
 import { fromIso } from './index';
 
 describe('fromIso', () => {
-  describe('asSeconds', () => {
-    it('PT1m1s responds 61', () => assertThat(
-      fromIso('PT1m1s').asSeconds(), equalTo(61)));
-  });
+  it('PT2s asMicroseconds is 2000000μs', () => assertThat(
+    fromIso('PT2s').asMicroseconds(), equalTo(2000000)));
+
+  it('PT1m1s asSeconds is 61s', () => assertThat(
+    fromIso('PT1m1s').asSeconds(), equalTo(61)));
+
+  it('PT1h1m asMinutes is 61m', () => assertThat(
+    fromIso('PT1h1m').asMinutes(), equalTo(61)));
 
 
   describe('in seconds', () => {
