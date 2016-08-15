@@ -11,6 +11,9 @@ describe('fromIso', () => {
   it('PT1h1m asMinutes is 61m', () => assertThat(
     fromIso('PT1h1m').asMinutes(), equalTo(61)));
 
+  it('PT1D1h asHours is 25h', () => assertThat(
+    fromIso('PT1D1h').asHours(), equalTo(25)));
+
 
   describe('in seconds', () => {
     const ONE_SECOND = 1;
