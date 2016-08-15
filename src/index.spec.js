@@ -71,19 +71,24 @@ describe('fromIso', () => {
       }, {
         isoDurationString: 'PT1440M',
         days: 1,
+      }, {
+        isoDurationString: 'PT525600M',
+        days: 365,
       }
     ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
-      it(`${seconds} seconds`, () => assertThat(
-        fromIso(isoDurationString).seconds, equalTo(seconds)));
+      describe(`${isoDurationString} responds`, () => {
+        it(`${seconds} seconds`, () => assertThat(
+          fromIso(isoDurationString).seconds, equalTo(seconds)));
 
-      it(`${minutes} minutes`, () => assertThat(
-        fromIso(isoDurationString).minutes, equalTo(minutes)));
+        it(`${minutes} minutes`, () => assertThat(
+          fromIso(isoDurationString).minutes, equalTo(minutes)));
 
-      it(`${hours} hours`, () => assertThat(
-        fromIso(isoDurationString).hours, equalTo(hours)));
+        it(`${hours} hours`, () => assertThat(
+          fromIso(isoDurationString).hours, equalTo(hours)));
 
-      it(`${days} days`, () => assertThat(
-        fromIso(isoDurationString).days, equalTo(days)));
+        it(`${days} days`, () => assertThat(
+          fromIso(isoDurationString).days, equalTo(days)));
+      });
     });
   });
 });
