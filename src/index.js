@@ -1,5 +1,6 @@
 export const fromIso = (isoString) => {
+  const seconds = parseInt(isoString.match(/[0-9]/)[0]);
   return {
-    seconds: 6
+    seconds: seconds
   }
 };
