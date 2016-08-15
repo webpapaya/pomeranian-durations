@@ -1,13 +1,13 @@
 const toInt = (number) => parseInt(number, 10);
 const findUnit = (isoString, unit) => {
   const matchedSeconds = isoString.match(new RegExp(`[+,-]?[0-9]+(\.[0-9]+)?${unit}`));
-  if(matchedSeconds) { return parseFloat(matchedSeconds[0].slice(0, -1)); }
+  if (matchedSeconds) { return parseFloat(matchedSeconds[0].slice(0, -1)); }
   return 0;
 };
 const findMicroseconds = (isoString) => {
   const seconds = findUnit(isoString, 's');
   const hasFraction = seconds.toString().match(/\./);
-  if(!hasFraction) { return 0 ; }
+  if (!hasFraction) { return 0 ; }
 
   const fractionsOfSeconds = parseFloat('0.' + seconds.toString().split('.')[1]);
   return fractionsOfSeconds * 1000000;

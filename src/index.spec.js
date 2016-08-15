@@ -21,6 +21,9 @@ describe('fromIso', () => {
       seconds: 0,
       microseconds: 1,
     }, {
+      isoDurationString: 'PT0.1s',
+      milliseconds: 100,
+    }, {
       isoDurationString: 'PT6s',
       seconds: 6,
     }, {
@@ -54,13 +57,13 @@ describe('fromIso', () => {
       const {
         isoDurationString,
         microseconds = 0,
-        milliseconds = 0, 
-        seconds = 0, 
-        minutes = 0, 
-        hours = 0, 
+        milliseconds = 0,
+        seconds = 0,
+        minutes = 0,
+        hours = 0,
         days = 0,
       } = args;
-      
+
       describe(`${isoDurationString} responds`, () => {
         it(`${microseconds} microseconds`, () => assertThat(
           fromIso(isoDurationString).microseconds, equalTo(microseconds)));
@@ -88,6 +91,9 @@ describe('fromIso', () => {
       {
         isoDurationString: 'PT0m',
         minutes: 0,
+      }, {
+        isoDurationString: 'PT0.5m',
+        seconds: 30,
       }, {
         isoDurationString: 'PT1m',
         minutes: 1,
@@ -125,6 +131,9 @@ describe('fromIso', () => {
         }, {
           isoDurationString: 'PT1h',
           hours: 1,
+        }, {
+          isoDurationString: 'PT0.5h',
+          minutes: 30,
         }, {
           isoDurationString: 'PT-1h',
           hours: -1,
