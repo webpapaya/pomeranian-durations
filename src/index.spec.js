@@ -2,6 +2,12 @@ import { assertThat, equalTo } from 'hamjest';
 import { fromIso } from './index';
 
 describe('fromIso', () => {
+  describe('asSeconds', () => {
+    it('PT1m1s responds 61', () => assertThat(
+      fromIso('PT1m1s').asSeconds(), equalTo(61)));
+  });
+
+
   describe('in seconds', () => {
     const ONE_SECOND = 1;
     const ONE_MINUTE_IN_SECONDS = ONE_SECOND * 60;

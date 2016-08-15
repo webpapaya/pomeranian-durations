@@ -35,6 +35,7 @@ export const fromIso = (isoString) => {
   const days = toInt(hours / 24);
 
   return {
+    asSeconds: () => microseconds / ONE_SECOND,
     microseconds: microseconds - (milliseconds * 1000),
     milliseconds: milliseconds - (seconds * 1000),
     seconds: seconds - (minutes * 60),
