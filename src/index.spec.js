@@ -17,6 +17,10 @@ describe('fromIso', () => {
       isoDurationString: 'PT-0s',
       seconds: 0,
     }, {
+      isoDurationString: 'PT0.000001s',
+      seconds: 0,
+      microseconds: 1,
+    }, {
       isoDurationString: 'PT6s',
       seconds: 6,
     }, {
@@ -46,8 +50,24 @@ describe('fromIso', () => {
     }, {
       isoDurationString: `PT${TWO_COMMON_YEAR_IN_SECONDS}s`,
       days: 730,
-    }].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
+    }].forEach((args) => {
+      const {
+        isoDurationString,
+        microseconds = 0,
+        milliseconds = 0, 
+        seconds = 0, 
+        minutes = 0, 
+        hours = 0, 
+        days = 0,
+      } = args;
+      
       describe(`${isoDurationString} responds`, () => {
+        it(`${microseconds} microseconds`, () => assertThat(
+          fromIso(isoDurationString).microseconds, equalTo(microseconds)));
+
+        it(`${milliseconds} milliseconds`, () => assertThat(
+          fromIso(isoDurationString).milliseconds, equalTo(milliseconds)));
+
         it(`${seconds} seconds`, () => assertThat(
           fromIso(isoDurationString).seconds, equalTo(seconds)));
 
