@@ -7,6 +7,7 @@ const ONE_DAY = ONE_HOUR * 24;
 
 const toInt = (number) => parseInt(number, 10);
 const hasFraction = (number) => number.toString().match(/\./);
+const extractDecimal = (number) => number - toInt(number);
 
 const findUnit = (isoString, unit) => {
   const matchedSeconds = isoString.match(new RegExp(`[+,-]?[0-9]+(\.[0-9]+)?${unit}`));
@@ -14,15 +15,11 @@ const findUnit = (isoString, unit) => {
   return 0;
 };
 
-
 const findMicroseconds = (isoString) => {
   const seconds = findUnit(isoString, 's');
   if (!hasFraction(seconds)) { return 0 ; }
-
-  const fractionsOfSeconds = parseFloat('0.' + seconds.toString().split('.')[1]);
-  return fractionsOfSeconds * ONE_SECOND;
+  return extractDecimal(seconds) * ONE_SECOND;
 };
-
 const findSeconds = (isoString) => parseInt(findUnit(isoString, 's'));
 const findMinutes = (isoString) => findUnit(isoString, 'm');
 const findHours = (isoString) => findUnit(isoString, 'h');
