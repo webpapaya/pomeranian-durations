@@ -65,7 +65,13 @@ describe('fromIso', () => {
       }, {
         isoDurationString: 'PT1M',
         minutes: 1,
-      },
+      }, {
+        isoDurationString: 'PT60M',
+        hours: 1,
+      }, {
+        isoDurationString: 'PT1440M',
+        days: 1,
+      }
     ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
       it(`${seconds} seconds`, () => assertThat(
         fromIso(isoDurationString).seconds, equalTo(seconds)));
