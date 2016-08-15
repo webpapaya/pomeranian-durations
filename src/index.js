@@ -1,3 +1,10 @@
+const ONE_MICROSECOND = 1;
+const ONE_MILLISECOND = ONE_MICROSECOND * 1000;
+const ONE_SECOND = ONE_MILLISECOND * 1000;
+const ONE_MINUTE = ONE_SECOND * 60;
+const ONE_HOUR = ONE_MINUTE * 60;
+const ONE_DAY = ONE_HOUR * 24;
+
 const toInt = (number) => parseInt(number, 10);
 const findUnit = (isoString, unit) => {
   const matchedSeconds = isoString.match(new RegExp(`[+,-]?[0-9]+(\.[0-9]+)?${unit}`));
@@ -10,7 +17,7 @@ const findMicroseconds = (isoString) => {
   if (!hasFraction) { return 0 ; }
 
   const fractionsOfSeconds = parseFloat('0.' + seconds.toString().split('.')[1]);
-  return fractionsOfSeconds * 1000000;
+  return fractionsOfSeconds * ONE_SECOND;
 };
 
 const findSeconds = (isoString) => parseInt(findUnit(isoString, 's'));
@@ -18,13 +25,14 @@ const findMinutes = (isoString) => findUnit(isoString, 'm');
 const findHours = (isoString) => findUnit(isoString, 'h');
 const findDays = (isoString) => findUnit(isoString, 'D');
 
+
 const durationStringToMicroseconds = (isoString) => {
   return [
     findMicroseconds(isoString),
-    findSeconds(isoString) * 1000000,
-    findMinutes(isoString) * 60 * 1000000,
-    findHours(isoString) * 60 * 60 * 1000000,
-    findDays(isoString) * 60 * 60 * 24 * 1000000,
+    findSeconds(isoString) * ONE_SECOND,
+    findMinutes(isoString) * ONE_MINUTE,
+    findHours(isoString) * ONE_HOUR,
+    findDays(isoString) * ONE_DAY,
   ].reduce((sum, seconds) => sum + seconds);
 };
 
