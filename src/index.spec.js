@@ -29,6 +29,9 @@ describe('fromIso', () => {
 
     it('finds 4 days', () => assertThat(
       fromIso('P3Y6M4DT12H30M17S').findDays(), equalTo(4)));
+
+    it('finds 12 hours', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17S').findHours(), equalTo(12)));
   });
 
 

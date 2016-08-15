@@ -13,9 +13,11 @@ const extractDateComponents = (isoString) => {
   return isoString.substring(isoString.lastIndexOf("P")+1,isoString.lastIndexOf("T"));
 };
 
-
 const findUnit = (stringComponent, unit) => {
-  const matchedUnit = stringComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
+  const matchedUnit = stringComponent
+    .toUpperCase()
+    .match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
+
   if (!matchedUnit) { return 0; }
   return parseFloat(matchedUnit[0].slice(0, -1));
 };
@@ -30,9 +32,9 @@ const findDateUnit = (isoString, unit) => {
   return findUnit(dateComponent, unit);
 };
 
-const findSeconds = (isoString) => findTimeUnit(isoString, 's');
-const findMinutes = (isoString) => findTimeUnit(isoString, 'm');
-const findHours = (isoString) => findTimeUnit(isoString, 'h');
+const findSeconds = (isoString) => findTimeUnit(isoString, 'S');
+const findMinutes = (isoString) => findTimeUnit(isoString, 'M');
+const findHours = (isoString) => findTimeUnit(isoString, 'H');
 
 const findDays = (isoString) => findDateUnit(isoString, 'D');
 const findMonths = (isoString) => findDateUnit(isoString, 'M');
@@ -62,6 +64,7 @@ export const fromIso = (isoString) => {
     asMinutes: () => microseconds / ONE_MINUTE,
     asHours: () => microseconds / ONE_HOUR,
 
+    findHours: () => findHours(isoString),
     findDays: () => findDays(isoString),
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
