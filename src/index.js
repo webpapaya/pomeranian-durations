@@ -69,7 +69,7 @@ const normalize = (isoString) => {
 
 export const fromIso = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
-
+  
   return {
     asMicroseconds: () => microseconds,
     asMilliseconds: () => microseconds / ONE_MILLISECOND,
