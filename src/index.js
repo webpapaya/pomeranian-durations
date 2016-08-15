@@ -8,11 +8,14 @@ const findUnit = (isoString, unit) => {
 const findSeconds = (isoString) => findUnit(isoString, 'S');
 const findMinutes = (isoString) => findUnit(isoString, 'M');
 const findHours = (isoString) => findUnit(isoString, 'H');
+const findDays = (isoString) => findUnit(isoString, 'D');
+
 const durationStringToSeconds = (isoString) => {
   return [
     findSeconds(isoString),
     findMinutes(isoString) * 60,
     findHours(isoString) * 60 * 60,
+    findDays(isoString) * 60 * 60 * 24,
   ].reduce((sum, seconds) => sum + seconds);
 };
 
