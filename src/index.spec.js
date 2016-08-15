@@ -14,8 +14,14 @@ describe('fromIso', () => {
       isoDurationString: 'PT0s',
       seconds: 0,
     }, {
+      isoDurationString: 'PT-0s',
+      seconds: 0,
+    }, {
       isoDurationString: 'PT6s',
       seconds: 6,
+    }, {
+      isoDurationString: 'PT-6s',
+      seconds: -6,
     }, {
       isoDurationString: 'PT7s',
       seconds: 7,
@@ -100,6 +106,9 @@ describe('fromIso', () => {
           isoDurationString: 'PT1h',
           hours: 1,
         }, {
+          isoDurationString: 'PT-1h',
+          hours: -1,
+        }, {
           isoDurationString: 'PT24h',
           days: 1,
         }
@@ -128,6 +137,9 @@ describe('fromIso', () => {
         }, {
           isoDurationString: 'PT1D',
           days: 1,
+        }, {
+          isoDurationString: 'PT-1D',
+          days: -1,
         }, {
           isoDurationString: 'PT365D',
           days: 365,

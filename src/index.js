@@ -1,6 +1,6 @@
 const toInt = (number) => parseInt(number, 10);
 const findUnit = (isoString, unit) => {
-  const matchedSeconds = isoString.match(new RegExp(`[0-9]+${unit}`));
+  const matchedSeconds = isoString.match(new RegExp(`[+,-]?[0-9]+${unit}`));
   if(matchedSeconds) { return toInt(matchedSeconds[0].slice(0, -1)); }
   return 0;
 };
