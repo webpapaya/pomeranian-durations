@@ -5,6 +5,9 @@ describe('fromIso', () => {
   it('PT2s asMicroseconds is 2000000μs', () => assertThat(
     fromIso('PT2s').asMicroseconds(), equalTo(2000000)));
 
+  it('PT1.1s asMilliseconds is 1100ms', () => assertThat(
+    fromIso('PT1.1s').asMilliseconds(), equalTo(1100)));
+
   it('PT1m1s asSeconds is 61s', () => assertThat(
     fromIso('PT1m1s').asSeconds(), equalTo(61)));
 
@@ -13,7 +16,6 @@ describe('fromIso', () => {
 
   it('PT1D1h asHours is 25h', () => assertThat(
     fromIso('PT1D1h').asHours(), equalTo(25)));
-
 
   describe('in seconds', () => {
     const ONE_SECOND = 1;

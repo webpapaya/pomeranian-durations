@@ -36,9 +36,11 @@ export const fromIso = (isoString) => {
 
   return {
     asMicroseconds: () => microseconds,
+    asMilliseconds: () => microseconds / ONE_MILLISECOND,
     asSeconds: () => microseconds / ONE_SECOND,
     asMinutes: () => microseconds / ONE_MINUTE,
     asHours: () => microseconds / ONE_HOUR,
+
     microseconds: microseconds - (milliseconds * 1000),
     milliseconds: milliseconds - (seconds * 1000),
     seconds: seconds - (minutes * 60),
