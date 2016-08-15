@@ -1,0 +1,23 @@
+{
+  "name": "pomeranian",
+  "version": "0.0.0",
+  "description": "A JS immutable time duration library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webPapaya/pomeranian.git"
+  },
+  "keywords": [
+    "time",
+    "duration"
+  ],
+  "author": "Webpapaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webPapaya/pomeranian/issues"
+  },
+  "homepage": "https://github.com/webPapaya/pomeranian#readme"
+}
