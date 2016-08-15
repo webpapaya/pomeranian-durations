@@ -29,15 +29,16 @@ const durationStringToMicroSeconds = (isoString) => {
 };
 
 export const fromIso = (isoString) => {
-  const microsecondsInIsoString = durationStringToMicroSeconds(isoString);
-  const seconds = toInt(microsecondsInIsoString / 1000000);
+  const microseconds = durationStringToMicroSeconds(isoString);
+  const milliseconds = toInt(microseconds / 1000);
+  const seconds = toInt(milliseconds / 1000);
   const minutes = toInt(seconds / 60);
   const hours = toInt(minutes / 60);
   const days = toInt(hours / 24);
 
   return {
-    microseconds: microsecondsInIsoString - (seconds * 1000000),
-    milliseconds: 0,
+    microseconds: microseconds - (milliseconds * 1000),
+    milliseconds: milliseconds - (seconds * 1000),
     seconds: seconds - (minutes * 60),
     minutes: minutes - (hours * 60),
     hours: hours - (days * 24),
