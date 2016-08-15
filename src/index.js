@@ -8,9 +8,14 @@ const findUnit = (isoString, unit) => {
 
 const findSeconds = (isoString) => findUnit(isoString, 'S');
 const findMinutes = (isoString) => findUnit(isoString, 'M');
+const findHours = (isoString) => findUnit(isoString, 'H');
 
 export const fromIso = (isoString) => {
-  const secondsInIsoString = findSeconds(isoString) + (findMinutes(isoString) * 60);
+  const secondsInIsoString =
+    findSeconds(isoString) +
+    (findMinutes(isoString) * 60) +
+    (findHours(isoString) * 60 * 60)
+  ;
   const seconds = toInt(secondsInIsoString);
   const minutes = toInt(seconds / 60);
   const hours = toInt(minutes / 60);

@@ -90,5 +90,34 @@ describe('fromIso', () => {
           fromIso(isoDurationString).days, equalTo(days)));
       });
     });
+
+    describe('in hours', () => {
+      [
+        {
+          isoDurationString: 'PT0H',
+          hours: 0,
+        }, {
+          isoDurationString: 'PT1H',
+          hours: 1,
+        }, {
+          isoDurationString: 'PT24H',
+          days: 1,
+        }
+      ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
+        describe(`${isoDurationString} responds`, () => {
+          it(`${seconds} seconds`, () => assertThat(
+            fromIso(isoDurationString).seconds, equalTo(seconds)));
+
+          it(`${minutes} minutes`, () => assertThat(
+            fromIso(isoDurationString).minutes, equalTo(minutes)));
+
+          it(`${hours} hours`, () => assertThat(
+            fromIso(isoDurationString).hours, equalTo(hours)));
+
+          it(`${days} days`, () => assertThat(
+            fromIso(isoDurationString).days, equalTo(days)));
+        });
+      });
+    });
   });
 });
