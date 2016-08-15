@@ -20,28 +20,25 @@ describe('fromIso', () => {
   });
 
 
-  describe('unit finders for P3Y6M4DT12H30M17S', () => {
+  describe('unit finders for P3Y6M4DT12H30M17.100200S', () => {
     it('finds 3 years', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17S').findYears(), equalTo(3)));
+      fromIso('P3Y6M4DT12H30M17.5S').findYears(), equalTo(3)));
 
     it('finds 6 months', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17S').findMonths(), equalTo(6)));
+      fromIso('P3Y6M4DT12H30M17.5S').findMonths(), equalTo(6)));
 
     it('finds 4 days', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17S').findDays(), equalTo(4)));
+      fromIso('P3Y6M4DT12H30M17.5S').findDays(), equalTo(4)));
 
     it('finds 12 hours', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17S').findHours(), equalTo(12)));
+      fromIso('P3Y6M4DT12H30M17.5S').findHours(), equalTo(12)));
 
     it('finds 12 minutes', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17S').findMinutes(), equalTo(30)));
+      fromIso('P3Y6M4DT12H30M17.5S').findMinutes(), equalTo(30)));
 
-    it('finds 17 seconds', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17S').findSeconds(), equalTo(17)));
+    it('finds 17.5 seconds', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17.5S').findSeconds(), equalTo(17.5)));
   });
-
-
-
 
   describe('in seconds', () => {
     const ONE_SECOND = 1;
