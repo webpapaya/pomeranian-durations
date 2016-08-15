@@ -49,13 +49,26 @@ const durationStringToMicroseconds = (isoString) => {
   ].reduce((sum, seconds) => sum + seconds);
 };
 
-export const fromIso = (isoString) => {
+const normalize = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
   const milliseconds = toInt(microseconds / 1000);
   const seconds = toInt(milliseconds / 1000);
   const minutes = toInt(seconds / 60);
   const hours = toInt(minutes / 60);
   const days = toInt(hours / 24);
+
+  return {
+    microseconds: microseconds - (milliseconds * 1000),
+    milliseconds: milliseconds - (seconds * 1000),
+    seconds: seconds - (minutes * 60),
+    minutes: minutes - (hours * 60),
+    hours: hours - (days * 24),
+    days: days,
+  }
+};
+
+export const fromIso = (isoString) => {
+  const microseconds = durationStringToMicroseconds(isoString);
 
   return {
     asMicroseconds: () => microseconds,
@@ -71,11 +84,6 @@ export const fromIso = (isoString) => {
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
 
-    microseconds: microseconds - (milliseconds * 1000),
-    milliseconds: milliseconds - (seconds * 1000),
-    seconds: seconds - (minutes * 60),
-    minutes: minutes - (hours * 60),
-    hours: hours - (days * 24),
-    days: days,
+    ...normalize(isoString),
   };
 };
