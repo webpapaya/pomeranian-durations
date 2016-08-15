@@ -6,29 +6,19 @@ const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 
 const toInt = (number) => parseInt(number, 10);
-const hasFraction = (number) => number.toString().match(/\./);
-const extractDecimal = (number) => number - toInt(number);
-
 const findUnit = (isoString, unit) => {
   const matchedSeconds = isoString.match(new RegExp(`[+,-]?[0-9]+(\.[0-9]+)?${unit}`));
   if (matchedSeconds) { return parseFloat(matchedSeconds[0].slice(0, -1)); }
   return 0;
 };
 
-const findMicroseconds = (isoString) => {
-  const seconds = findUnit(isoString, 's');
-  if (!hasFraction(seconds)) { return 0 ; }
-  return extractDecimal(seconds) * ONE_SECOND;
-};
-const findSeconds = (isoString) => parseInt(findUnit(isoString, 's'));
+const findSeconds = (isoString) => findUnit(isoString, 's');
 const findMinutes = (isoString) => findUnit(isoString, 'm');
 const findHours = (isoString) => findUnit(isoString, 'h');
 const findDays = (isoString) => findUnit(isoString, 'D');
 
-
 const durationStringToMicroseconds = (isoString) => {
   return [
-    findMicroseconds(isoString),
     findSeconds(isoString) * ONE_SECOND,
     findMinutes(isoString) * ONE_MINUTE,
     findHours(isoString) * ONE_HOUR,
