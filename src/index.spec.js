@@ -2,20 +2,34 @@ import { assertThat, equalTo } from 'hamjest';
 import { fromIso } from './index';
 
 describe('fromIso', () => {
-  it('PT2s asMicroseconds is 2000000μs', () => assertThat(
-    fromIso('PT2s').asMicroseconds(), equalTo(2000000)));
+  describe('as "unit" methods', () => {
+    it('PT2s asMicroseconds is 2000000μs', () => assertThat(
+      fromIso('PT2s').asMicroseconds(), equalTo(2000000)));
 
-  it('PT1.1s asMilliseconds is 1100ms', () => assertThat(
-    fromIso('PT1.1s').asMilliseconds(), equalTo(1100)));
+    it('PT1.1s asMilliseconds is 1100ms', () => assertThat(
+      fromIso('PT1.1s').asMilliseconds(), equalTo(1100)));
 
-  it('PT1m1s asSeconds is 61s', () => assertThat(
-    fromIso('PT1m1s').asSeconds(), equalTo(61)));
+    it('PT1m1s asSeconds is 61s', () => assertThat(
+      fromIso('PT1m1s').asSeconds(), equalTo(61)));
 
-  it('PT1h1m asMinutes is 61m', () => assertThat(
-    fromIso('PT1h1m').asMinutes(), equalTo(61)));
+    it('PT1h1m asMinutes is 61m', () => assertThat(
+      fromIso('PT1h1m').asMinutes(), equalTo(61)));
 
-  it('PT1D1h asHours is 25h', () => assertThat(
-    fromIso('PT1D1h').asHours(), equalTo(25)));
+    it('PT1D1h asHours is 25h', () => assertThat(
+      fromIso('PT1D1h').asHours(), equalTo(25)));
+  });
+
+
+  describe('unit finders for P3Y6M4DT12H30M17S', () => {
+    it('finds 3 years', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17S').findYears(), equalTo(3)));
+
+    it('finds 6 months', () => assertThat(
+      fromIso('P3Y6M4DT12H30M17S').findMonths(), equalTo(6)));
+  });
+
+
+
 
   describe('in seconds', () => {
     const ONE_SECOND = 1;

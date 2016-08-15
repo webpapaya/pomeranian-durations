@@ -6,16 +6,32 @@ const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 
 const toInt = (number) => parseInt(number, 10);
-const findUnit = (isoString, unit) => {
-  const matchedUnit = isoString.match(new RegExp(`[+,-]?[0-9]+(\.[0-9]+)?${unit}`));
+
+const extractTimeComponents = (isoString) => isoString.split("T")[1];
+const extractDateComponents = (isoString) =>
+  isoString.substring(isoString.lastIndexOf("P")+1,isoString.lastIndexOf("T"));
+
+
+const findTimeUnit = (isoString, unit) => {
+  const timeComponent = extractTimeComponents(isoString);
+  const matchedUnit = timeComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
   if (!matchedUnit) { return 0; }
   return parseFloat(matchedUnit[0].slice(0, -1));
 };
 
-const findSeconds = (isoString) => findUnit(isoString, 's');
-const findMinutes = (isoString) => findUnit(isoString, 'm');
-const findHours = (isoString) => findUnit(isoString, 'h');
-const findDays = (isoString) => findUnit(isoString, 'D');
+const findDateUnit = (isoString, unit) => {
+  const dateComponent = extractDateComponents(isoString);
+  const matchedUnit = dateComponent.match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
+  if (!matchedUnit) { return 0; }
+  return parseFloat(matchedUnit[0].slice(0, -1));
+};
+
+const findSeconds = (isoString) => findTimeUnit(isoString, 's');
+const findMinutes = (isoString) => findTimeUnit(isoString, 'm');
+const findHours = (isoString) => findTimeUnit(isoString, 'h');
+const findDays = (isoString) => findTimeUnit(isoString, 'D');
+const findMonths = (isoString) => findDateUnit(isoString, 'M');
+const findYears = (isoString) => findDateUnit(isoString, 'Y');
 
 const durationStringToMicroseconds = (isoString) => {
   return [
@@ -40,6 +56,9 @@ export const fromIso = (isoString) => {
     asSeconds: () => microseconds / ONE_SECOND,
     asMinutes: () => microseconds / ONE_MINUTE,
     asHours: () => microseconds / ONE_HOUR,
+
+    findYears: () => findYears(isoString),
+    findMonths: () => findMonths(isoString),
 
     microseconds: microseconds - (milliseconds * 1000),
     milliseconds: milliseconds - (seconds * 1000),
