@@ -124,6 +124,11 @@ const toNormalizedIso = (isoString) => {
   return toIso(durations);
 };
 
+export const fromFragments = (fragments) => {
+  const isoString = toIso(fragments);
+  return fromIso(isoString);
+};
+
 export const fromIso = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
 
@@ -140,6 +145,8 @@ export const fromIso = (isoString) => {
     findDays: () => findDays(isoString),
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
+    
+    toIso: () => isoString,
     toNormalizedIso: () => toNormalizedIso(isoString),
 
     ...normalize(isoString),

@@ -1,5 +1,12 @@
 import { assertThat, equalTo } from 'hamjest';
-import { fromIso } from './index';
+import { fromIso, fromFragments } from './index';
+
+describe('fromFragments', () => {
+  it('toIso responds correct format', () => assertThat(
+    fromFragments({ hours: 1 }).toIso(), equalTo('PT1H')));
+});
+
+
 
 describe('fromIso', () => {
   describe('as "unit" methods', () => {
