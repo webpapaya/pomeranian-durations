@@ -49,7 +49,10 @@ describe('fromIso', () => {
       fromIso('PT61S').toNormalizedIso(), equalTo('PT1M1S')));
 
     it('PT25H results in P1DT1H', () => assertThat(
-      fromIso('PT25H').toNormalizedIso(), equalTo('P1DT1H')));
+      fromIso('PT25H').toNormalizedIso(), equalTo('PT25H')));
+
+    it('P1DT results in P1DT1H', () => assertThat(
+      fromIso('P1DT').toNormalizedIso(), equalTo('PT24H')));
   });
 
   describe('in seconds', () => {
@@ -57,8 +60,6 @@ describe('fromIso', () => {
     const ONE_MINUTE_IN_SECONDS = ONE_SECOND * 60;
     const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS * 60;
     const ONE_DAY_IN_SECONDS = ONE_HOUR_IN_SECONDS * 24;
-    const ONE_COMMON_YEAR_IN_SECONDS = ONE_DAY_IN_SECONDS * 365;
-    const TWO_COMMON_YEAR_IN_SECONDS = ONE_COMMON_YEAR_IN_SECONDS * 2;
 
     [{
       isoDurationString: 'PT0s',
@@ -96,13 +97,7 @@ describe('fromIso', () => {
       hours: 1,
     }, {
       isoDurationString: `PT${ONE_DAY_IN_SECONDS}s`,
-      days: 1,
-    }, {
-      isoDurationString: `PT${ONE_COMMON_YEAR_IN_SECONDS}s`,
-      days: 365,
-    }, {
-      isoDurationString: `PT${TWO_COMMON_YEAR_IN_SECONDS}s`,
-      days: 730,
+      hours: 24,
     }].forEach((args) => {
       const {
         isoDurationString,
@@ -111,7 +106,6 @@ describe('fromIso', () => {
         seconds = 0,
         minutes = 0,
         hours = 0,
-        days = 0,
       } = args;
 
       describe(`${isoDurationString} responds`, () => {
@@ -129,9 +123,6 @@ describe('fromIso', () => {
 
         it(`${hours} hours`, () => assertThat(
           fromIso(isoDurationString).hours, equalTo(hours)));
-
-        it(`${days} days`, () => assertThat(
-          fromIso(isoDurationString).days, equalTo(days)));
       });
     });
   });
@@ -152,10 +143,7 @@ describe('fromIso', () => {
         hours: 1,
       }, {
         isoDurationString: 'PT1440m',
-        days: 1,
-      }, {
-        isoDurationString: 'PT525600m',
-        days: 365,
+        hours: 24,
       },
     ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
       describe(`${isoDurationString} responds`, () => {
@@ -167,9 +155,6 @@ describe('fromIso', () => {
 
         it(`${hours} hours`, () => assertThat(
           fromIso(isoDurationString).hours, equalTo(hours)));
-
-        it(`${days} days`, () => assertThat(
-          fromIso(isoDurationString).days, equalTo(days)));
       });
     });
 
@@ -189,9 +174,9 @@ describe('fromIso', () => {
           hours: -1,
         }, {
           isoDurationString: 'PT24h',
-          days: 1,
+          hours: 24,
         },
-      ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
+      ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0}) => {
         describe(`${isoDurationString} responds`, () => {
           it(`${seconds} seconds`, () => assertThat(
             fromIso(isoDurationString).seconds, equalTo(seconds)));
@@ -201,41 +186,6 @@ describe('fromIso', () => {
 
           it(`${hours} hours`, () => assertThat(
             fromIso(isoDurationString).hours, equalTo(hours)));
-
-          it(`${days} days`, () => assertThat(
-            fromIso(isoDurationString).days, equalTo(days)));
-        });
-      });
-    });
-
-    describe('in days', () => {
-      [
-        {
-          isoDurationString: 'P0D',
-          days: 0,
-        }, {
-          isoDurationString: 'P1D',
-          days: 1,
-        }, {
-          isoDurationString: 'P-1D',
-          days: -1,
-        }, {
-          isoDurationString: 'P365D',
-          days: 365,
-        },
-      ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
-        describe(`${isoDurationString} responds`, () => {
-          it(`${seconds} seconds`, () => assertThat(
-            fromIso(isoDurationString).seconds, equalTo(seconds)));
-
-          it(`${minutes} minutes`, () => assertThat(
-            fromIso(isoDurationString).minutes, equalTo(minutes)));
-
-          it(`${hours} hours`, () => assertThat(
-            fromIso(isoDurationString).hours, equalTo(hours)));
-
-          it(`${days} days`, () => assertThat(
-            fromIso(isoDurationString).days, equalTo(days)));
         });
       });
     });

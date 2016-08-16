@@ -82,15 +82,13 @@ const normalize = (isoString) => {
   const seconds = toInt(milliseconds / 1000);
   const minutes = toInt(seconds / 60);
   const hours = toInt(minutes / 60);
-  const days = toInt(hours / 24);
 
   return {
     microseconds: microseconds - (milliseconds * 1000),
     milliseconds: milliseconds - (seconds * 1000),
     seconds: seconds - (minutes * 60),
     minutes: minutes - (hours * 60),
-    hours: hours - (days * 24),
-    days: days,
+    hours: hours,
   };
 };
 
