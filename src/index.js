@@ -26,11 +26,13 @@ const UNITS = {
 };
 
 const toInt = (number) => parseInt(number, 10);
+const charsBetween = (string, start, end) =>
+  string.substring(string.lastIndexOf(start)+1,string.lastIndexOf(end));
 
 const extractTimeComponents = (isoString) => isoString.split(TIME_DESIGNATOR)[1] || "";
 const extractDateComponents = (isoString) => {
   if(isoString.lastIndexOf(TIME_DESIGNATOR) === -1) { return isoString.replace(DURATION_DESIGNATOR, ''); }
-  return isoString.substring(isoString.lastIndexOf(DURATION_DESIGNATOR)+1,isoString.lastIndexOf(TIME_DESIGNATOR));
+  return charsBetween(isoString, DURATION_DESIGNATOR, TIME_DESIGNATOR);
 };
 
 const findUnit = (stringComponent, unit) => {
