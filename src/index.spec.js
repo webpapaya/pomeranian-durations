@@ -190,4 +190,11 @@ describe('fromIso', () => {
       });
     });
   });
+
+  describe('calculations', () => {
+    describe('add seconds', () => {
+      it('adding 1 second to PT0S results in PT1S', () => assertThat(
+        fromIso('PT01').addSeconds(1).toIso(), equalTo('PT1S')));
+    });
+  });
 });

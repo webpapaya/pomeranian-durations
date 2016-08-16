@@ -130,6 +130,14 @@ export const fromFragments = (fragments) => {
   return fromIso(isoString);
 };
 
+const asFragments = (isoString) => {
+  return {
+    seconds: findSeconds(isoString),
+    minutes: findMinutes(isoString),
+    hours: findHours(isoString),
+  }
+};
+
 export const fromIso = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
 
@@ -146,6 +154,12 @@ export const fromIso = (isoString) => {
     findDays: () => findDays(isoString),
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
+
+    addSeconds: (amount) => {
+      const fragments = asFragments(isoString);
+      fragments.seconds += amount;
+      return fromFragments(fragments);
+    },
     
     toIso: () => isoString,
     toNormalizedIso: () => toNormalizedIso(isoString),
