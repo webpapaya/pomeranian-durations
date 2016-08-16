@@ -78,28 +78,25 @@ const DATE_UNITS = {
   Y: 'Y',
 };
 
+const buildIsoComponent = (durations, units) => {
+  return Object.keys(durations)
+    .filter((unitName) => Object.keys(units).includes(unitName))
+    .reverse()
+    .reduce((prev, name) => {
+      if(durations[name] === 0) { return prev; }
+      const unit = units[name];
+      const values = durations[name];
+      return `${prev}${values}${unit}`;
+    }, '');
+};
+
+const buildDateComponent = (durations) =>  buildIsoComponent(durations, DATE_UNITS);
+const buildTimeComponent = (durations) =>  buildIsoComponent(durations, TIME_UNITS);
+
 const toNormalizedIso = (isoString) => {
-  const normalizedDurations = normalize(isoString);
-  const dateUnitsToBeDisplayed = Object.keys(normalizedDurations)
-    .filter((unitName) => Object.keys(DATE_UNITS).includes(unitName))
-    .reverse()
-    .reduce((prev, name) => {
-      if(normalizedDurations[name] === 0) { return prev; }
-      const unit = DATE_UNITS[name];
-      const values = normalizedDurations[name];
-      return `${prev}${values}${unit}`;
-    }, '');
-
-  const timeUnitsToBeDisplayed = Object.keys(normalizedDurations)
-    .filter((unitName) => Object.keys(TIME_UNITS).includes(unitName))
-    .reverse()
-    .reduce((prev, name) => {
-      if(normalizedDurations[name] === 0) { return prev; }
-      const unit = TIME_UNITS[name];
-      const values = normalizedDurations[name];
-      return `${prev}${values}${unit}`;
-    }, '');
-
+  const durations = normalize(isoString);
+  const dateUnitsToBeDisplayed = buildDateComponent(durations);
+  const timeUnitsToBeDisplayed = buildTimeComponent(durations);
   return `P${dateUnitsToBeDisplayed}T${timeUnitsToBeDisplayed}`;
 };
 
