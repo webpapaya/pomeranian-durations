@@ -110,14 +110,18 @@ const buildIsoComponent = (durations, units) => {
 const buildDateComponent = (durations) => buildIsoComponent(durations, DATE_UNITS);
 const buildTimeComponent = (durations) => buildIsoComponent(durations, TIME_UNITS);
 
-const toNormalizedIso = (isoString) => {
-  const durations = normalize(isoString);
+const toIso = (durations) => {
   return [
     DURATION_DESIGNATOR,
     buildDateComponent(durations),
     TIME_DESIGNATOR,
     buildTimeComponent(durations),
   ].join('');
+};
+
+const toNormalizedIso = (isoString) => {
+  const durations = normalize(isoString);
+  return toIso(durations);
 };
 
 export const fromIso = (isoString) => {
