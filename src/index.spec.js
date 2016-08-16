@@ -194,7 +194,15 @@ describe('fromIso', () => {
   describe('calculations', () => {
     describe('add seconds', () => {
       it('adding 1 second to PT0S results in PT1S', () => assertThat(
-        fromIso('PT01').addSeconds(1).toIso(), equalTo('PT1S')));
+        fromIso('PT0S').addSeconds(1).toIso(), equalTo('PT1S')));
+
+      it('AND doesn\'t mutate duration', () => {
+        const duration = fromIso('PT0S');
+        const mutatedDuration = duration.addSeconds(1);
+        
+        assertThat(mutatedDuration.toIso(), equalTo('PT1S'));
+        assertThat(duration.toIso(), equalTo('PT0S'));
+      });
     });
   });
 });
