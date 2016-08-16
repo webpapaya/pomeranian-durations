@@ -5,6 +5,23 @@ const ONE_MINUTE = ONE_SECOND * 60;
 const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 
+const TIME_UNITS = {
+  seconds: 'S',
+  minutes: 'M',
+  hours: 'H',
+};
+
+const DATE_UNITS = {
+  days: 'D',
+  months: 'M',
+  years: 'Y',
+};
+
+const UNITS = {
+  ...TIME_UNITS,
+  ...DATE_UNITS,
+};
+
 const toInt = (number) => parseInt(number, 10);
 
 const extractTimeComponents = (isoString) => isoString.split("T")[1] || "";
@@ -32,13 +49,13 @@ const findDateUnit = (isoString, unit) => {
   return findUnit(dateComponent, unit);
 };
 
-const findSeconds = (isoString) => findTimeUnit(isoString, 'S');
-const findMinutes = (isoString) => findTimeUnit(isoString, 'M');
-const findHours = (isoString) => findTimeUnit(isoString, 'H');
+const findSeconds = (isoString) => findTimeUnit(isoString, UNITS.seconds);
+const findMinutes = (isoString) => findTimeUnit(isoString, UNITS.minutes);
+const findHours = (isoString) => findTimeUnit(isoString, UNITS.hours);
 
-const findDays = (isoString) => findDateUnit(isoString, 'D');
-const findMonths = (isoString) => findDateUnit(isoString, 'M');
-const findYears = (isoString) => findDateUnit(isoString, 'Y');
+const findDays = (isoString) => findDateUnit(isoString, UNITS.days);
+const findMonths = (isoString) => findDateUnit(isoString, UNITS.months);
+const findYears = (isoString) => findDateUnit(isoString, UNITS.years);
 
 const durationStringToMicroseconds = (isoString) => {
   return [
@@ -67,16 +84,6 @@ const normalize = (isoString) => {
   }
 };
 
-const TIME_UNITS = {
-  seconds: 'S',
-  minutes: 'M',
-  hours: 'H',
-};
-
-const DATE_UNITS = {
-  days: 'D',
-  Y: 'Y',
-};
 
 const buildIsoComponent = (durations, units) => {
   return Object.keys(durations)
