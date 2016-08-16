@@ -95,30 +95,30 @@ const normalize = (isoString) => {
 };
 
 
-const buildIsoComponent = (durations, units) => {
-  return Object.keys(durations)
+const buildIsoComponent = (fragments, units) => {
+  return Object.keys(fragments)
     .filter((unitName) => Object.keys(units).includes(unitName))
     .sort((a, b) => {
       const sortedUnitNames = Object.keys(UNITS);
       return  sortedUnitNames.indexOf(b) - sortedUnitNames.indexOf(a);
     })
     .reduce((prev, name) => {
-      if (durations[name] === 0) { return prev; }
+      if (fragments[name] === 0) { return prev; }
       const unit = units[name];
-      const value = durations[name];
+      const value = fragments[name];
       return `${prev}${value}${unit}`;
     }, '');
 };
 
-const buildDateComponent = (durations) => buildIsoComponent(durations, DATE_UNITS);
-const buildTimeComponent = (durations) => buildIsoComponent(durations, TIME_UNITS);
+const buildDateComponent = (fragments) => buildIsoComponent(fragments, DATE_UNITS);
+const buildTimeComponent = (fragments) => buildIsoComponent(fragments, TIME_UNITS);
 
-const toIso = (durations) => {
+const toIso = (fragments) => {
   return [
     DURATION_DESIGNATOR,
-    buildDateComponent(durations),
+    buildDateComponent(fragments),
     TIME_DESIGNATOR,
-    buildTimeComponent(durations),
+    buildTimeComponent(fragments),
   ].join('');
 };
 
