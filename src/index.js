@@ -67,9 +67,40 @@ const normalize = (isoString) => {
   }
 };
 
+const TIME_UNITS = {
+  seconds: 'S',
+  minutes: 'M',
+  hours: 'H',
+};
+
+const DATE_UNITS = {
+  days: 'D',
+  Y: 'Y',
+};
+
 const toNormalizedIso = (isoString) => {
   const normalizedDurations = normalize(isoString);
-  return `PT${normalizedDurations.minutes}M${normalizedDurations.seconds}S`;
+  const dateUnitsToBeDisplayed = Object.keys(normalizedDurations)
+    .filter((unitName) => Object.keys(DATE_UNITS).includes(unitName))
+    .reverse()
+    .reduce((prev, name) => {
+      if(normalizedDurations[name] === 0) { return prev; }
+      const unit = DATE_UNITS[name];
+      const values = normalizedDurations[name];
+      return `${prev}${values}${unit}`;
+    }, '');
+
+  const timeUnitsToBeDisplayed = Object.keys(normalizedDurations)
+    .filter((unitName) => Object.keys(TIME_UNITS).includes(unitName))
+    .reverse()
+    .reduce((prev, name) => {
+      if(normalizedDurations[name] === 0) { return prev; }
+      const unit = TIME_UNITS[name];
+      const values = normalizedDurations[name];
+      return `${prev}${values}${unit}`;
+    }, '');
+
+  return `P${dateUnitsToBeDisplayed}T${timeUnitsToBeDisplayed}`;
 };
 
 export const fromIso = (isoString) => {
