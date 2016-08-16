@@ -40,6 +40,12 @@ describe('fromIso', () => {
       fromIso('P3Y6M4DT12H30M17.5S').findSeconds(), equalTo(17.5)));
   });
 
+  describe('to normalized iso', () => {
+    it('PT61S results in PT1M1S', () => assertThat(
+      fromIso('PT61S').toNormalizedIso(), equalTo('PT1M1S')));
+    
+  });
+
   describe('in seconds', () => {
     const ONE_SECOND = 1;
     const ONE_MINUTE_IN_SECONDS = ONE_SECOND * 60;

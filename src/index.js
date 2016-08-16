@@ -67,9 +67,14 @@ const normalize = (isoString) => {
   }
 };
 
+const toNormalizedIso = (isoString) => {
+  const normalizedDurations = normalize(isoString);
+  return `PT${normalizedDurations.minutes}M${normalizedDurations.seconds}S`;
+};
+
 export const fromIso = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
-  
+
   return {
     asMicroseconds: () => microseconds,
     asMilliseconds: () => microseconds / ONE_MILLISECOND,
@@ -83,6 +88,7 @@ export const fromIso = (isoString) => {
     findDays: () => findDays(isoString),
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
+    toNormalizedIso: () => toNormalizedIso(isoString),
 
     ...normalize(isoString),
   };
