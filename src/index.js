@@ -98,7 +98,10 @@ const normalize = (isoString) => {
 const buildIsoComponent = (durations, units) => {
   return Object.keys(durations)
     .filter((unitName) => Object.keys(units).includes(unitName))
-    .reverse()
+    .sort((a, b) => {
+      const sortedUnitNames = Object.keys(UNITS);
+      return  sortedUnitNames.indexOf(b) - sortedUnitNames.indexOf(a);
+    })
     .reduce((prev, name) => {
       if (durations[name] === 0) { return prev; }
       const unit = units[name];

@@ -4,8 +4,10 @@ import { fromIso, fromFragments } from './index';
 describe('fromFragments', () => {
   it('toIso responds correct format', () => assertThat(
     fromFragments({ hours: 1 }).toIso(), equalTo('PT1H')));
-});
 
+  it('toIso responds correct format', () => assertThat(
+    fromFragments({ years: 1, days: 2, hours: 1 }).toIso(), equalTo('P1Y2DT1H')));
+});
 
 
 describe('fromIso', () => {
