@@ -102,8 +102,8 @@ const buildIsoComponent = (durations, units) => {
     .reduce((prev, name) => {
       if(durations[name] === 0) { return prev; }
       const unit = units[name];
-      const values = durations[name];
-      return `${prev}${values}${unit}`;
+      const value = durations[name];
+      return `${prev}${value}${unit}`;
     }, '');
 };
 
