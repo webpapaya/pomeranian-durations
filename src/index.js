@@ -27,7 +27,7 @@ const UNITS = {
 
 const toInt = (number) => parseInt(number, 10);
 const charsBetween = (string, start, end) =>
-  string.substring(string.lastIndexOf(start)+1,string.lastIndexOf(end));
+  string.substring(string.lastIndexOf(start) + 1, string.lastIndexOf(end));
 
 const containsTimeDesignator = (string) =>
   string.lastIndexOf(TIME_DESIGNATOR) === -1;
@@ -36,7 +36,7 @@ const extractTimeComponents = (isoString) =>
   isoString.split(TIME_DESIGNATOR)[1] || '';
 
 const extractDateComponents = (isoString) => {
-  if(containsTimeDesignator(isoString)) { return isoString.replace(DURATION_DESIGNATOR, ''); }
+  if (containsTimeDesignator(isoString)) { return isoString.replace(DURATION_DESIGNATOR, ''); }
   return charsBetween(isoString, DURATION_DESIGNATOR, TIME_DESIGNATOR);
 };
 
@@ -91,7 +91,7 @@ const normalize = (isoString) => {
     minutes: minutes - (hours * 60),
     hours: hours - (days * 24),
     days: days,
-  }
+  };
 };
 
 
@@ -100,15 +100,15 @@ const buildIsoComponent = (durations, units) => {
     .filter((unitName) => Object.keys(units).includes(unitName))
     .reverse()
     .reduce((prev, name) => {
-      if(durations[name] === 0) { return prev; }
+      if (durations[name] === 0) { return prev; }
       const unit = units[name];
       const value = durations[name];
       return `${prev}${value}${unit}`;
     }, '');
 };
 
-const buildDateComponent = (durations) =>  buildIsoComponent(durations, DATE_UNITS);
-const buildTimeComponent = (durations) =>  buildIsoComponent(durations, TIME_UNITS);
+const buildDateComponent = (durations) => buildIsoComponent(durations, DATE_UNITS);
+const buildTimeComponent = (durations) => buildIsoComponent(durations, TIME_UNITS);
 
 const toNormalizedIso = (isoString) => {
   const durations = normalize(isoString);
