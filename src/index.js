@@ -5,6 +5,9 @@ const ONE_MINUTE = ONE_SECOND * 60;
 const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 
+const TIME_DESIGNATOR = 'T';
+const DURATION_DESIGNATOR = 'P';
+
 const TIME_UNITS = {
   seconds: 'S',
   minutes: 'M',
@@ -24,10 +27,10 @@ const UNITS = {
 
 const toInt = (number) => parseInt(number, 10);
 
-const extractTimeComponents = (isoString) => isoString.split("T")[1] || "";
+const extractTimeComponents = (isoString) => isoString.split(TIME_DESIGNATOR)[1] || "";
 const extractDateComponents = (isoString) => {
-  if(isoString.lastIndexOf('T') === -1) { return isoString.replace('P', ''); }
-  return isoString.substring(isoString.lastIndexOf("P")+1,isoString.lastIndexOf("T"));
+  if(isoString.lastIndexOf(TIME_DESIGNATOR) === -1) { return isoString.replace(DURATION_DESIGNATOR, ''); }
+  return isoString.substring(isoString.lastIndexOf(DURATION_DESIGNATOR)+1,isoString.lastIndexOf(TIME_DESIGNATOR));
 };
 
 const findUnit = (stringComponent, unit) => {
@@ -102,9 +105,12 @@ const buildTimeComponent = (durations) =>  buildIsoComponent(durations, TIME_UNI
 
 const toNormalizedIso = (isoString) => {
   const durations = normalize(isoString);
-  const dateUnitsToBeDisplayed = buildDateComponent(durations);
-  const timeUnitsToBeDisplayed = buildTimeComponent(durations);
-  return `P${dateUnitsToBeDisplayed}T${timeUnitsToBeDisplayed}`;
+  return [
+    DURATION_DESIGNATOR,
+    buildDateComponent(durations),
+    TIME_DESIGNATOR,
+    buildTimeComponent(durations),
+  ].join('');
 };
 
 export const fromIso = (isoString) => {
