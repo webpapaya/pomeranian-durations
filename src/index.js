@@ -29,9 +29,14 @@ const toInt = (number) => parseInt(number, 10);
 const charsBetween = (string, start, end) =>
   string.substring(string.lastIndexOf(start)+1,string.lastIndexOf(end));
 
-const extractTimeComponents = (isoString) => isoString.split(TIME_DESIGNATOR)[1] || "";
+const containsTimeDesignator = (string) =>
+  string.lastIndexOf(TIME_DESIGNATOR) === -1;
+
+const extractTimeComponents = (isoString) =>
+  isoString.split(TIME_DESIGNATOR)[1] || '';
+
 const extractDateComponents = (isoString) => {
-  if(isoString.lastIndexOf(TIME_DESIGNATOR) === -1) { return isoString.replace(DURATION_DESIGNATOR, ''); }
+  if(containsTimeDesignator(isoString)) { return isoString.replace(DURATION_DESIGNATOR, ''); }
   return charsBetween(isoString, DURATION_DESIGNATOR, TIME_DESIGNATOR);
 };
 
