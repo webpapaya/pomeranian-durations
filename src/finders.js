@@ -40,6 +40,7 @@ const findDateUnit = (isoString, unit) => {
 export const containsDateUnits = (isoString) => {
   return [
     findDays(isoString),
+    findWeeks(isoString),
     findMonths(isoString),
     findYears(isoString),
   ].some((element) => element !== 0);
@@ -50,5 +51,6 @@ export const findMinutes = (isoString) => findTimeUnit(isoString, UNITS.minutes)
 export const findHours = (isoString) => findTimeUnit(isoString, UNITS.hours);
 
 export const findDays = (isoString) => findDateUnit(isoString, UNITS.days);
+export const findWeeks = (isoString) => findDateUnit(isoString, UNITS.weeks);
 export const findMonths = (isoString) => findDateUnit(isoString, UNITS.months);
 export const findYears = (isoString) => findDateUnit(isoString, UNITS.years);

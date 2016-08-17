@@ -29,4 +29,7 @@ describe('as "unit" methods', () => {
 
   it('P1M throws', () => assertThat(
     () => asHours('P1M'), throws()));
+
+  it('P1W throws', () => assertThat(
+    () => asHours('P1W'), throws()));
 });

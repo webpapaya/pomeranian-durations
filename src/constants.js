@@ -16,6 +16,7 @@ export const TIME_UNITS = {
 
 export const DATE_UNITS = {
   days: 'D',
+  weeks: 'W',
   months: 'M',
   years: 'Y',
 };
