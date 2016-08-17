@@ -4,7 +4,7 @@ import {
   findHours,
   findMinutes,
   findDays,
-} from './finders'
+} from './finders';
 
 import {
   ONE_SECOND,

@@ -17,7 +17,7 @@ describe('fromIso', () => {
     it('P1DT results in P24H', () => assertThat(
       fromIso('P1DT').toNormalizedIso(), equalTo('PT24H')));
   });
-  
+
 
   describe('in seconds', () => {
     const ONE_SECOND = 1;
@@ -109,7 +109,7 @@ describe('fromIso', () => {
         isoDurationString: 'PT1440m',
         hours: 24,
       },
-    ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0, days = 0 }) => {
+    ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0 }) => {
       describe(`${isoDurationString} responds`, () => {
         it(`${seconds} seconds`, () => assertThat(
           fromIso(isoDurationString).seconds, equalTo(seconds)));
@@ -140,7 +140,7 @@ describe('fromIso', () => {
           isoDurationString: 'PT24h',
           hours: 24,
         },
-      ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0}) => {
+      ].forEach(({ isoDurationString, seconds = 0, minutes = 0, hours = 0 }) => {
         describe(`${isoDurationString} responds`, () => {
           it(`${seconds} seconds`, () => assertThat(
             fromIso(isoDurationString).seconds, equalTo(seconds)));

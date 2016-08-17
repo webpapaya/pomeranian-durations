@@ -18,17 +18,12 @@ import {
 } from './conversions';
 
 import {
-  ONE_MILLISECOND,
-  ONE_SECOND,
-  ONE_MINUTE,
-  ONE_HOUR,
-
   DURATION_DESIGNATOR,
   TIME_DESIGNATOR,
 
   UNITS,
   DATE_UNITS,
-  TIME_UNITS
+  TIME_UNITS,
 } from './constants';
 
 const toInt = (number) => parseInt(number, 10);
@@ -55,7 +50,7 @@ const buildIsoComponent = (fragments, units) => {
     .filter((unitName) => Object.keys(units).includes(unitName))
     .sort((a, b) => {
       const sortedUnitNames = Object.keys(UNITS);
-      return  sortedUnitNames.indexOf(b) - sortedUnitNames.indexOf(a);
+      return sortedUnitNames.indexOf(b) - sortedUnitNames.indexOf(a);
     })
     .reduce((prev, name) => {
       if (fragments[name] === 0) { return prev; }
@@ -103,7 +98,7 @@ export const fromIso = (isoString) => {
     findMonths: () => findMonths(isoString),
 
     addSeconds: (amount) => addSeconds(isoString, amount),
-    
+
     toIso: () => isoString,
     toNormalizedIso: () => toNormalizedIso(isoString),
 
