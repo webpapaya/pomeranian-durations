@@ -9,32 +9,22 @@ import {
 
 import { addSeconds } from './calculations';
 
-const ONE_MICROSECOND = 1;
-const ONE_MILLISECOND = ONE_MICROSECOND * 1000;
-const ONE_SECOND = ONE_MILLISECOND * 1000;
-const ONE_MINUTE = ONE_SECOND * 60;
-const ONE_HOUR = ONE_MINUTE * 60;
-const ONE_DAY = ONE_HOUR * 24;
+import {
+  ONE_MILLISECOND,
+  ONE_SECOND,
+  ONE_MINUTE,
+  ONE_HOUR,
+  ONE_DAY,
 
-export const TIME_DESIGNATOR = 'T';
-export const DURATION_DESIGNATOR = 'P';
+  DURATION_DESIGNATOR,
+  TIME_DESIGNATOR,
 
-export const TIME_UNITS = {
-  seconds: 'S',
-  minutes: 'M',
-  hours: 'H',
-};
+  UNITS,
+  DATE_UNITS,
+  TIME_UNITS
+} from './constants';
 
-export const DATE_UNITS = {
-  days: 'D',
-  months: 'M',
-  years: 'Y',
-};
 
-export const UNITS = {
-  ...TIME_UNITS,
-  ...DATE_UNITS,
-};
 
 const toInt = (number) => parseInt(number, 10);
 
