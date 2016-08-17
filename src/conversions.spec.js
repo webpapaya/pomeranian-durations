@@ -1,4 +1,5 @@
-import { assertThat, equalTo } from 'hamjest';
+import assert from 'assert';
+import { assertThat, equalTo, throws } from 'hamjest';
 import {
   asMicroseconds,
   asMilliseconds,
@@ -20,6 +21,12 @@ describe('as "unit" methods', () => {
   it('PT1h1m asMinutes is 61m', () => assertThat(
     asMinutes('PT1h1m'), equalTo(61)));
 
-  it('P1DT1h asHours is 25h', () => assertThat(
-    asHours('P1DT1h'), equalTo(25)));
+  it('PT1h asHours is 1h', () => assertThat(
+    asHours('PT1h'), equalTo(1)));
+
+  it('P1D throws', () => assertThat(
+    () => asHours('P1D'), throws()));
+
+  it('P1M throws', () => assertThat(
+    () => asHours('P1M'), throws()));
 });

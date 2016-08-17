@@ -7,8 +7,10 @@ import {
 } from './constants';
 
 import { isoStringAsMicroseconds } from './calculations';
+import { containsDateUnits } from './finders'
 
 const asUnit = (isoString, divider) => {
+  if(containsDateUnits(isoString)) { throw new Error('Can\'t convert to date units.'); }
   const microseconds = isoStringAsMicroseconds(isoString);
   return microseconds / divider;
 };
