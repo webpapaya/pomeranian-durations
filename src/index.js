@@ -7,7 +7,7 @@ import {
   findYears,
 } from './finders';
 
-import { addSeconds, durationStringToMicroseconds } from './calculations';
+import { addSeconds, isoStringAsMicroseconds } from './calculations';
 
 import {
   asMicroseconds,
@@ -34,7 +34,7 @@ import {
 const toInt = (number) => parseInt(number, 10);
 
 const normalize = (isoString) => {
-  const microseconds = durationStringToMicroseconds(isoString);
+  const microseconds = isoStringAsMicroseconds(isoString);
   const milliseconds = toInt(microseconds / 1000);
   const seconds = toInt(milliseconds / 1000);
   const minutes = toInt(seconds / 60);

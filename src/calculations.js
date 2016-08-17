@@ -27,7 +27,7 @@ export const addSeconds = (isoString, amount) => {
   return fromFragments(fragments);
 };
 
-export const durationStringToMicroseconds = (isoString) => {
+export const isoStringAsMicroseconds = (isoString) => {
   return [
     findSeconds(isoString) * ONE_SECOND,
     findMinutes(isoString) * ONE_MINUTE,

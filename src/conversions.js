@@ -7,11 +7,11 @@ import {
 } from './constants';
 
 import {
-  durationStringToMicroseconds
+  isoStringAsMicroseconds
 } from './calculations';
 
 const asUnit = (isoString, divider) => {
-  const microseconds = durationStringToMicroseconds(isoString);
+  const microseconds = isoStringAsMicroseconds(isoString);
   return microseconds / divider;
 };
 
