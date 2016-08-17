@@ -7,26 +7,6 @@ describe('fromFragments', () => {
 });
 
 describe('fromIso', () => {
-  describe('unit finders for P3Y6M4DT12H30M17.100200S', () => {
-    it('finds 3 years', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17.5S').findYears(), equalTo(3)));
-
-    it('finds 6 months', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17.5S').findMonths(), equalTo(6)));
-
-    it('finds 4 days', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17.5S').findDays(), equalTo(4)));
-
-    it('finds 12 hours', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17.5S').findHours(), equalTo(12)));
-
-    it('finds 12 minutes', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17.5S').findMinutes(), equalTo(30)));
-
-    it('finds 17.5 seconds', () => assertThat(
-      fromIso('P3Y6M4DT12H30M17.5S').findSeconds(), equalTo(17.5)));
-  });
-
   describe('to normalized iso', () => {
     it('PT61S results in PT1M1S', () => assertThat(
       fromIso('PT61S').toNormalizedIso(), equalTo('PT1M1S')));

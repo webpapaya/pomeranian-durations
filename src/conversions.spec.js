@@ -1,4 +1,3 @@
-import assert from 'assert';
 import { assertThat, equalTo, throws } from 'hamjest';
 import {
   asMicroseconds,
