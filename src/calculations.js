@@ -1,9 +1,9 @@
+import { fromFragments } from './index';
 import {
-  fromFragments,
   findSeconds,
   findHours,
   findMinutes,
-} from './index';
+} from './finders'
 
 const asFragments = (isoString) => {
   return {

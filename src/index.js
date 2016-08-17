@@ -1,6 +1,13 @@
 import {
-  addSeconds
-} from './calculations';
+  findSeconds,
+  findMinutes,
+  findHours,
+  findDays,
+  findMonths,
+  findYears,
+} from './finders';
+
+import { addSeconds } from './calculations';
 
 const ONE_MICROSECOND = 1;
 const ONE_MILLISECOND = ONE_MICROSECOND * 1000;
@@ -9,67 +16,28 @@ const ONE_MINUTE = ONE_SECOND * 60;
 const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 
-const TIME_DESIGNATOR = 'T';
-const DURATION_DESIGNATOR = 'P';
+export const TIME_DESIGNATOR = 'T';
+export const DURATION_DESIGNATOR = 'P';
 
-const TIME_UNITS = {
+export const TIME_UNITS = {
   seconds: 'S',
   minutes: 'M',
   hours: 'H',
 };
 
-const DATE_UNITS = {
+export const DATE_UNITS = {
   days: 'D',
   months: 'M',
   years: 'Y',
 };
 
-const UNITS = {
+export const UNITS = {
   ...TIME_UNITS,
   ...DATE_UNITS,
 };
 
 const toInt = (number) => parseInt(number, 10);
-const charsBetween = (string, start, end) =>
-  string.substring(string.lastIndexOf(start) + 1, string.lastIndexOf(end));
 
-const containsTimeDesignator = (string) =>
-  string.lastIndexOf(TIME_DESIGNATOR) === -1;
-
-const extractTimeComponents = (isoString) =>
-  isoString.split(TIME_DESIGNATOR)[1] || '';
-
-const extractDateComponents = (isoString) => {
-  if (containsTimeDesignator(isoString)) { return isoString.replace(DURATION_DESIGNATOR, ''); }
-  return charsBetween(isoString, DURATION_DESIGNATOR, TIME_DESIGNATOR);
-};
-
-const findUnit = (stringComponent, unit) => {
-  const matchedUnit = stringComponent
-    .toUpperCase()
-    .match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
-
-  if (!matchedUnit) { return 0; }
-  return parseFloat(matchedUnit[0].slice(0, -1));
-};
-
-const findTimeUnit = (isoString, unit) => {
-  const timeComponent = extractTimeComponents(isoString);
-  return findUnit(timeComponent, unit);
-};
-
-const findDateUnit = (isoString, unit) => {
-  const dateComponent = extractDateComponents(isoString);
-  return findUnit(dateComponent, unit);
-};
-
-export const findSeconds = (isoString) => findTimeUnit(isoString, UNITS.seconds);
-export const findMinutes = (isoString) => findTimeUnit(isoString, UNITS.minutes);
-export const findHours = (isoString) => findTimeUnit(isoString, UNITS.hours);
-
-const findDays = (isoString) => findDateUnit(isoString, UNITS.days);
-const findMonths = (isoString) => findDateUnit(isoString, UNITS.months);
-const findYears = (isoString) => findDateUnit(isoString, UNITS.years);
 
 const durationStringToMicroseconds = (isoString) => {
   return [
