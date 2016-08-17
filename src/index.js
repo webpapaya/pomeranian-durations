@@ -7,14 +7,21 @@ import {
   findYears,
 } from './finders';
 
-import { addSeconds } from './calculations';
+import { addSeconds, durationStringToMicroseconds } from './calculations';
+
+import {
+  asMicroseconds,
+  asMilliseconds,
+  asSeconds,
+  asMinutes,
+  asHours,
+} from './conversions';
 
 import {
   ONE_MILLISECOND,
   ONE_SECOND,
   ONE_MINUTE,
   ONE_HOUR,
-  ONE_DAY,
 
   DURATION_DESIGNATOR,
   TIME_DESIGNATOR,
@@ -24,19 +31,7 @@ import {
   TIME_UNITS
 } from './constants';
 
-
-
 const toInt = (number) => parseInt(number, 10);
-
-
-const durationStringToMicroseconds = (isoString) => {
-  return [
-    findSeconds(isoString) * ONE_SECOND,
-    findMinutes(isoString) * ONE_MINUTE,
-    findHours(isoString) * ONE_HOUR,
-    findDays(isoString) * ONE_DAY,
-  ].reduce((sum, seconds) => sum + seconds);
-};
 
 const normalize = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
@@ -93,14 +88,12 @@ export const fromFragments = (fragments) => {
 };
 
 export const fromIso = (isoString) => {
-  const microseconds = durationStringToMicroseconds(isoString);
-
   return {
-    asMicroseconds: () => microseconds,
-    asMilliseconds: () => microseconds / ONE_MILLISECOND,
-    asSeconds: () => microseconds / ONE_SECOND,
-    asMinutes: () => microseconds / ONE_MINUTE,
-    asHours: () => microseconds / ONE_HOUR,
+    asMicroseconds: () => asMicroseconds(isoString),
+    asMilliseconds: () => asMilliseconds(isoString),
+    asSeconds: () => asSeconds(isoString),
+    asMinutes: () => asMinutes(isoString),
+    asHours: () => asHours(isoString),
 
     findSeconds: () => findSeconds(isoString),
     findMinutes: () => findMinutes(isoString),
