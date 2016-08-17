@@ -199,7 +199,7 @@ describe('fromIso', () => {
       it('AND doesn\'t mutate duration', () => {
         const duration = fromIso('PT0S');
         const mutatedDuration = duration.addSeconds(1);
-        
+
         assertThat(mutatedDuration.toIso(), equalTo('PT1S'));
         assertThat(duration.toIso(), equalTo('PT0S'));
       });

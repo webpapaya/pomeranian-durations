@@ -1,3 +1,7 @@
+import {
+  addSeconds
+} from './calculations';
+
 const ONE_MICROSECOND = 1;
 const ONE_MILLISECOND = ONE_MICROSECOND * 1000;
 const ONE_SECOND = ONE_MILLISECOND * 1000;
@@ -59,9 +63,9 @@ const findDateUnit = (isoString, unit) => {
   return findUnit(dateComponent, unit);
 };
 
-const findSeconds = (isoString) => findTimeUnit(isoString, UNITS.seconds);
-const findMinutes = (isoString) => findTimeUnit(isoString, UNITS.minutes);
-const findHours = (isoString) => findTimeUnit(isoString, UNITS.hours);
+export const findSeconds = (isoString) => findTimeUnit(isoString, UNITS.seconds);
+export const findMinutes = (isoString) => findTimeUnit(isoString, UNITS.minutes);
+export const findHours = (isoString) => findTimeUnit(isoString, UNITS.hours);
 
 const findDays = (isoString) => findDateUnit(isoString, UNITS.days);
 const findMonths = (isoString) => findDateUnit(isoString, UNITS.months);
@@ -130,14 +134,6 @@ export const fromFragments = (fragments) => {
   return fromIso(isoString);
 };
 
-const asFragments = (isoString) => {
-  return {
-    seconds: findSeconds(isoString),
-    minutes: findMinutes(isoString),
-    hours: findHours(isoString),
-  }
-};
-
 export const fromIso = (isoString) => {
   const microseconds = durationStringToMicroseconds(isoString);
 
@@ -155,11 +151,7 @@ export const fromIso = (isoString) => {
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
 
-    addSeconds: (amount) => {
-      const fragments = asFragments(isoString);
-      fragments.seconds += amount;
-      return fromFragments(fragments);
-    },
+    addSeconds: (amount) => addSeconds(isoString, amount),
     
     toIso: () => isoString,
     toNormalizedIso: () => toNormalizedIso(isoString),
