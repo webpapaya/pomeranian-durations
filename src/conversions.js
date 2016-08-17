@@ -6,9 +6,7 @@ import {
   ONE_HOUR,
 } from './constants';
 
-import {
-  isoStringAsMicroseconds
-} from './calculations';
+import { isoStringAsMicroseconds } from './calculations';
 
 const asUnit = (isoString, divider) => {
   const microseconds = isoStringAsMicroseconds(isoString);

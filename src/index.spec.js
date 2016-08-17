@@ -7,23 +7,6 @@ describe('fromFragments', () => {
 });
 
 describe('fromIso', () => {
-  describe('as "unit" methods', () => {
-    it('PT2s asMicroseconds is 2000000μs', () => assertThat(
-      fromIso('PT2s').asMicroseconds(), equalTo(2000000)));
-
-    it('PT1.1s asMilliseconds is 1100ms', () => assertThat(
-      fromIso('PT1.1s').asMilliseconds(), equalTo(1100)));
-
-    it('PT1m1s asSeconds is 61s', () => assertThat(
-      fromIso('PT1m1s').asSeconds(), equalTo(61)));
-
-    it('PT1h1m asMinutes is 61m', () => assertThat(
-      fromIso('PT1h1m').asMinutes(), equalTo(61)));
-
-    it('P1DT1h asHours is 25h', () => assertThat(
-      fromIso('P1DT1h').asHours(), equalTo(25)));
-  });
-
   describe('unit finders for P3Y6M4DT12H30M17.100200S', () => {
     it('finds 3 years', () => assertThat(
       fromIso('P3Y6M4DT12H30M17.5S').findYears(), equalTo(3)));
@@ -51,9 +34,10 @@ describe('fromIso', () => {
     it('PT25H results in P1DT1H', () => assertThat(
       fromIso('PT25H').toNormalizedIso(), equalTo('PT25H')));
 
-    it('P1DT results in P1DT1H', () => assertThat(
+    it('P1DT results in P24H', () => assertThat(
       fromIso('P1DT').toNormalizedIso(), equalTo('PT24H')));
   });
+  
 
   describe('in seconds', () => {
     const ONE_SECOND = 1;
