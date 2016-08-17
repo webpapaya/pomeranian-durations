@@ -1,4 +1,4 @@
-import { assertThat, equalTo, throws } from 'hamjest';
+import { assertThat, equalTo } from 'hamjest';
 
 import {
   findYears,
