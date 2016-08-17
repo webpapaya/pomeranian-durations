@@ -1,4 +1,5 @@
 import {
+  ONE_MICROSECOND,
   ONE_MILLISECOND,
   ONE_SECOND,
   ONE_MINUTE,
@@ -9,23 +10,13 @@ import {
   durationStringToMicroseconds
 } from './calculations';
 
-export const asMicroseconds = (isoString) => durationStringToMicroseconds(isoString);
-export const asMilliseconds = (isoString) => {
+const asUnit = (isoString, divider) => {
   const microseconds = durationStringToMicroseconds(isoString);
-  return microseconds / ONE_MILLISECOND;
+  return microseconds / divider;
 };
 
-export const asSeconds = (isoString) => {
-  const microseconds = durationStringToMicroseconds(isoString);
-  return microseconds / ONE_SECOND;
-};
-
-export const asMinutes = (isoString) => {
-  const microseconds = durationStringToMicroseconds(isoString);
-  return microseconds / ONE_MINUTE;
-};
-
-export const asHours = (isoString) => {
-  const microseconds = durationStringToMicroseconds(isoString);
-  return microseconds / ONE_HOUR;
-};
+export const asMicroseconds = (isoString) => asUnit(isoString, ONE_MICROSECOND);
+export const asMilliseconds = (isoString) => asUnit(isoString, ONE_MILLISECOND);
+export const asSeconds = (isoString) => asUnit(isoString, ONE_SECOND);
+export const asMinutes = (isoString) => asUnit(isoString, ONE_MINUTE);
+export const asHours = (isoString) => asUnit(isoString, ONE_HOUR);
