@@ -18,12 +18,31 @@ const asFragments = (isoString) => {
     seconds: findSeconds(isoString),
     minutes: findMinutes(isoString),
     hours: findHours(isoString),
+    days: findDays(isoString),
   };
 };
 
 export const addSeconds = (isoString, amount) => {
   const fragments = asFragments(isoString);
   fragments.seconds += amount;
+  return fromFragments(fragments);
+};
+
+export const addMinutes = (isoString, amount) => {
+  const fragments = asFragments(isoString);
+  fragments.minutes += amount;
+  return fromFragments(fragments);
+};
+
+export const addHours = (isoString, amount) => {
+  const fragments = asFragments(isoString);
+  fragments.hours += amount;
+  return fromFragments(fragments);
+};
+
+export const addDays = (isoString, amount) => {
+  const fragments = asFragments(isoString);
+  fragments.days += amount;
   return fromFragments(fragments);
 };
 

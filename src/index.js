@@ -60,16 +60,20 @@ const buildIsoComponent = (fragments, units) => {
     }, '');
 };
 
-const buildDateComponent = (fragments) => buildIsoComponent(fragments, DATE_UNITS);
-const buildTimeComponent = (fragments) => buildIsoComponent(fragments, TIME_UNITS);
+const buildDateComponent = (fragments) => {
+  const dateComponent = buildIsoComponent(fragments, DATE_UNITS);
+  return `${DURATION_DESIGNATOR}${dateComponent}`;
+};
+
+const buildTimeComponent = (fragments) => {
+  const timeComponent = buildIsoComponent(fragments, TIME_UNITS);
+  return timeComponent ? `${TIME_DESIGNATOR}${timeComponent}` : '';
+};
 
 const toIso = (fragments) => {
-  return [
-    DURATION_DESIGNATOR,
-    buildDateComponent(fragments),
-    TIME_DESIGNATOR,
-    buildTimeComponent(fragments),
-  ].join('');
+  const dateComponent = buildDateComponent(fragments);
+  const timeComponent = buildTimeComponent(fragments);
+  return `${dateComponent}${timeComponent}`;
 };
 
 const toNormalizedIso = (isoString) => {

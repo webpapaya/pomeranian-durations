@@ -1,5 +1,10 @@
 import { assertThat, equalTo } from 'hamjest';
-import { addSeconds } from './calculations';
+import {
+  addSeconds,
+  addMinutes,
+  addHours,
+  addDays,
+} from './calculations';
 
 describe('calculations', () => {
   describe('add seconds', () => {
@@ -8,5 +13,20 @@ describe('calculations', () => {
 
     it('adding 61 second to PT0S results in PT61S', () => assertThat(
       addSeconds('PT0S', 61).toIso(), equalTo('PT61S')));
+  });
+
+  describe('add minutes', () => {
+    it('adding 1 minute to PT0M results in PT1M', () => assertThat(
+      addMinutes('PT0M', 1).toIso(), equalTo('PT1M')));
+  });
+
+  describe('add hours', () => {
+    it('adding 1 minute to PT0H results in PT1H', () => assertThat(
+      addHours('PT0H', 1).toIso(), equalTo('PT1H')));
+  });
+
+  describe('add days', () => {
+    it('adding 1 day to P0D results in P1D', () => assertThat(
+      addDays('P0D', 1).toIso(), equalTo('P1D')));
   });
 });
