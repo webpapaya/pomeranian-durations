@@ -28,49 +28,20 @@ const asFragments = (isoString) => {
   };
 };
 
-export const addSeconds = (isoString, amount) => {
+const addUnit = (isoString, amount, unit) => {
   const fragments = asFragments(isoString);
-  fragments.seconds += amount;
+  fragments[unit] += amount;
   return fromFragments(fragments);
 };
 
-export const addMinutes = (isoString, amount) => {
-  const fragments = asFragments(isoString);
-  fragments.minutes += amount;
-  return fromFragments(fragments);
-};
+export const addSeconds = (isoString, amount) => addUnit(isoString, amount, 'seconds');
+export const addMinutes = (isoString, amount) => addUnit(isoString, amount, 'minutes');
+export const addHours = (isoString, amount) => addUnit(isoString, amount, 'hours');
 
-export const addHours = (isoString, amount) => {
-  const fragments = asFragments(isoString);
-  fragments.hours += amount;
-  return fromFragments(fragments);
-};
-
-export const addDays = (isoString, amount) => {
-  const fragments = asFragments(isoString);
-  fragments.days += amount;
-  return fromFragments(fragments);
-};
-
-export const addWeeks = (isoString, amount) => {
-  const fragments = asFragments(isoString);
-  fragments.weeks += amount;
-  return fromFragments(fragments);
-};
-
-export const addMonths = (isoString, amount) => {
-  const fragments = asFragments(isoString);
-  fragments.months += amount;
-  return fromFragments(fragments);
-};
-
-export const addYears = (isoString, amount) => {
-  const fragments = asFragments(isoString);
-  fragments.years += amount;
-  return fromFragments(fragments);
-};
-
-
+export const addDays = (isoString, amount) => addUnit(isoString, amount, 'days');
+export const addWeeks = (isoString, amount) => addUnit(isoString, amount, 'weeks');
+export const addMonths = (isoString, amount) => addUnit(isoString, amount, 'months');
+export const addYears = (isoString, amount) => addUnit(isoString, amount, 'years');
 
 export const isoStringAsMicroseconds = (isoString) => {
   return [
