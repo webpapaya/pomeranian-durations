@@ -4,6 +4,7 @@ import {
   addMinutes,
   addHours,
   addDays,
+  addWeeks,
 } from './calculations';
 
 describe('calculations', () => {
@@ -28,5 +29,10 @@ describe('calculations', () => {
   describe('add days', () => {
     it('adding 1 day to P0D results in P1D', () => assertThat(
       addDays('P0D', 1).toIso(), equalTo('P1D')));
+  });
+
+  describe('add weeks', () => {
+    it('adding 1 week to P0W results in P1W', () => assertThat(
+      addWeeks('P0W', 1).toIso(), equalTo('P1W')));
   });
 });
