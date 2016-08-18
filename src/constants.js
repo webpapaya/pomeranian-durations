@@ -8,17 +8,27 @@ export const ONE_DAY = ONE_HOUR * 24;
 export const TIME_DESIGNATOR = 'T';
 export const DURATION_DESIGNATOR = 'P';
 
+export const UNIT_NAMES = {
+  seconds: 'seconds',
+  minutes: 'minutes',
+  hours: 'hours',
+  days: 'days',
+  weeks: 'weeks',
+  months: 'months',
+  years: 'years',
+};
+
 export const TIME_UNITS = {
-  seconds: 'S',
-  minutes: 'M',
-  hours: 'H',
+  [UNIT_NAMES.seconds]: 'S',
+  [UNIT_NAMES.minutes]: 'M',
+  [UNIT_NAMES.hours]: 'H',
 };
 
 export const DATE_UNITS = {
-  days: 'D',
-  weeks: 'W',
-  months: 'M',
-  years: 'Y',
+  [UNIT_NAMES.days]: 'D',
+  [UNIT_NAMES.weeks]: 'W',
+  [UNIT_NAMES.months]: 'M',
+  [UNIT_NAMES.years]: 'Y',
 };
 
 export const UNITS = {
