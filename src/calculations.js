@@ -14,6 +14,7 @@ import {
   ONE_MINUTE,
   ONE_HOUR,
   ONE_DAY,
+  UNIT_NAMES,
 } from './constants';
 
 const asFragments = (isoString) => {
@@ -34,14 +35,14 @@ const addUnit = (isoString, amount, unit) => {
   return fromFragments(fragments);
 };
 
-export const addSeconds = (isoString, amount) => addUnit(isoString, amount, 'seconds');
-export const addMinutes = (isoString, amount) => addUnit(isoString, amount, 'minutes');
-export const addHours = (isoString, amount) => addUnit(isoString, amount, 'hours');
+export const addSeconds = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.seconds);
+export const addMinutes = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.minutes);
+export const addHours = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.hours);
 
-export const addDays = (isoString, amount) => addUnit(isoString, amount, 'days');
-export const addWeeks = (isoString, amount) => addUnit(isoString, amount, 'weeks');
-export const addMonths = (isoString, amount) => addUnit(isoString, amount, 'months');
-export const addYears = (isoString, amount) => addUnit(isoString, amount, 'years');
+export const addDays = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.days);
+export const addWeeks = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.weeks);
+export const addMonths = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.months);
+export const addYears = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.years);
 
 export const isoStringAsMicroseconds = (isoString) => {
   return [
