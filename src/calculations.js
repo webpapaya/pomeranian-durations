@@ -6,6 +6,7 @@ import {
   findDays,
   findWeeks,
   findMonths,
+  findYears,
 } from './finders';
 
 import {
@@ -23,6 +24,7 @@ const asFragments = (isoString) => {
     days: findDays(isoString),
     weeks: findWeeks(isoString),
     months: findMonths(isoString),
+    years: findYears(isoString),
   };
 };
 
@@ -58,10 +60,16 @@ export const addWeeks = (isoString, amount) => {
 
 export const addMonths = (isoString, amount) => {
   const fragments = asFragments(isoString);
-  
   fragments.months += amount;
   return fromFragments(fragments);
 };
+
+export const addYears = (isoString, amount) => {
+  const fragments = asFragments(isoString);
+  fragments.years += amount;
+  return fromFragments(fragments);
+};
+
 
 
 export const isoStringAsMicroseconds = (isoString) => {

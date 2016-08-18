@@ -6,6 +6,7 @@ import {
   addDays,
   addWeeks,
   addMonths,
+  addYears,
 } from './calculations';
 
 describe('calculations', () => {
@@ -40,5 +41,10 @@ describe('calculations', () => {
   describe('add months', () => {
     it('adding 1 week to P0M results in P0M', () => assertThat(
       addMonths('P0M', 1).toIso(), equalTo('P1M')));
+  });
+
+  describe('add years', () => {
+    it('adding 1 year to P0Y results in P1Y', () => assertThat(
+      addYears('P0Y', 1).toIso(), equalTo('P1Y')));
   });
 });
