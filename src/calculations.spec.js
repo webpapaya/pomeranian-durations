@@ -1,5 +1,6 @@
 import { assertThat, equalTo } from 'hamjest';
 import {
+  addMicrosecond,
   addMillisecond,
   addSeconds,
   addMinutes,
@@ -14,6 +15,11 @@ describe('calculations', () => {
   describe('add milliseconds', () => {
     it('adding 1 millisecond to PT0S results in PT0.001S', () => assertThat(
       addMillisecond('PT0S', 1), equalTo('PT0.001S')));
+  });
+
+  describe('add microsecond', () => {
+    it('adding 1 microsecond to PT0S results in PT0.000001S', () => assertThat(
+      addMicrosecond('PT0S', 1), equalTo('PT0.000001S')));
   });
 
   describe('add seconds', () => {
