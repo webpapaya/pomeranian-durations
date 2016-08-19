@@ -13,9 +13,6 @@ describe('fromIso', () => {
 
     it('PT25H results in P1DT1H', () => assertThat(
       fromIso('PT25H').toNormalizedIso(), equalTo('PT25H')));
-
-    it('P1DT results in P24H', () => assertThat(
-      fromIso('P1DT').toNormalizedIso(), equalTo('PT24H')));
   });
 
 

@@ -49,6 +49,5 @@ export const isoStringAsMicroseconds = (isoString) => {
     findSeconds(isoString) * ONE_SECOND,
     findMinutes(isoString) * ONE_MINUTE,
     findHours(isoString) * ONE_HOUR,
-    findDays(isoString) * ONE_DAY,
   ].reduce((sum, seconds) => sum + seconds);
 };
