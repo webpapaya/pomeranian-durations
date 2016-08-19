@@ -14,12 +14,12 @@ import {
 } from './finders';
 
 const asUnit = (isoString, divider) => {
-  if (containsDateUnits(isoString)) { throw new Error('Can\'t convert from date units.'); }
   const microseconds = asMicroseconds(isoString);
   return microseconds / divider;
 };
 
 export const asMicroseconds = (isoString) => {
+  if (containsDateUnits(isoString)) { throw new Error('Can\'t convert from date units.'); }
   return [
     findSeconds(isoString) * ONE_SECOND,
     findMinutes(isoString) * ONE_MINUTE,
