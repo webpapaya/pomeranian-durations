@@ -9,6 +9,8 @@ export const TIME_DESIGNATOR = 'T';
 export const DURATION_DESIGNATOR = 'P';
 
 export const UNIT_NAMES = {
+  microseconds: 'microseconds',
+  milliseconds: 'milliseconds',
   seconds: 'seconds',
   minutes: 'minutes',
   hours: 'hours',

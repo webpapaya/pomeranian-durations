@@ -29,6 +29,12 @@ const addUnit = (isoString, amount, unit) => {
   return toIso(fragments);
 };
 
+export const addMillisecond = (isoString, amount) => {
+  const fragments = asFragments(isoString);
+  fragments[UNIT_NAMES.seconds] += amount / 1000;
+  return toIso(fragments);
+};
+
 export const addSeconds = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.seconds);
 export const addMinutes = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.minutes);
 export const addHours = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.hours);
