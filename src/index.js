@@ -10,7 +10,6 @@ import {
 import { addSeconds } from './calculations';
 
 import {
-  isoStringAsMicroseconds,
   asMicroseconds,
   asMilliseconds,
   asSeconds,
@@ -30,7 +29,7 @@ import {
 const toInt = (number) => parseInt(number, 10);
 
 const normalize = (isoString) => {
-  const microseconds = isoStringAsMicroseconds(isoString);
+  const microseconds = asMicroseconds(isoString);
   const milliseconds = toInt(microseconds / 1000);
   const seconds = toInt(milliseconds / 1000);
   const minutes = toInt(seconds / 60);
