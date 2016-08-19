@@ -105,7 +105,5 @@ export const fromIso = (isoString) => {
 
     toIso: () => isoString,
     toNormalizedIso: () => toNormalizedIso(isoString),
-
-    ...normalize(isoString),
   };
 };
