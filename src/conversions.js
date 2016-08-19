@@ -6,8 +6,20 @@ import {
   ONE_HOUR,
 } from './constants';
 
-import { isoStringAsMicroseconds } from './calculations';
-import { containsDateUnits } from './finders';
+import {
+  containsDateUnits,
+  findSeconds,
+  findHours,
+  findMinutes,
+} from './finders';
+
+export const isoStringAsMicroseconds = (isoString) => {
+  return [
+    findSeconds(isoString) * ONE_SECOND,
+    findMinutes(isoString) * ONE_MINUTE,
+    findHours(isoString) * ONE_HOUR,
+  ].reduce((sum, seconds) => sum + seconds);
+};
 
 const asUnit = (isoString, divider) => {
   if (containsDateUnits(isoString)) { throw new Error('Can\'t convert from date units.'); }

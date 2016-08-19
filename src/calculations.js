@@ -9,13 +9,7 @@ import {
   findYears,
 } from './finders';
 
-import {
-  ONE_SECOND,
-  ONE_MINUTE,
-  ONE_HOUR,
-  ONE_DAY,
-  UNIT_NAMES,
-} from './constants';
+import { UNIT_NAMES } from './constants';
 
 const asFragments = (isoString) => {
   return {
@@ -44,10 +38,3 @@ export const addWeeks = (isoString, amount) => addUnit(isoString, amount, UNIT_N
 export const addMonths = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.months);
 export const addYears = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.years);
 
-export const isoStringAsMicroseconds = (isoString) => {
-  return [
-    findSeconds(isoString) * ONE_SECOND,
-    findMinutes(isoString) * ONE_MINUTE,
-    findHours(isoString) * ONE_HOUR,
-  ].reduce((sum, seconds) => sum + seconds);
-};

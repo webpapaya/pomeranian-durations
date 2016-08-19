@@ -7,9 +7,10 @@ import {
   findYears,
 } from './finders';
 
-import { addSeconds, isoStringAsMicroseconds } from './calculations';
+import { addSeconds } from './calculations';
 
 import {
+  isoStringAsMicroseconds,
   asMicroseconds,
   asMilliseconds,
   asSeconds,
