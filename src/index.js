@@ -70,7 +70,7 @@ const buildTimeComponent = (fragments) => {
   return timeComponent ? `${TIME_DESIGNATOR}${timeComponent}` : '';
 };
 
-const toIso = (fragments) => {
+export const toIso = (fragments) => {
   const dateComponent = buildDateComponent(fragments);
   const timeComponent = buildTimeComponent(fragments);
   return `${dateComponent}${timeComponent}`;

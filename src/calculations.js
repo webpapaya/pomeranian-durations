@@ -1,4 +1,4 @@
-import { fromFragments } from './index';
+import { toIso } from './index';
 import {
   findSeconds,
   findHours,
@@ -26,7 +26,7 @@ const asFragments = (isoString) => {
 const addUnit = (isoString, amount, unit) => {
   const fragments = asFragments(isoString);
   fragments[unit] += amount;
-  return fromFragments(fragments);
+  return toIso(fragments);
 };
 
 export const addSeconds = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.seconds);
