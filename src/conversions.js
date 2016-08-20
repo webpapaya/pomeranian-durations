@@ -10,7 +10,7 @@ import {
   findSeconds,
   findHours,
   findMinutes,
-} from './finders';
+} from './index';
 
 const asUnit = (isoString, divider) => {
   const microseconds = asMicroseconds(isoString);

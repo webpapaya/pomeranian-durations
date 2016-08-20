@@ -1,4 +1,12 @@
 import {
+  DURATION_DESIGNATOR,
+  TIME_DESIGNATOR,
+  UNITS,
+  DATE_UNITS,
+  TIME_UNITS,
+} from './constants';
+
+import {
   findSeconds,
   findMinutes,
   findHours,
@@ -6,15 +14,7 @@ import {
   findMonths,
   findWeeks,
   findYears,
-} from './finders';
-
-import {
-  DURATION_DESIGNATOR,
-  TIME_DESIGNATOR,
-  UNITS,
-  DATE_UNITS,
-  TIME_UNITS,
-} from './constants';
+} from './index';
 
 const buildIsoComponent = (fragments, units) => {
   return Object.keys(fragments)

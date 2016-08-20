@@ -1,6 +1,5 @@
-import { toIso, toFragments } from './transformations';
-
 import { UNIT_NAMES } from './constants';
+import { toIso, toFragments } from './index';
 
 const addUnit = (isoString, amount, unit) => {
   const fragments = toFragments(isoString);

@@ -73,9 +73,12 @@ export {
 } from './calculations';
 
 export {
+  containsDateUnits,
+
   findSeconds,
   findMinutes,
   findHours,
+  findDays,
   findWeeks,
   findMonths,
   findYears,
