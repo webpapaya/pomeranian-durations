@@ -1,10 +1,5 @@
 import { assertThat, equalTo } from 'hamjest';
-import { fromIso, fromFragments } from './index';
-
-describe('fromFragments', () => {
-  it('toIso responds correct format', () => assertThat(
-    fromFragments({ years: 1, days: 2, hours: 1, minutes: 66 }).toIso(), equalTo('P1Y2DT1H66M')));
-});
+import { fromIso } from './index';
 
 describe('fromIso', () => {
   describe('to normalized iso', () => {
