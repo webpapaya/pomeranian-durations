@@ -9,31 +9,6 @@ import {
   asHours,
 } from './conversions';
 
-const toInt = (number) => parseInt(number, 10);
-
-const normalize = (isoString) => {
-  const microseconds = asMicroseconds(isoString);
-  const milliseconds = toInt(microseconds / 1000);
-  const seconds = toInt(milliseconds / 1000);
-  const minutes = toInt(seconds / 60);
-  const hours = toInt(minutes / 60);
-
-  return {
-    microseconds: microseconds - (milliseconds * 1000),
-    milliseconds: milliseconds - (seconds * 1000),
-    seconds: seconds - (minutes * 60),
-    minutes: minutes - (hours * 60),
-    hours: hours,
-  };
-};
-
-
-
-const toNormalizedIso = (isoString) => {
-  const durations = normalize(isoString);
-  return toIso(durations);
-};
-
 export const fromFragments = (fragments) => {
   const isoString = toIso(fragments);
   return fromIso(isoString);
@@ -57,7 +32,6 @@ export const fromIso = (isoString) => {
     addSeconds: (amount) => addSeconds(isoString, amount),
 
     toIso: () => isoString,
-    toNormalizedIso: () => toNormalizedIso(isoString),
   };
 };
 
