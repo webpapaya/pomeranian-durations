@@ -1,4 +1,4 @@
-import { toIso } from './index';
+import { toIso } from './transformations';
 import {
   findSeconds,
   findHours,
