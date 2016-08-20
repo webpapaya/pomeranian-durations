@@ -11,7 +11,6 @@ import {
 import {
   DURATION_DESIGNATOR,
   TIME_DESIGNATOR,
-
   UNITS,
   DATE_UNITS,
   TIME_UNITS,

@@ -60,3 +60,36 @@ export const fromIso = (isoString) => {
     toNormalizedIso: () => toNormalizedIso(isoString),
   };
 };
+
+export {
+  addMicrosecond,
+  addMillisecond,
+  addSeconds,
+  addMinutes,
+  addHours,
+  addWeeks,
+  addMonths,
+  addYears,
+} from './calculations';
+
+export {
+  findSeconds,
+  findMinutes,
+  findHours,
+  findWeeks,
+  findMonths,
+  findYears,
+} from './finders';
+
+export {
+  asMicroseconds,
+  asMilliseconds,
+  asSeconds,
+  asMinutes,
+  asHours,
+} from './conversions';
+
+export {
+  toFragments,
+  toIso,
+} from './transformations';
