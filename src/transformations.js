@@ -1,4 +1,14 @@
 import {
+  findSeconds,
+  findMinutes,
+  findHours,
+  findDays,
+  findMonths,
+  findWeeks,
+  findYears,
+} from './finders';
+
+import {
   DURATION_DESIGNATOR,
   TIME_DESIGNATOR,
 
@@ -36,4 +46,16 @@ export const toIso = (fragments) => {
   const dateComponent = buildDateComponent(fragments);
   const timeComponent = buildTimeComponent(fragments);
   return `${dateComponent}${timeComponent}`;
+};
+
+export const toFragments = (isoString) => {
+  return {
+    seconds: findSeconds(isoString),
+    minutes: findMinutes(isoString),
+    hours: findHours(isoString),
+    days: findDays(isoString),
+    weeks: findWeeks(isoString),
+    months: findMonths(isoString),
+    years: findYears(isoString),
+  };
 };

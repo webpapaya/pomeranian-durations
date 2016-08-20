@@ -1,30 +1,9 @@
-import { toIso } from './transformations';
-import {
-  findSeconds,
-  findHours,
-  findMinutes,
-  findDays,
-  findWeeks,
-  findMonths,
-  findYears,
-} from './finders';
+import { toIso, toFragments } from './transformations';
 
 import { UNIT_NAMES } from './constants';
 
-const asFragments = (isoString) => {
-  return {
-    seconds: findSeconds(isoString),
-    minutes: findMinutes(isoString),
-    hours: findHours(isoString),
-    days: findDays(isoString),
-    weeks: findWeeks(isoString),
-    months: findMonths(isoString),
-    years: findYears(isoString),
-  };
-};
-
 const addUnit = (isoString, amount, unit) => {
-  const fragments = asFragments(isoString);
+  const fragments = toFragments(isoString);
   fragments[unit] += amount;
   return toIso(fragments);
 };

@@ -1,12 +1,3 @@
-import {
-  findSeconds,
-  findMinutes,
-  findHours,
-  findDays,
-  findMonths,
-  findYears,
-} from './finders';
-
 import { addSeconds } from './calculations';
 import { toIso } from './transformations';
 
