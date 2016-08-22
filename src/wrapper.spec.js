@@ -5,6 +5,13 @@ import * as calculations from './calculations';
 import { fromIso } from './wrapper';
 
 describe('fromIso wrapper', () => {
+  describe('toIso', () => {
+    it('responds given iso duration', () => {
+      assertThat(fromIso('PT1S').toIso(), equalTo('PT1S'))
+    });
+  });
+
+
   describe('conversions', () => {
     Object.keys(conversions)
       .filter((method) => method.startsWith('as'))

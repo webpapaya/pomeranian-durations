@@ -37,6 +37,8 @@ import {
 
 export const fromIso = (isoString) => {
   return {
+    toIso: () => isoString,
+
     findSeconds: () => findSeconds(isoString),
     findMinutes: () => findMinutes(isoString),
     findHours: () => findHours(isoString),
