@@ -16,9 +16,12 @@ import {
   findYears,
 } from './index';
 
+const inArray = (array, element) => array.indexOf(element) !== -1;
+const hasKey = (object, keyName) => inArray(Object.keys(object), keyName);
+
 const buildIsoComponent = (fragments, units) => {
   return Object.keys(fragments)
-    .filter((unitName) => Object.keys(units).includes(unitName))
+    .filter((unitName) => hasKey(units, unitName))
     .sort((a, b) => {
       const sortedUnitNames = Object.keys(UNITS);
       return sortedUnitNames.indexOf(b) - sortedUnitNames.indexOf(a);
