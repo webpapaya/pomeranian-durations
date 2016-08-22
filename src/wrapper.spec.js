@@ -3,7 +3,6 @@ import * as finders from './finders';
 import * as conversions from './conversions';
 import * as calculations from './calculations';
 
-
 import {
   findSeconds,
   findMinutes,
