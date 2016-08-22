@@ -27,6 +27,17 @@ import {
   addWeeks,
   addMonths,
   addYears,
+
+
+  subtractMilliseconds,
+  subtractMicroseconds,
+  subtractSeconds,
+  subtractMinutes,
+  subtractHours,
+  subtractDays,
+  subtractWeeks,
+  subtractMonths,
+  subtractYears,
 } from './index';
 
 export const fromIso = (isoString) => {
@@ -54,6 +65,17 @@ export const fromIso = (isoString) => {
     addWeeks: () => addWeeks(isoString),
     addMonths: () => addMonths(isoString),
     addYears: () => addYears(isoString),
+
+
+    subtractMilliseconds: () => subtractMilliseconds(isoString),
+    subtractMicroseconds: () => subtractMicroseconds(isoString),
+    subtractSeconds: () => subtractSeconds(isoString),
+    subtractMinutes: () => subtractMinutes(isoString),
+    subtractHours: () => subtractHours(isoString),
+    subtractDays: () => subtractDays(isoString),
+    subtractWeeks: () => subtractWeeks(isoString),
+    subtractMonths: () => subtractMonths(isoString),
+    subtractYears: () => subtractYears(isoString),
   };
 };
 
@@ -70,6 +92,13 @@ describe('fromIso wrapper', () => {
   describe('calculations', () => {
     Object.keys(calculations)
       .filter((method) => method.startsWith('add'))
+      .forEach((method) => {
+        it(`${method} works`, () => assertThat(
+          () => fromIso('PT1S')[method](), not(throws())));
+      });
+
+    Object.keys(calculations)
+      .filter((method) => method.startsWith('subtract'))
       .forEach((method) => {
         it(`${method} works`, () => assertThat(
           () => fromIso('PT1S')[method](), not(throws())));

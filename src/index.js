@@ -43,6 +43,16 @@ export {
   addWeeks,
   addMonths,
   addYears,
+
+  subtractMilliseconds,
+  subtractMicroseconds,
+  subtractSeconds,
+  subtractMinutes,
+  subtractHours,
+  subtractDays,
+  subtractWeeks,
+  subtractMonths,
+  subtractYears,
 } from './calculations';
 
 export {
