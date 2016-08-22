@@ -16,7 +16,6 @@ export const addMicroseconds = (isoString, amount) =>
 export const addSeconds = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.seconds);
 export const addMinutes = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.minutes);
 export const addHours = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.hours);
-
 export const addDays = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.days);
 export const addWeeks = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.weeks);
 export const addMonths = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.months);
