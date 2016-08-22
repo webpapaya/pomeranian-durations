@@ -55,6 +55,11 @@ describe('fromIso', () => {
     });
   });
 
+  describe('toFragments', () => {
+    it(`toFragments works`, () => assertThat(
+      () => fromIso('PT1S').toFragments(), not(throws())));
+  });
+
   describe('conversions', () => {
     Object.keys(conversions)
       .filter((method) => method.startsWith('as'))

@@ -34,6 +34,7 @@ import {
   subtractYears,
 
   toIso,
+  toFragments,
 } from './index';
 
 export const fromFragments = (fragments) => {
@@ -44,6 +45,7 @@ export const fromFragments = (fragments) => {
 export const fromIso = (isoString) => {
   return {
     toIso: () => isoString,
+    toFragments: () => toFragments(isoString),
 
     findSeconds: () => findSeconds(isoString),
     findMinutes: () => findMinutes(isoString),
