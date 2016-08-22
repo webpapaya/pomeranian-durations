@@ -2,10 +2,11 @@
   "name": "pomeranian-durations",
   "version": "0.0.0",
   "description": "An immutable duration library based on the ISO-8601 format for durations.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint-crewmeister src",
-    "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register"
+    "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
+    "prepublish": "babel src/ --out-dir lib/ --ignore *.spec.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,10 @@
   },
   "keywords": [
     "time",
-    "duration"
+    "duration",
+    "ISO-8601",
+    "ISO",
+    "8601"
   ],
   "author": "Webpapaya",
   "license": "ISC",
