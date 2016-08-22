@@ -50,7 +50,7 @@ export const fromIso = (isoString) => {
     addSeconds: () => addSeconds(isoString),
     addMinutes: () => addMinutes(isoString),
     addHours: () => addHours(isoString),
-    addDays: () => addHours(isoString),
+    addDays: () => addDays(isoString),
     addWeeks: () => addWeeks(isoString),
     addMonths: () => addMonths(isoString),
     addYears: () => addYears(isoString),
