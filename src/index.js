@@ -1,4 +1,3 @@
-import { addSeconds } from './calculations';
 import { toIso } from './transformations';
 
 import {
@@ -29,7 +28,6 @@ export const fromIso = (isoString) => {
     findYears: () => findYears(isoString),
     findMonths: () => findMonths(isoString),
 
-    addSeconds: (amount) => addSeconds(isoString, amount),
 
     toIso: () => isoString,
   };
@@ -41,6 +39,7 @@ export {
   addSeconds,
   addMinutes,
   addHours,
+  addDays,
   addWeeks,
   addMonths,
   addYears,
@@ -64,7 +63,7 @@ export {
   asSeconds,
   asMinutes,
   asHours,
-} from './conversions';
+};
 
 export {
   toFragments,
