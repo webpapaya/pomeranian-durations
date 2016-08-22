@@ -1,5 +1,5 @@
 # Pomeranian Durations
-An immutable library for ISO-8601 durations. 
+An immutable duration library based on the ISO-8601 format for durations. 
 
 ## Usage
 
@@ -104,8 +104,9 @@ import { fromIso } from 'pomeranian-duration'
 const duration = fromIso('PT0S').addSeconds(1).toIso(); // => 'PT1S';
 ```
 
+Pomeranian is completely immutable.
+
 ```js
-// Immutability
 import { fromFragments } from 'pomeranian-duration'
 
 const duration1 = fromIso({ seconds: 0 });
