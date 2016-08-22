@@ -44,3 +44,8 @@ export {
   toFragments,
   toIso,
 } from './transformations';
+
+export {
+  fromFragments,
+  fromIso,
+} from './wrapper';

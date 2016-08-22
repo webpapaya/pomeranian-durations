@@ -2,7 +2,7 @@ import { assertThat, equalTo, not, throws } from 'hamjest';
 import * as finders from './finders';
 import * as conversions from './conversions';
 import * as calculations from './calculations';
-import { fromIso, fromFragments } from './wrapper';
+import { fromIso, fromFragments } from './index';
 
 describe('fromFragements', () => {
   describe('conversions', () => {

@@ -2,7 +2,7 @@
   "name": "pomeranian",
   "version": "0.0.0",
   "description": "A JS immutable time duration library.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint-crewmeister src",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register"
