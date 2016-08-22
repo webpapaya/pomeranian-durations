@@ -1,7 +1,7 @@
 {
-  "name": "pomeranian",
+  "name": "pomeranian-durations",
   "version": "0.0.0",
-  "description": "A JS immutable time duration library.",
+  "description": "An immutable duration library based on the ISO-8601 format for durations.",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint-crewmeister src",
