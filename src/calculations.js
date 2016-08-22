@@ -21,3 +21,14 @@ export const addDays = (isoString, amount) => addUnit(isoString, amount, UNIT_NA
 export const addWeeks = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.weeks);
 export const addMonths = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.months);
 export const addYears = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.years);
+
+export const subtractMilliseconds = (isoString, amount) => addMillisecond(isoString, amount * -1);
+export const subtractMicroseconds = (isoString, amount) => addMicrosecond(isoString, amount * -1);
+export const subtractSeconds = (isoString, amount) => addSeconds(isoString, amount * -1);
+export const subtractMinutes = (isoString, amount) => addMinutes(isoString, amount * -1);
+export const subtractHours = (isoString, amount) => addHours(isoString, amount * -1);
+export const subtractDays = (isoString, amount) => addDays(isoString, amount * -1);
+export const subtractWeeks = (isoString, amount) => addWeeks(isoString, amount * -1);
+export const subtractMonths = (isoString, amount) => addMonths(isoString, amount * -1);
+export const subtractYears = (isoString, amount) => addYears(isoString, amount * -1);
+
