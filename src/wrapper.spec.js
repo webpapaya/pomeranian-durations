@@ -18,8 +18,8 @@ import {
   asMinutes,
   asHours,
 
-  addMicrosecond,
-  addMillisecond,
+  addMicroseconds,
+  addMilliseconds,
   addSeconds,
   addMinutes,
   addDays,
@@ -45,8 +45,8 @@ export const fromIso = (isoString) => {
     asMinutes: () => asMinutes(isoString),
     asHours: () => asHours(isoString),
 
-    addMicrosecond: () => addMicrosecond(isoString),
-    addMillisecond: () => addMillisecond(isoString),
+    addMicroseconds: () => addMicroseconds(isoString),
+    addMilliseconds: () => addMilliseconds(isoString),
     addSeconds: () => addSeconds(isoString),
     addMinutes: () => addMinutes(isoString),
     addHours: () => addHours(isoString),

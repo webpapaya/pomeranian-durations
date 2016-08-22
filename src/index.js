@@ -34,8 +34,8 @@ export const fromIso = (isoString) => {
 };
 
 export {
-  addMicrosecond,
-  addMillisecond,
+  addMicroseconds,
+  addMilliseconds,
   addSeconds,
   addMinutes,
   addHours,

@@ -7,10 +7,10 @@ const addUnit = (isoString, amount, unit) => {
   return toIso(fragments);
 };
 
-export const addMillisecond = (isoString, amount) =>
+export const addMilliseconds = (isoString, amount) =>
   addUnit(isoString, amount / (10 ** 3), UNIT_NAMES.seconds);
 
-export const addMicrosecond = (isoString, amount) =>
+export const addMicroseconds = (isoString, amount) =>
   addUnit(isoString, amount / (10 ** 6), UNIT_NAMES.seconds);
 
 export const addSeconds = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.seconds);
@@ -22,8 +22,8 @@ export const addWeeks = (isoString, amount) => addUnit(isoString, amount, UNIT_N
 export const addMonths = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.months);
 export const addYears = (isoString, amount) => addUnit(isoString, amount, UNIT_NAMES.years);
 
-export const subtractMilliseconds = (isoString, amount) => addMillisecond(isoString, amount * -1);
-export const subtractMicroseconds = (isoString, amount) => addMicrosecond(isoString, amount * -1);
+export const subtractMilliseconds = (isoString, amount) => addMilliseconds(isoString, amount * -1);
+export const subtractMicroseconds = (isoString, amount) => addMicroseconds(isoString, amount * -1);
 export const subtractSeconds = (isoString, amount) => addSeconds(isoString, amount * -1);
 export const subtractMinutes = (isoString, amount) => addMinutes(isoString, amount * -1);
 export const subtractHours = (isoString, amount) => addHours(isoString, amount * -1);
