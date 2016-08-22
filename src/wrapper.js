@@ -23,7 +23,6 @@ import {
   addMonths,
   addYears,
 
-
   subtractMilliseconds,
   subtractMicroseconds,
   subtractSeconds,
@@ -33,7 +32,14 @@ import {
   subtractWeeks,
   subtractMonths,
   subtractYears,
+
+  toIso,
 } from './index';
+
+export const fromFragments = (fragments) => {
+  const isoString = toIso(fragments);
+  return fromIso(isoString);
+};
 
 export const fromIso = (isoString) => {
   return {
