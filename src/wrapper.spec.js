@@ -22,7 +22,7 @@ describe('fromFragements', () => {
           () => fromFragments({ seconds: 1 })[method](), not(throws())));
 
         it(`${method} can be called again`, () => {
-          assertThat(() => { fromFragments({ seconds: 1 })[method]()[method]() }, not(throws()));
+          assertThat(() => { fromFragments({ seconds: 1 })[method]()[method](); }, not(throws()));
         });
       });
 
@@ -33,7 +33,7 @@ describe('fromFragements', () => {
           () => fromIso('PT1S')[method](), not(throws())));
 
         it(`${method} can be called again`, () => {
-          assertThat(() => { fromFragments({ seconds: 1 })[method]()[method]() }, not(throws()));
+          assertThat(() => { fromFragments({ seconds: 1 })[method]()[method](); }, not(throws()));
         });
       });
   });
@@ -51,7 +51,7 @@ describe('fromFragements', () => {
 describe('fromIso', () => {
   describe('toIso', () => {
     it('responds given iso duration', () => {
-      assertThat(fromIso('PT1S').toIso(), equalTo('PT1S'))
+      assertThat(fromIso('PT1S').toIso(), equalTo('PT1S'));
     });
   });
 
@@ -77,7 +77,7 @@ describe('fromIso', () => {
           () => fromIso('PT1S')[method](), not(throws())));
 
         it(`${method} can be called again`, () => {
-          assertThat(() => { fromIso('PT1S')[method]()[method]() }, not(throws()));
+          assertThat(() => { fromIso('PT1S')[method]()[method](); }, not(throws()));
         });
       });
 
@@ -88,7 +88,7 @@ describe('fromIso', () => {
           () => fromIso('PT1S')[method](), not(throws())));
 
         it(`${method} can be called again`, () => {
-          assertThat(() => { fromIso('PT1S')[method]()[method]() }, not(throws()));
+          assertThat(() => { fromIso('PT1S')[method]()[method](); }, not(throws()));
         });
       });
   });
@@ -99,6 +99,6 @@ describe('fromIso', () => {
       .forEach((method) => {
         it(`${method} works`, () => assertThat(
           () => fromIso('PT1S')[method](), not(throws())));
-    });
+      });
   });
 });

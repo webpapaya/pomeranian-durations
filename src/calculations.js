@@ -31,4 +31,3 @@ export const subtractDays = (isoString, amount) => addDays(isoString, amount * -
 export const subtractWeeks = (isoString, amount) => addWeeks(isoString, amount * -1);
 export const subtractMonths = (isoString, amount) => addMonths(isoString, amount * -1);
 export const subtractYears = (isoString, amount) => addYears(isoString, amount * -1);
-
