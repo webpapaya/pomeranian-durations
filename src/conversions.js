@@ -20,7 +20,7 @@ const asUnit = (isoString, divider) => {
   return microseconds / divider;
 };
 
-export const containsDateUnits = (isoString) => {
+const containsDateUnits = (isoString) => {
   return [
     findDays(isoString),
     findWeeks(isoString),
