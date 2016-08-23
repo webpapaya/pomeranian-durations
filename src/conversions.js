@@ -6,15 +6,27 @@ import {
 } from './constants';
 
 import {
-  containsDateUnits,
   findSeconds,
   findHours,
   findMinutes,
+  findDays,
+  findWeeks,
+  findMonths,
+  findYears,
 } from './index';
 
 const asUnit = (isoString, divider) => {
   const microseconds = asMicroseconds(isoString);
   return microseconds / divider;
+};
+
+const containsDateUnits = (isoString) => {
+  return [
+    findDays(isoString),
+    findWeeks(isoString),
+    findMonths(isoString),
+    findYears(isoString),
+  ].some((element) => element !== 0);
 };
 
 export const asMicroseconds = (isoString) => {

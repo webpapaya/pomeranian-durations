@@ -21,8 +21,6 @@ export {
 } from './calculations';
 
 export {
-  containsDateUnits,
-
   findSeconds,
   findMinutes,
   findHours,

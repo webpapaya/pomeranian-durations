@@ -28,22 +28,13 @@ const findUnit = (stringComponent, unit) => {
 };
 
 const findTimeUnit = (isoString, unit) => {
-  const timeComponent = extractTimeComponents(isoString);
+  const timeComponent = extractTimeComponents(isoString || '');
   return findUnit(timeComponent, unit);
 };
 
 const findDateUnit = (isoString, unit) => {
-  const dateComponent = extractDateComponents(isoString);
+  const dateComponent = extractDateComponents(isoString || '');
   return findUnit(dateComponent, unit);
-};
-
-export const containsDateUnits = (isoString) => {
-  return [
-    findDays(isoString),
-    findWeeks(isoString),
-    findMonths(isoString),
-    findYears(isoString),
-  ].some((element) => element !== 0);
 };
 
 export const findSeconds = (isoString) => findTimeUnit(isoString, UNITS.seconds);
