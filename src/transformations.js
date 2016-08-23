@@ -29,7 +29,7 @@ const buildIsoComponent = (fragments, units) => {
     .reduce((prev, name) => {
       if (fragments[name] === 0) { return prev; }
       const unit = units[name];
-      const value = fragments[name];
+      const value = parseFloat(fragments[name]);
       return `${prev}${value}${unit}`;
     }, '');
 };
