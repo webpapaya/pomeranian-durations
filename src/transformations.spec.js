@@ -59,4 +59,15 @@ describe('toFragments', () => {
       minutes: 66,
       seconds: 0,
     })));
+
+  it('of an empty string responds 0 for all units', () => assertThat(
+    toFragments(''), equalTo({
+      years: 0,
+      months: 0,
+      weeks: 0,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    })));
 });
