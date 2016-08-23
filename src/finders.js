@@ -28,12 +28,12 @@ const findUnit = (stringComponent, unit) => {
 };
 
 const findTimeUnit = (isoString, unit) => {
-  const timeComponent = extractTimeComponents(isoString);
+  const timeComponent = extractTimeComponents(isoString || '');
   return findUnit(timeComponent, unit);
 };
 
 const findDateUnit = (isoString, unit) => {
-  const dateComponent = extractDateComponents(isoString);
+  const dateComponent = extractDateComponents(isoString || '');
   return findUnit(dateComponent, unit);
 };
 
