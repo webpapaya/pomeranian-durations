@@ -48,4 +48,15 @@ describe('toFragments', () => {
       minutes: 66,
       seconds: 0,
     })));
+
+  it('units are case insensitive', () => assertThat(
+    toFragments(' P1Y2dT1h66M'), equalTo({
+      years: 1,
+      months: 0,
+      weeks: 0,
+      days: 2,
+      hours: 1,
+      minutes: 66,
+      seconds: 0,
+    })));
 });
