@@ -109,7 +109,7 @@ Pomeranian is completely immutable.
 ```js
 import { fromFragments } from 'pomeranian-duration'
 
-const duration1 = fromIso({ seconds: 0 });
+const duration1 = fromFragments({ seconds: 0 });
 const duration2 = duration1.addSeconds(1);
 
 console.log(duration1 === duration2); // => false
