@@ -85,6 +85,10 @@ toFragments('PT1S') // { ..., hours: 0, seconds: 1, ... }
 import { toIso } from 'pomeranian-durations';
 
 toIso({ seconds: 1 }) // 'PT1S'
+
+toIso({ seconds: 0 }) // 'P'
+toIso({ seconds: 0 }, { includeZeroValues: false } ) // 'P'
+toIso({ seconds: 0 }, { includeZeroValues: true } ) // 'PT0S'
 ```
 
 

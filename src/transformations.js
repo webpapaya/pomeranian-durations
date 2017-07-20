@@ -19,7 +19,7 @@ import {
 const inArray = (array, element) => array.indexOf(element) !== -1;
 const hasKey = (object, keyName) => inArray(Object.keys(object), keyName);
 
-const buildIsoComponent = (fragments, units) => {
+const buildIsoComponent = (fragments, units, includeZeroValues) => {
   return Object.keys(fragments)
     .filter((unitName) => hasKey(units, unitName))
     .sort((a, b) => {
@@ -27,26 +27,26 @@ const buildIsoComponent = (fragments, units) => {
       return sortedUnitNames.indexOf(b) - sortedUnitNames.indexOf(a);
     })
     .reduce((prev, name) => {
-      if (fragments[name] === 0) { return prev; }
+      if (!includeZeroValues && fragments[name] === 0) { return prev; }
       const unit = units[name];
       const value = parseFloat(fragments[name]);
       return `${prev}${value}${unit}`;
     }, '');
 };
 
-const buildDateComponent = (fragments) => {
-  const dateComponent = buildIsoComponent(fragments, DATE_UNITS);
+const buildDateComponent = (fragments, includeZeroValues) => {
+  const dateComponent = buildIsoComponent(fragments, DATE_UNITS, includeZeroValues);
   return `${DURATION_DESIGNATOR}${dateComponent}`;
 };
 
-const buildTimeComponent = (fragments) => {
-  const timeComponent = buildIsoComponent(fragments, TIME_UNITS);
+const buildTimeComponent = (fragments, includeZeroValues) => {
+  const timeComponent = buildIsoComponent(fragments, TIME_UNITS, includeZeroValues);
   return timeComponent ? `${TIME_DESIGNATOR}${timeComponent}` : '';
 };
 
-export const toIso = (fragments) => {
-  const dateComponent = buildDateComponent(fragments);
-  const timeComponent = buildTimeComponent(fragments);
+export const toIso = (fragments, { includeZeroValues = false } = {}) => {
+  const dateComponent = buildDateComponent(fragments, includeZeroValues);
+  const timeComponent = buildTimeComponent(fragments, includeZeroValues);
   return `${dateComponent}${timeComponent}`;
 };
 

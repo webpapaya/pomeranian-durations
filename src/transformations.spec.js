@@ -13,6 +13,9 @@ describe('toIso', () => {
 
   it('works with leading and trailing whitespace', () => assertThat(
     toIso({ minutes: ' 1 ' }), equalTo('PT1M')));
+
+  it('converts 0 seconds to PT0S', () => assertThat(
+    toIso({ seconds: 0 }, { includeZeroValues: true }), equalTo('PT0S')));
 });
 
 describe('toFragments', () => {
