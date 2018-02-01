@@ -1,6 +1,6 @@
 {
   "name": "pomeranian-durations",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "An immutable duration library based on the ISO-8601 format for durations.",
   "main": "lib/index.js",
   "scripts": {
