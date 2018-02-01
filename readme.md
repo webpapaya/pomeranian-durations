@@ -67,6 +67,12 @@ export {
   asMinutes,
   asHours,
   // NOTE: other conversions are not possible see: Precision Issues
+
+
+  asDecimalMilliseconds,
+  asDecimalSeconds,
+  asDecimalMinutes,
+  asDecimalHours,
 };
 ```
 

@@ -42,3 +42,9 @@ export const asMilliseconds = (isoString) => asUnit(isoString, ONE_MILLISECOND);
 export const asSeconds = (isoString) => asUnit(isoString, ONE_SECOND);
 export const asMinutes = (isoString) => asUnit(isoString, ONE_MINUTE);
 export const asHours = (isoString) => asUnit(isoString, ONE_HOUR);
+
+export const asDecimalMicroseconds = (isoString) => asSeconds(isoString) / ONE_MILLISECOND / ONE_MILLISECOND;
+export const asDecimalMilliseconds = (isoString) => asSeconds(isoString) / ONE_MILLISECOND;
+export const asDecimalSeconds = (isoString) => asSeconds(isoString);
+export const asDecimalMinutes = (isoString) => asDecimalSeconds(isoString) / 60;
+export const asDecimalHours = (isoString) => asDecimalMinutes(isoString) / 60;

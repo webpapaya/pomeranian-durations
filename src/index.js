@@ -36,6 +36,13 @@ export {
   asSeconds,
   asMinutes,
   asHours,
+
+  asDecimalMilliseconds,
+  asDecimalSeconds,
+  asDecimalMinutes,
+  asDecimalHours,
+
+
 } from './conversions';
 
 export {

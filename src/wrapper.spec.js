@@ -56,7 +56,7 @@ describe('fromIso', () => {
   });
 
   describe('toFragments', () => {
-    it(`toFragments works`, () => assertThat(
+    it('toFragments works', () => assertThat(
       () => fromIso('PT1S').toFragments(), not(throws())));
   });
 

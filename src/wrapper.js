@@ -13,6 +13,11 @@ import {
   asMinutes,
   asHours,
 
+  asDecimalMilliseconds,
+  asDecimalSeconds,
+  asDecimalMinutes,
+  asDecimalHours,
+
   addMicroseconds,
   addMilliseconds,
   addSeconds,
@@ -36,6 +41,7 @@ import {
   toIso,
   toFragments,
 } from './index';
+import { ONE_MICROSECOND } from './constants';
 
 export const fromFragments = (fragments) => {
   const isoString = toIso(fragments);
@@ -54,6 +60,12 @@ export const fromIso = (isoString) => {
     findWeeks: () => findWeeks(isoString),
     findMonths: () => findMonths(isoString),
     findYears: () => findYears(isoString),
+
+    asDecimalMicroseconds: () => asDecimalMilliseconds(isoString) / ONE_MICROSECOND,
+    asDecimalMilliseconds: () => asDecimalMilliseconds(isoString),
+    asDecimalSeconds: () => asDecimalSeconds(isoString),
+    asDecimalMinutes: () => asDecimalMinutes(isoString),
+    asDecimalHours: () => asDecimalHours(isoString),
 
     asMicroseconds: () => asMicroseconds(isoString),
     asMilliseconds: () => asMilliseconds(isoString),
