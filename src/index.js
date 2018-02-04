@@ -8,7 +8,9 @@ export {
   addWeeks,
   addMonths,
   addYears,
+} from './add';
 
+export {
   subtractMilliseconds,
   subtractMicroseconds,
   subtractSeconds,
@@ -18,7 +20,7 @@ export {
   subtractWeeks,
   subtractMonths,
   subtractYears,
-} from './calculations';
+} from './subtract'
 
 export {
   findSeconds,
@@ -44,7 +46,6 @@ export {
 } from './conversions';
 
 export {
-  fromFragments,
   toFragments,
   toIso,
 } from './transformations';

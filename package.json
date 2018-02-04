@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/webPapaya/pomeranian/issues"
   },
-  "homepage": "https://github.com/webPapaya/pomeranian#readme"
+  "homepage": "https://github.com/webPapaya/pomeranian#readme",
+  "dependencies": {
+    "lodash.curry": "^4.1.1"
+  }
 }

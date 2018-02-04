@@ -116,15 +116,6 @@ const duration = fromIso('PT0S').addSeconds(1).toIso(); // => 'PT1S';
 
 Pomeranian is completely immutable.
 
-```js
-import { fromFragments } from 'pomeranian-duration'
-
-const duration1 = fromFragments({ seconds: 0 });
-const duration2 = duration1.addSeconds(1);
-
-console.log(duration1 === duration2); // => false
-```
-
 ## Precision Issues
 Because date components (years, months, weeks, days) can't be converted to other unites without date and timezone information, `pomeranian-durations`
 doesn't support them yet. To do precise arithmetic operations it is recommended to avoid years, months, weeks and days completely when using durations.
