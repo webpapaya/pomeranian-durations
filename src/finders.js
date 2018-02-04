@@ -27,21 +27,21 @@ const findUnit = (stringComponent, unit) => {
   return parseFloat(matchedUnit[0].slice(0, -1));
 };
 
-const findTimeUnit = (isoString, unit) => {
+const findTimeUnit = (unit, isoString) => {
   const timeComponent = extractTimeComponents(isoString || '');
   return findUnit(timeComponent, unit);
 };
 
-const findDateUnit = (isoString, unit) => {
+const findDateUnit = (unit, isoString) => {
   const dateComponent = extractDateComponents(isoString || '');
   return findUnit(dateComponent, unit);
 };
 
-export const findSeconds = (isoString) => findTimeUnit(isoString, UNITS.seconds);
-export const findMinutes = (isoString) => findTimeUnit(isoString, UNITS.minutes);
-export const findHours = (isoString) => findTimeUnit(isoString, UNITS.hours);
+export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString);
+export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString);
+export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
 
-export const findDays = (isoString) => findDateUnit(isoString, UNITS.days);
-export const findWeeks = (isoString) => findDateUnit(isoString, UNITS.weeks);
-export const findMonths = (isoString) => findDateUnit(isoString, UNITS.months);
-export const findYears = (isoString) => findDateUnit(isoString, UNITS.years);
+export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
+export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
+export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
+export const findYears = (isoString) => findDateUnit(UNITS.years, isoString);
