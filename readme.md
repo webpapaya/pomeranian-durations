@@ -1,5 +1,16 @@
 # Pomeranian Durations
-An immutable duration library based on the ISO-8601 format for durations. 
+An immutable duration library based on the ISO-8601 format for durations.
+
+## Upgrade to version 1.0.0
+- Swapped arguments of add* and subtract* functions, as they're now curried.
+```
+// V0.*
+addMinute('PT10S', 1)
+
+// V1.*
+addMinute(1, 'PT10S')
+```
+
 
 ## Usage
 
