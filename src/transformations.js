@@ -15,6 +15,7 @@ import {
   findWeeks,
   findYears,
 } from './index';
+import { fromIso } from "./wrapper";
 
 const inArray = (array, element) => array.indexOf(element) !== -1;
 const hasKey = (object, keyName) => inArray(Object.keys(object), keyName);
@@ -60,4 +61,9 @@ export const toFragments = (isoString) => {
     months: findMonths(isoString),
     years: findYears(isoString),
   };
+};
+
+export const fromFragments = (fragments) => {
+  const isoString = toIso(fragments);
+  return fromIso(isoString);
 };

@@ -41,16 +41,10 @@ export {
   asDecimalSeconds,
   asDecimalMinutes,
   asDecimalHours,
-
-
 } from './conversions';
 
 export {
+  fromFragments,
   toFragments,
   toIso,
 } from './transformations';
-
-export {
-  fromFragments,
-  fromIso,
-} from './wrapper';
