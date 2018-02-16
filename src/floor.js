@@ -37,5 +37,6 @@ export const floor = (granularity, isoString) => {
 
   return toIso({
     seconds: durationAsFragments.seconds - durationAsFragments.seconds % granularityAsFragments.seconds,
+    minutes: durationAsFragments.seconds - durationAsFragments.seconds % granularityAsFragments.seconds,
   });
 };

@@ -30,6 +30,8 @@ describe('floor<Unit>', () => {
 describe('floor<Granularity, Unit>', () => {
   [
     { name: 'floor', fn: floor, input: 'PT3S', granularity: 'PT2S', output: 'PT2S' },
+    { name: 'floor', fn: floor, input: 'PT0S', granularity: 'PT2S', output: 'P' },
+    { name: 'floor', fn: floor, input: 'PT3M1S', granularity: 'PT2M', output: 'PT2M' },
   ].forEach(({ name, fn, input, granularity, output }) => {
     it(`${name} converts ${input} to ${output}`, () => {
       assertThat(fn(granularity, input), equalTo(output));
