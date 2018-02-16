@@ -22,19 +22,19 @@ const asUnit = (isoString, divider) => {
 
 const containsDateUnits = (isoString) => {
   return [
-    findDays(isoString),
-    findWeeks(isoString),
-    findMonths(isoString),
-    findYears(isoString),
+    findDays(isoString) || 0,
+    findWeeks(isoString) || 0,
+    findMonths(isoString) || 0,
+    findYears(isoString) || 0,
   ].some((element) => element !== 0);
 };
 
 export const asMicroseconds = (isoString) => {
   if (containsDateUnits(isoString)) { throw new Error('Can\'t convert from date units.'); }
   return [
-    findSeconds(isoString) * ONE_SECOND,
-    findMinutes(isoString) * ONE_MINUTE,
-    findHours(isoString) * ONE_HOUR,
+    (findSeconds(isoString) || 0) * ONE_SECOND,
+    (findMinutes(isoString) || 0) * ONE_MINUTE,
+    (findHours(isoString) || 0) * ONE_HOUR,
   ].reduce((sum, seconds) => sum + seconds);
 };
 

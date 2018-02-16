@@ -31,4 +31,7 @@ describe('unit finders for P3Y6M1W4DT12H30M17.5S', () => {
 
   it('finds 17.5 seconds', () => assertThat(
     findSeconds('P3Y6M1W4DT12H30M17.5S'), equalTo(17.5)));
+
+  it('unknown seconds return void 0', () => assertThat(
+    findSeconds('P'), equalTo(void 0)));
 });

@@ -30,3 +30,12 @@ export const floorDays = createFloorFnFor(UNIT_NAMES.days);
 export const floorWeeks = createFloorFnFor(UNIT_NAMES.weeks);
 export const floorMonths = createFloorFnFor(UNIT_NAMES.months);
 export const floorYears = createFloorFnFor(UNIT_NAMES.years);
+
+export const floor = (granularity, isoString) => {
+  const durationAsFragments = toFragments(isoString);
+  const granularityAsFragments = toFragments(granularity);
+
+  return toIso({
+    seconds: durationAsFragments.seconds - durationAsFragments.seconds % granularityAsFragments.seconds,
+  });
+};

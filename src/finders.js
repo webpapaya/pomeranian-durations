@@ -23,7 +23,7 @@ const findUnit = (stringComponent, unit) => {
     .toUpperCase()
     .match(new RegExp(`[+,-]?[0-9]+(\\.[0-9]+)?${unit}`));
 
-  if (!matchedUnit) { return 0; }
+  if (!matchedUnit) { return void 0; }
   return parseFloat(matchedUnit[0].slice(0, -1));
 };
 

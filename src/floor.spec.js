@@ -7,9 +7,10 @@ import {
   floorWeeks,
   floorMonths,
   floorYears,
+  floor,
 } from './floor';
 
-describe('floor', () => {
+describe('floor<Unit>', () => {
   [
     { name: 'floorSeconds', fn: floorSeconds, input: 'PT0.1S', output: 'P' },
     { name: 'floorSeconds', fn: floorSeconds, input: 'PT1.1S', output: 'PT1S' },
@@ -25,6 +26,18 @@ describe('floor', () => {
     });
   });
 });
+
+describe('floor<Granularity, Unit>', () => {
+  [
+    { name: 'floor', fn: floor, input: 'PT3S', granularity: 'PT2S', output: 'PT2S' },
+  ].forEach(({ name, fn, input, granularity, output }) => {
+    it(`${name} converts ${input} to ${output}`, () => {
+      assertThat(fn(granularity, input), equalTo(output));
+    });
+  })
+});
+
+
 
 
 

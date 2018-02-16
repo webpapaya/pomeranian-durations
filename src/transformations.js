@@ -52,12 +52,12 @@ export const toIso = (fragments, { includeZeroValues = false } = {}) => {
 
 export const toFragments = (isoString) => {
   return {
-    seconds: findSeconds(isoString),
-    minutes: findMinutes(isoString),
-    hours: findHours(isoString),
-    days: findDays(isoString),
-    weeks: findWeeks(isoString),
-    months: findMonths(isoString),
-    years: findYears(isoString),
+    seconds: findSeconds(isoString) || 0,
+    minutes: findMinutes(isoString) || 0,
+    hours: findHours(isoString) || 0,
+    days: findDays(isoString) || 0,
+    weeks: findWeeks(isoString) || 0,
+    months: findMonths(isoString) || 0,
+    years: findYears(isoString) || 0,
   };
 };
