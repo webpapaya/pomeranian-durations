@@ -1,5 +1,5 @@
 import { toFragments, toIso } from "./transformations";
-import { UNIT_NAMES } from "./constants";
+import { UNIT_NAMES } from './constants';
 
 const ALL_UNITS = [
   UNIT_NAMES.seconds,
@@ -11,7 +11,7 @@ const ALL_UNITS = [
   UNIT_NAMES.years,
 ];
 
-const floorUnits = (unit) => (isoString) => {
+const createFloorFnFor = (unit) => (isoString) => {
   const fragments = toFragments(isoString);
   const unitsToBeNullified = ALL_UNITS.slice(0, ALL_UNITS.indexOf(unit));
   const flooredFragments = unitsToBeNullified.reduce((acc, currentUnit) => {
@@ -23,10 +23,10 @@ const floorUnits = (unit) => (isoString) => {
   return toIso(flooredFragments);
 };
 
-export const floorSeconds = floorUnits(UNIT_NAMES.seconds);
-export const floorMinutes = floorUnits(UNIT_NAMES.minutes);
-export const floorHours = floorUnits(UNIT_NAMES.hours);
-export const floorDays = floorUnits(UNIT_NAMES.days);
-export const floorWeeks = floorUnits(UNIT_NAMES.weeks);
-export const floorMonths = floorUnits(UNIT_NAMES.months);
-export const floorYears = floorUnits(UNIT_NAMES.years);
+export const floorSeconds = createFloorFnFor(UNIT_NAMES.seconds);
+export const floorMinutes = createFloorFnFor(UNIT_NAMES.minutes);
+export const floorHours = createFloorFnFor(UNIT_NAMES.hours);
+export const floorDays = createFloorFnFor(UNIT_NAMES.days);
+export const floorWeeks = createFloorFnFor(UNIT_NAMES.weeks);
+export const floorMonths = createFloorFnFor(UNIT_NAMES.months);
+export const floorYears = createFloorFnFor(UNIT_NAMES.years);
