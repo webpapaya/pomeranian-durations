@@ -20,7 +20,7 @@ export {
   subtractWeeks,
   subtractMonths,
   subtractYears,
-} from './subtract'
+} from './subtract';
 
 export {
   findSeconds,

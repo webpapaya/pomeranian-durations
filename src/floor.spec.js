@@ -39,5 +39,5 @@ describe('floor<Granularity, Unit>', () => {
     it(`${name} converts ${input} to ${output}`, () => {
       assertThat(fn(granularity, input), equalTo(output));
     });
-  })
+  });
 });

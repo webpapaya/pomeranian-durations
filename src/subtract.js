@@ -9,7 +9,7 @@ import {
   addSeconds,
   addWeeks,
   addYears,
-} from "./add";
+} from './add';
 
 export const subtractMilliseconds = curry((amount, isoString) =>
   addMilliseconds(amount * -1, isoString));
