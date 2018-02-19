@@ -50,14 +50,14 @@ export const toIso = (fragments, { includeZeroValues = false } = {}) => {
   return `${dateComponent}${timeComponent}`;
 };
 
-export const toFragments = (isoString) => {
+export const toFragments = (isoString, { defaultValue = 0 } = {}) => {
   return {
-    seconds: findSeconds(isoString) || 0,
-    minutes: findMinutes(isoString) || 0,
-    hours: findHours(isoString) || 0,
-    days: findDays(isoString) || 0,
-    weeks: findWeeks(isoString) || 0,
-    months: findMonths(isoString) || 0,
-    years: findYears(isoString) || 0,
+    seconds: findSeconds(isoString) || defaultValue,
+    minutes: findMinutes(isoString) || defaultValue,
+    hours: findHours(isoString) || defaultValue,
+    days: findDays(isoString) || defaultValue,
+    weeks: findWeeks(isoString) || defaultValue,
+    months: findMonths(isoString) || defaultValue,
+    years: findYears(isoString) || defaultValue,
   };
 };

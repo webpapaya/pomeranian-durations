@@ -1,5 +1,6 @@
 import { toFragments, toIso } from "./transformations";
 import { UNIT_NAMES } from './constants';
+import { findSeconds } from "./finders";
 
 const ALL_UNITS = [
   UNIT_NAMES.seconds,
@@ -32,11 +33,16 @@ export const floorMonths = createFloorFnFor(UNIT_NAMES.months);
 export const floorYears = createFloorFnFor(UNIT_NAMES.years);
 
 export const floor = (granularity, isoString) => {
-  const durationAsFragments = toFragments(isoString);
-  const granularityAsFragments = toFragments(granularity);
+  const durationAsFragments = toFragments(isoString, { defaultValue: null });
+  const granularityAsFragments = toFragments(granularity, { defaultValue: null });
 
-  return toIso({
-    seconds: durationAsFragments.seconds - durationAsFragments.seconds % granularityAsFragments.seconds,
-    minutes: durationAsFragments.seconds - durationAsFragments.seconds % granularityAsFragments.seconds,
-  });
+  const flooredFragments = ALL_UNITS.reduce((acc, currentUnit) => {
+    if (!durationAsFragments[currentUnit] || !granularityAsFragments[currentUnit]) { return acc; }
+    acc[currentUnit] = durationAsFragments[currentUnit] -
+      durationAsFragments[currentUnit] % granularityAsFragments[currentUnit];
+
+    return acc;
+  }, {});
+
+  return toIso(flooredFragments);
 };
