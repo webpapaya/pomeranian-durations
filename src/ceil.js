@@ -1,4 +1,5 @@
 import {
+  floor,
   floorDays,
   floorHours,
   floorMinutes,
@@ -9,6 +10,7 @@ import {
 } from './floor';
 
 import {
+  add,
   addDays,
   addHours,
   addMinutes,
@@ -20,6 +22,9 @@ import {
 
 const buildCeilFn = (addFn, floorFn) => (isoString) =>
   floorFn(addFn(1, isoString));
+
+export const ceil = (granularity, isoString) =>
+  floor(granularity, add(granularity, isoString));
 
 export const ceilSeconds = buildCeilFn(addSeconds, floorSeconds);
 export const ceilMinutes = buildCeilFn(addMinutes, floorMinutes);
