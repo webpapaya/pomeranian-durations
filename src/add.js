@@ -1,36 +1,23 @@
 import curry from 'lodash.curry';
-import { UNIT_NAMES } from './constants';
 import { toIso, toFragments } from './index';
 
-const addUnit = (isoString, amount, unit) => {
-  const fragments = toFragments(isoString);
-  fragments[unit] += amount;
-  return toIso(fragments);
-};
+export const add = curry((firstIsoString, secondIsoString) => {
+  const firstFragments = toFragments(firstIsoString);
+  const secondFragments = toFragments(secondIsoString);
+  const updatedFragments = Object.keys(firstFragments).reduce((acc, unit) => {
+    acc[unit] = firstFragments[unit] + secondFragments[unit];
+    return acc;
+  }, {});
+  return toIso(updatedFragments);
+});
 
-export const addMilliseconds = curry((amount, isoString) =>
-  addUnit(isoString, amount / (10 ** 3), UNIT_NAMES.seconds));
+export const addMilliseconds = curry((amount, isoString) => add(isoString, `PT${amount / (10 ** 3)}S`));
+export const addMicroseconds = curry((amount, isoString) => add(isoString, `PT${amount / (10 ** 6)}S`));
+export const addSeconds = curry((amount, isoString) => add(isoString, `PT${amount}S`));
+export const addMinutes = curry((amount, isoString) => add(isoString, `PT${amount}M`));
+export const addHours = curry((amount, isoString) => add(isoString, `PT${amount}H`));
 
-export const addMicroseconds = curry((amount, isoString) =>
-  addUnit(isoString, amount / (10 ** 6), UNIT_NAMES.seconds));
-
-export const addSeconds = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.seconds));
-
-export const addMinutes = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.minutes));
-
-export const addHours = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.hours));
-
-export const addDays = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.days));
-
-export const addWeeks = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.weeks));
-
-export const addMonths = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.months));
-
-export const addYears = curry((amount, isoString) =>
-  addUnit(isoString, amount, UNIT_NAMES.years));
+export const addDays = curry((amount, isoString) => add(isoString, `P${amount}D`));
+export const addWeeks = curry((amount, isoString) => add(isoString, `P${amount}W`));
+export const addMonths = curry((amount, isoString) => add(isoString, `P${amount}M`));
+export const addYears = curry((amount, isoString) => add(isoString, `P${amount}Y`));
