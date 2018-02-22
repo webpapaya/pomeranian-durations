@@ -36,6 +36,3 @@ describe('ceil<Granularity, Unit>', () => {
   });
 });
 
-
-
-

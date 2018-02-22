@@ -5,7 +5,7 @@ export const add = curry((firstIsoString, secondIsoString) => {
   const firstFragments = toFragments(firstIsoString);
   const secondFragments = toFragments(secondIsoString);
   const updatedFragments = Object.keys(firstFragments).reduce((acc, unit) => {
-    acc[unit] = firstFragments[unit] + secondFragments[unit];
+    acc[unit] = firstFragments[unit] + secondFragments[unit]; // eslint-disable-line no-param-reassign
     return acc;
   }, {});
   return toIso(updatedFragments);

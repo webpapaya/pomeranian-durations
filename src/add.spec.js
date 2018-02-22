@@ -23,7 +23,7 @@ import {
   { name: 'addWeeks', fn: addWeeks, isoString: 'P0W', amount: 1, result: 'P1W' },
   { name: 'addMonths', fn: addMonths, isoString: 'P0M', amount: 1, result: 'P1M' },
   { name: 'addYears', fn: addYears, isoString: 'P0Y', amount: 1, result: 'P1Y' },
-  { name: 'add', fn: add, isoString: 'PT1S', amount: 'PT1S', result: 'PT2S'  }
+  { name: 'add', fn: add, isoString: 'PT1S', amount: 'PT1S', result: 'PT2S' },
 ].forEach(({ name, fn, isoString, amount, result }) => {
   it(`${name} ${amount} to ${isoString} results in ${result}`, () => {
     assertThat(fn(amount, isoString), equalTo(result));
