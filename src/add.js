@@ -1,4 +1,4 @@
-import curry from 'lodash.curry';
+import { curry } from './curry';
 import { toIso, toFragments } from './index';
 
 export const add = curry((firstIsoString, secondIsoString) => {
