@@ -12,12 +12,12 @@ import {
   addYears,
 } from './add';
 
-import { toFragments, toIso } from "./transformations";
+import { toFragments, toIso } from './transformations';
 
 export const subtract = curry((firstDuration, secondDurations) => {
   const secondFragments = toFragments(secondDurations);
   const negativeFragments = Object.keys(secondFragments).reduce((acc, unit) => {
-    acc[unit] = secondFragments[unit] * -1;
+    acc[unit] = secondFragments[unit] * -1; // eslint-disable-line no-param-reassign
     return acc;
   }, {});
   return add(firstDuration, toIso(negativeFragments));
