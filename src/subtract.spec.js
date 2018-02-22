@@ -1,5 +1,6 @@
 import { assertThat, equalTo } from 'hamjest';
 import {
+  subtract,
   subtractMilliseconds,
   subtractMicroseconds,
   subtractSeconds,
@@ -22,6 +23,7 @@ import {
   { name: 'subtractWeeks', fn: subtractWeeks, amount: 1, duration: 'P0W', result: 'P-1W' },
   { name: 'subtractMonths', fn: subtractMonths, amount: 1, duration: 'P0M', result: 'P-1M' },
   { name: 'subtractYears', fn: subtractYears, amount: 1, duration: 'P0Y', result: 'P-1Y' },
+  { name: 'subtract', fn: subtract, amount: 'PT1S', duration: 'PT2S', result: 'PT-1S' },
 ].forEach(({ name, fn, amount, duration, result }) => {
   it(`${name} ${amount} to ${duration} results in ${result}`, () => {
     assertThat(fn(amount, duration), equalTo(result));

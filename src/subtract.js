@@ -1,5 +1,6 @@
 import curry from 'lodash.curry';
 import {
+  add,
   addDays,
   addHours,
   addMicroseconds,
@@ -10,6 +11,17 @@ import {
   addWeeks,
   addYears,
 } from './add';
+
+import { toFragments, toIso } from "./transformations";
+
+export const subtract = curry((firstDuration, secondDurations) => {
+  const secondFragments = toFragments(secondDurations);
+  const negativeFragments = Object.keys(secondFragments).reduce((acc, unit) => {
+    acc[unit] = secondFragments[unit] * -1;
+    return acc;
+  }, {});
+  return add(firstDuration, toIso(negativeFragments));
+});
 
 export const subtractMilliseconds = curry((amount, isoString) =>
   addMilliseconds(amount * -1, isoString));
