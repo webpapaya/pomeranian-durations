@@ -1,3 +1,4 @@
+import { curry } from './curry';
 import {
   floor,
   floorDays,
@@ -23,12 +24,13 @@ import {
 const buildCeilFn = (addFn, floorFn) => (isoString) =>
   floorFn(addFn(1, isoString));
 
-export const ceil = (granularity, isoString) =>
-  floor(granularity, add(granularity, isoString));
+export const ceil = curry((granularity, isoString) =>
+  floor(granularity, add(granularity, isoString)));
 
 export const ceilSeconds = buildCeilFn(addSeconds, floorSeconds);
 export const ceilMinutes = buildCeilFn(addMinutes, floorMinutes);
 export const ceilHours = buildCeilFn(addHours, floorHours);
+
 export const ceilDays = buildCeilFn(addDays, floorDays);
 export const ceilWeeks = buildCeilFn(addWeeks, floorWeeks);
 export const ceilMonths = buildCeilFn(addMonths, floorMonths);
