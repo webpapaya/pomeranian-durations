@@ -1,6 +1,13 @@
 import { curry } from './curry';
 import { toIso, toFragments } from './index';
 
+/**
+ * Adds two iso durations
+ * @param firstIsoString {string} - a string to be added
+ * @param secondIsoString {string} - a string to be added
+ * @example
+ * addMicroseconds('PT3S', 'PT1S') // => PT4S
+ */
 export const add = curry((firstIsoString, secondIsoString) => {
   const firstFragments = toFragments(firstIsoString);
   const secondFragments = toFragments(secondIsoString);

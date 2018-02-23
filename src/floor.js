@@ -23,14 +23,6 @@ const createFloorFnFor = (unit) => (isoString) => {
   return toIso(flooredFragments);
 };
 
-export const floorSeconds = createFloorFnFor(UNIT_NAMES.seconds);
-export const floorMinutes = createFloorFnFor(UNIT_NAMES.minutes);
-export const floorHours = createFloorFnFor(UNIT_NAMES.hours);
-export const floorDays = createFloorFnFor(UNIT_NAMES.days);
-export const floorWeeks = createFloorFnFor(UNIT_NAMES.weeks);
-export const floorMonths = createFloorFnFor(UNIT_NAMES.months);
-export const floorYears = createFloorFnFor(UNIT_NAMES.years);
-
 export const floor = (granularity, isoString) => {
   const durationAsFragments = toFragments(isoString, { defaultValue: null });
   const granularityAsFragments = toFragments(granularity, { defaultValue: null });
@@ -45,3 +37,59 @@ export const floor = (granularity, isoString) => {
 
   return toIso(flooredFragments);
 };
+
+/**
+ * Floor a given ISO duration to the current second.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorSeconds('P1.1Y') // => P1S
+ */
+export const floorSeconds = createFloorFnFor(UNIT_NAMES.seconds);
+
+/**
+ * Floor a given ISO duration to the current minute.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorMinutes('P1.1Y') // => P1M
+ */
+export const floorMinutes = createFloorFnFor(UNIT_NAMES.minutes);
+
+/**
+ * Floor a given ISO duration to the current hour.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorHours('P1.1Y') // => P1H
+ */
+export const floorHours = createFloorFnFor(UNIT_NAMES.hours);
+
+/**
+ * Floor a given ISO duration to the current day.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorDays('P1.1Y') // => P1D
+ */
+export const floorDays = createFloorFnFor(UNIT_NAMES.days);
+
+/**
+ * Floor a given ISO duration to the current week.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorWeeks('P1.1Y') // => P1W
+ */
+export const floorWeeks = createFloorFnFor(UNIT_NAMES.weeks);
+
+/**
+ * Floor a given ISO duration to the current month.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorMonths('P1.1Y') // => P1M
+ */
+export const floorMonths = createFloorFnFor(UNIT_NAMES.months);
+
+/**
+ * Floor a given ISO duration to the current year.
+ * @param isoDuration {string} - ISO8601 duration
+ * @example
+ * floorYears('P1.1Y') // => P1Y
+ */
+export const floorYears = createFloorFnFor(UNIT_NAMES.years);
