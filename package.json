@@ -4,9 +4,11 @@
   "description": "An immutable duration library based on the ISO-8601 format for durations.",
   "main": "lib/index.js",
   "scripts": {
+    "docs": "documentation build src/** -f md > docs.md",
+    "build": "babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
-    "prepublish": "babel src/ --out-dir lib/ --ignore *.spec.js"
+    "prepublish": "npm run docs && npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
+    "documentation": "^5.4.0",
     "eslint-config-crewmeister": "latest",
     "hamjest": "^2.13.0",
     "mocha": "^2.5.3"
