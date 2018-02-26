@@ -1,5 +1,6 @@
 import { toFragments, toIso } from './transformations';
-import { UNIT_NAMES } from './constants';
+import { INVALID_DURATION, UNIT_NAMES } from './constants';
+import { isInvalid } from "./validate";
 
 const ALL_UNITS = [
   UNIT_NAMES.seconds,
@@ -12,6 +13,8 @@ const ALL_UNITS = [
 ];
 
 const createFloorFnFor = (unit) => (isoString) => {
+  if (isInvalid(isoString)) { return INVALID_DURATION; }
+
   const fragments = toFragments(isoString);
   const unitsToBeNullified = ALL_UNITS.slice(0, ALL_UNITS.indexOf(unit));
   const flooredFragments = unitsToBeNullified.reduce((acc, currentUnit) => {

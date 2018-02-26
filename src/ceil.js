@@ -20,9 +20,13 @@ import {
   addWeeks,
   addYears,
 } from './add';
+import { isInvalid } from "./validate";
+import { INVALID_DURATION } from "./constants";
 
-const buildCeilFn = (addFn, floorFn) => (isoString) =>
-  floorFn(addFn(1, isoString));
+const buildCeilFn = (addFn, floorFn) => (isoString) => {
+  if (isInvalid(isoString)) { return INVALID_DURATION; }
+  return floorFn(addFn(1, isoString));
+};
 
 /**
  * Ceils a duration to a given granularity.

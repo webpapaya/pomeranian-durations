@@ -24,6 +24,8 @@ describe('isValid iso8601 duration', () => {
     { isoDuration: 'PT-1S', valid: true },
     { isoDuration: 'PT+1S', valid: true },
 
+    { isoDuration: -0, valid: false },
+    { isoDuration: 0, valid: false },
     { isoDuration: 1, valid: false },
     { isoDuration: () => {}, valid: false },
     { isoDuration: null, valid: false },

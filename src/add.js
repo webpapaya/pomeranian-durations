@@ -1,5 +1,7 @@
 import { curry } from './utils';
 import { toIso, toFragments } from './index';
+import { isInvalid } from "./validate";
+import { INVALID_DURATION } from "./constants";
 
 /**
  * Adds two iso durations
@@ -9,6 +11,8 @@ import { toIso, toFragments } from './index';
  * addMicroseconds('PT3S', 'PT1S') // => PT4S
  */
 export const add = curry((firstIsoString, secondIsoString) => {
+  if (isInvalid(firstIsoString) || isInvalid(secondIsoString)) { return INVALID_DURATION; }
+
   const firstFragments = toFragments(firstIsoString);
   const secondFragments = toFragments(secondIsoString);
   const updatedFragments = Object.keys(firstFragments).reduce((acc, unit) => {

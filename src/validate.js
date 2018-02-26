@@ -1,4 +1,4 @@
-import { TIME_DESIGNATOR, DURATION_DESIGNATOR } from './constants';
+import { TIME_DESIGNATOR, DURATION_DESIGNATOR, INVALID_DURATION } from './constants';
 import { createRegexBuilder } from './utils';
 
 const MATCH_NUMBER = /[+-]?\d+(\.\d+)?/.source;
@@ -31,3 +31,11 @@ const MATCH_DURATION = createRegexBuilder()
  */
 export const isValid = (isoDuration) =>
   typeof isoDuration === 'string' && MATCH_DURATION.test(isoDuration.toUpperCase());
+
+/**
+ * Returns if the iso8601 duration is invalid or not
+ * @param isoDuration {string}
+ * @returns {boolean}
+ */
+export const isInvalid = (isoDuration) =>
+  !isValid(isoDuration);
