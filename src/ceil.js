@@ -24,6 +24,15 @@ import {
 const buildCeilFn = (addFn, floorFn) => (isoString) =>
   floorFn(addFn(1, isoString));
 
+/**
+ * Ceils a duration to a given granularity.
+ * @param granularity {string} - ISO8601 duration
+ * @param isoString {string} - ISO8601 duration
+ * @example
+ * ceil('PT2s', 'PT5S') // => PT6S
+ * ceil('PT3s', 'PT5S') // => PT6S
+ * ceil('PT4s', 'PT5S') // => PT8S
+ */
 export const ceil = curry((granularity, isoString) =>
   floor(granularity, add(granularity, isoString)));
 

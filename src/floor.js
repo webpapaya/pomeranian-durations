@@ -23,6 +23,15 @@ const createFloorFnFor = (unit) => (isoString) => {
   return toIso(flooredFragments);
 };
 
+/**
+ * Floor a duration by a given granularity.
+ * @param granularity {string} - ISO8601 duration
+ * @param isoString {string} - ISO8601 duration
+ * @example
+ * floor('PT2s', 'PT5S') // => PT4S
+ * floor('PT3s', 'PT5S') // => PT3S
+ * floor('PT4s', 'PT5S') // => PT4S
+ */
 export const floor = (granularity, isoString) => {
   const durationAsFragments = toFragments(isoString, { defaultValue: null });
   const granularityAsFragments = toFragments(granularity, { defaultValue: null });
