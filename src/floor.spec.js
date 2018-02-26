@@ -9,7 +9,7 @@ import {
   floorYears,
   floor,
 } from './floor';
-import { INVALID_DURATION } from "./constants";
+import { INVALID_DURATION } from './constants';
 
 describe('floor<Unit>', () => {
   [

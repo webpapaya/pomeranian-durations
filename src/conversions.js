@@ -14,7 +14,7 @@ import {
   findMonths,
   findYears,
 } from './index';
-import { isInvalid } from "./validate";
+import { isInvalid } from './validate';
 
 const asUnit = (isoString, divider) => {
   if (isInvalid(isoString)) { return INVALID_DURATION; }

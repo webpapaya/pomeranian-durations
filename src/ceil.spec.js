@@ -9,7 +9,7 @@ import {
   ceilMonths,
   ceilYears,
 } from './ceil';
-import { INVALID_DURATION } from "./constants";
+import { INVALID_DURATION } from './constants';
 
 describe('ceil<Unit>', () => {
   [

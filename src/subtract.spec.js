@@ -11,7 +11,7 @@ import {
   subtractMonths,
   subtractYears,
 } from './subtract';
-import { INVALID_DURATION } from "./constants";
+import { INVALID_DURATION } from './constants';
 
 [
   { name: 'subtractMicroseconds', fn: subtractMicroseconds, amount: 1, duration: 'PT0S', result: 'PT-0.000001S' },

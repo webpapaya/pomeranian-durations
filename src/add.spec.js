@@ -11,7 +11,7 @@ import {
   addMonths,
   addYears,
 } from './add';
-import { INVALID_DURATION } from "./constants";
+import { INVALID_DURATION } from './constants';
 
 [
   { name: 'addMicroseconds', fn: addMicroseconds, isoString: 'PT0S', amount: 1, result: 'PT0.000001S' },

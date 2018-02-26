@@ -1,6 +1,6 @@
 import { toFragments, toIso } from './transformations';
 import { INVALID_DURATION, UNIT_NAMES } from './constants';
-import { isInvalid } from "./validate";
+import { isInvalid } from './validate';
 
 const ALL_UNITS = [
   UNIT_NAMES.seconds,

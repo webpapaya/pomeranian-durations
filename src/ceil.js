@@ -20,8 +20,8 @@ import {
   addWeeks,
   addYears,
 } from './add';
-import { isInvalid } from "./validate";
-import { INVALID_DURATION } from "./constants";
+import { isInvalid } from './validate';
+import { INVALID_DURATION } from './constants';
 
 const buildCeilFn = (addFn, floorFn) => (isoString) => {
   if (isInvalid(isoString)) { return INVALID_DURATION; }

@@ -22,7 +22,6 @@ export const createRegexBuilder = (regex = '') => {
 
   const maybe = convertToValue((newRegex) => `(${newRegex})?`);
   const and = convertToValue((newRegex) => `${regex}${newRegex}`);
-  const or = convertToValue((newRegex) => isEmpty(regex) ? `${newRegex}` : `${regex}|${newRegex}`);
   const join = (...array) => createRegexBuilder([regex, ...array].join(''));
 
   const startOfLine = () => and('^');
@@ -37,7 +36,6 @@ export const createRegexBuilder = (regex = '') => {
     endOfLine,
     maybe,
     and,
-    or,
     toValue,
     test,
     isBuilder: true,

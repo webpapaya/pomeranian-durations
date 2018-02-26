@@ -1,4 +1,4 @@
-import { TIME_DESIGNATOR, DURATION_DESIGNATOR, INVALID_DURATION } from './constants';
+import { TIME_DESIGNATOR, DURATION_DESIGNATOR } from './constants';
 import { createRegexBuilder, curry } from './utils';
 
 const MATCH_NUMBER = /[+-]?\d+(\.\d+)?/.source;
