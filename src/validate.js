@@ -1,5 +1,5 @@
 import { TIME_DESIGNATOR, DURATION_DESIGNATOR, INVALID_DURATION } from './constants';
-import { createRegexBuilder } from './utils';
+import { createRegexBuilder, curry } from './utils';
 
 const MATCH_NUMBER = /[+-]?\d+(\.\d+)?/.source;
 const MATCH_DATE = createRegexBuilder()
@@ -25,7 +25,7 @@ const MATCH_DURATION = createRegexBuilder()
   .endOfLine();
 
 /**
- * Returns if the iso8601 duration is valid or not
+ * Returns if the iso8601 duration is valid or not.
  * @param isoDuration {string}
  * @returns {boolean}
  */
@@ -33,9 +33,27 @@ export const isValid = (isoDuration) =>
   typeof isoDuration === 'string' && MATCH_DURATION.test(isoDuration.toUpperCase());
 
 /**
- * Returns if the iso8601 duration is invalid or not
+ * Returns if the iso8601 duration is invalid or not.
  * @param isoDuration {string}
  * @returns {boolean}
  */
 export const isInvalid = (isoDuration) =>
   !isValid(isoDuration);
+
+/**
+ * Returns a default value when the given duration is invalid and duration when it is valid.
+ * @param value {string}
+ * @param isoDuration {string}
+ * @example
+ * const add10 = compose(
+ *   add(10),
+ *   whenInvalid(() => { throw new Error('Invalid duration') }),
+ * );
+ *
+ * add10('invalid') // => error: 'Invalid duration'
+ */
+export const whenInvalid = curry((value, isoDuration) => {
+  if (isValid(isoDuration)) { return isoDuration; }
+  if (typeof value === 'function') { return value(isoDuration); }
+  return value;
+});

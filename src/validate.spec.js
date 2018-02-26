@@ -1,5 +1,5 @@
 import { assertThat, equalTo } from 'hamjest';
-import { isValid } from './validate';
+import { isValid, whenInvalid } from './validate';
 
 describe('isValid iso8601 duration', () => {
   [
@@ -45,4 +45,19 @@ describe('isValid iso8601 duration', () => {
       isValid(isoDuration), equalTo(valid)));
   });
 });
+
+describe('whenInvalid', () => {
+  it('returns value', () => {
+    assertThat(whenInvalid(0, 'PT2S'), equalTo('PT2S'));
+  });
+
+  it('returns value', () => {
+    assertThat(whenInvalid(0, 'invalid'), equalTo(0));
+  });
+
+  it('returns executes function', () => {
+    assertThat(whenInvalid(() => 0, 'invalid'), equalTo(0));
+  });
+});
+
 
