@@ -1,4 +1,4 @@
-import { curry } from './curry';
+import { curry } from './utils';
 import {
   add,
   addDays,
