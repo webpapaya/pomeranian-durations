@@ -1,5 +1,5 @@
 import { assertThat, equalTo } from 'hamjest';
-import { curry } from './utils';
+import { curry } from './_utils';
 
 describe('curry', () => {
   const arity2 = curry((a, b) => a + b);

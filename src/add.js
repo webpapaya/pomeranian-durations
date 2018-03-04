@@ -1,4 +1,4 @@
-import { curry } from './utils';
+import { curry } from './_utils';
 import { toIso, toFragments } from './index';
 import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';

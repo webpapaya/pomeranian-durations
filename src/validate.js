@@ -1,5 +1,5 @@
 import { TIME_DESIGNATOR, DURATION_DESIGNATOR } from './constants';
-import { createRegexBuilder, curry } from './utils';
+import { createRegexBuilder, curry } from './_utils';
 
 const MATCH_NUMBER = /[+-]?\d+(\.\d+)?/.source;
 const MATCH_DATE = createRegexBuilder()
