@@ -1,4 +1,4 @@
-# Pomeranian Durations
+# Pomeranian Durations [![Build Status](https://travis-ci.org/webpapaya/pomeranian-durations.svg?branch=master)](https://travis-ci.org/webpapaya/pomeranian-durations)
 
 An immutable duration library based on the ISO-8601 format for durations.
 
