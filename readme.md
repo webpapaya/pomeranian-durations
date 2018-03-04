@@ -6,6 +6,7 @@ An immutable duration library based on the ISO-8601 format for durations.
 
 Pomeranian durations provides a couple of helpers to work with ISO8601 durations.
 
+
 ```
   addMinutes('PT3M', 2) // => 'PT5M'
   floorMinutes('PT3.5M') // => 'PT3M'
@@ -16,6 +17,24 @@ Pomeranian durations provides a couple of helpers to work with ISO8601 durations
 ```
 
 A full list of all helpers can be found at the [docs](https://github.com/webpapaya/pomeranian-durations/blob/master/doc.md)
+
+## Handling parsing errors
+
+By default this library returns 'Invalid Duration' when it can't parse the format.
+As every application wants to handle those kinds of errors differently developers
+can use functional composition to create their own verison of pomeranian durations.
+
+```
+const errorHandler = () => 'An error occured, our team is already on it.'
+const addSchoolHour = pipe(
+  addHours(1.5),
+  whenInvalid(errorHandler)
+);
+
+addSchoolHour('PT1H') // => PT2.5H
+addSchoolHour('Invalid duration') // => 'An error occured, our team is already on it.'
+```
+
 
 ## Upgrade to version 1.0.0
 - Swapped arguments of add* and subtract* functions, as they're now curried.
