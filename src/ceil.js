@@ -1,30 +1,18 @@
 import { curry } from './_utils';
-import {
-  floor,
-  floorDays,
-  floorHours,
-  floorMinutes,
-  floorMonths,
-  floorSeconds,
-  floorWeeks,
-  floorYears,
-} from './floor';
+import { floor } from './floor';
+import { add } from './add';
 
-import {
-  add,
-  addDays,
-  addHours,
-  addMinutes,
-  addMonths,
-  addSeconds,
-  addWeeks,
-  addYears,
-} from './add';
+import * as _add from './add'
+import * as _floor from './floor'
+
 import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';
 
-const buildCeilFn = (addFn, floorFn) => (isoString) => {
+const buildCeilFn = (unit) => (isoString) => {
   if (isInvalid(isoString)) { return INVALID_DURATION; }
+  const floorFn = _floor[`floor${unit}`];
+  const addFn = _add[`add${unit}`];
+
   return floorFn(addFn(1, isoString));
 };
 
@@ -46,7 +34,7 @@ export const ceil = curry((granularity, isoString) =>
  * @example
  * ceilSeconds('PT1.1S') // => PT2S
  */
-export const ceilSeconds = buildCeilFn(addSeconds, floorSeconds);
+export const ceilSeconds = buildCeilFn('Seconds');
 
 /**
  * Ceil a given ISO duration to the next minute.
@@ -54,7 +42,7 @@ export const ceilSeconds = buildCeilFn(addSeconds, floorSeconds);
  * @example
  * ceilMinutes('PT1.1M') // => PT2M
  */
-export const ceilMinutes = buildCeilFn(addMinutes, floorMinutes);
+export const ceilMinutes = buildCeilFn('Minutes');
 
 /**
  * Ceil a given ISO duration to the next hour.
@@ -62,7 +50,7 @@ export const ceilMinutes = buildCeilFn(addMinutes, floorMinutes);
  * @example
  * ceilHours('PT1.1H') // => PT2H
  */
-export const ceilHours = buildCeilFn(addHours, floorHours);
+export const ceilHours = buildCeilFn('Hours');
 
 /**
  * Ceil a given ISO duration to the next day.
@@ -70,7 +58,7 @@ export const ceilHours = buildCeilFn(addHours, floorHours);
  * @example
  * ceilDays('P1.1D') // => P2D
  */
-export const ceilDays = buildCeilFn(addDays, floorDays);
+export const ceilDays = buildCeilFn('Days');
 
 /**
  * Ceil a given ISO duration to the next week.
@@ -78,7 +66,7 @@ export const ceilDays = buildCeilFn(addDays, floorDays);
  * @example
  * ceilWeeks('P1.1W') // => P2W
  */
-export const ceilWeeks = buildCeilFn(addWeeks, floorWeeks);
+export const ceilWeeks = buildCeilFn('Weeks');
 
 /**
  * Ceil a given ISO duration to the next month.
@@ -86,7 +74,7 @@ export const ceilWeeks = buildCeilFn(addWeeks, floorWeeks);
  * @example
  * ceilMonths('P1.1M') // => P2M
  */
-export const ceilMonths = buildCeilFn(addMonths, floorMonths);
+export const ceilMonths = buildCeilFn('Months');
 
 /**
  * Ceil a given ISO duration to the next year.
@@ -94,4 +82,4 @@ export const ceilMonths = buildCeilFn(addMonths, floorMonths);
  * @example
  * ceilYears('P1.1Y') // => P2Y
  */
-export const ceilYears = buildCeilFn(addYears, floorYears);
+export const ceilYears = buildCeilFn('Years');
