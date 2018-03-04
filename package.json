@@ -8,7 +8,7 @@
     "build": "node src/_generate_index.js && babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
-    "prepublish": "npm run docs && npm run build"
+    "preversion": "npm run docs && npm run build"
   },
   "repository": {
     "type": "git",
