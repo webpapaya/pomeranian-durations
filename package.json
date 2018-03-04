@@ -9,7 +9,8 @@
     "lint": "eslint-crewmeister src",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
     "preversion": "npm run docs && npm run build",
-    "prepush": "npm run docs"
+    "prepush": "npm run docs",
+    "postversion": "git push && git push --tags && rm -r lib"
   },
   "repository": {
     "type": "git",
