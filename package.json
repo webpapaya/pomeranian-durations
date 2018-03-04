@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "docs": "documentation build src/** -f md > docs.md && git commit -m 'Update docs' docs.md || true",
-    "build": "babel src/ --out-dir lib/ --ignore *.spec.js",
+    "build": "node src/_generate_index.js && babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
     "prepublish": "npm run docs && npm run build"
