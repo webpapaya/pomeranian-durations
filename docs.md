@@ -12,6 +12,7 @@
 -   [addWeeks](#addweeks)
 -   [addMonths](#addmonths)
 -   [addYears](#addyears)
+-   [ceil](#ceil)
 -   [ceilSeconds](#ceilseconds)
 -   [ceilMinutes](#ceilminutes)
 -   [ceilHours](#ceilhours)
@@ -19,6 +20,24 @@
 -   [ceilWeeks](#ceilweeks)
 -   [ceilMonths](#ceilmonths)
 -   [ceilYears](#ceilyears)
+-   [asMicroseconds](#asmicroseconds)
+-   [asMilliseconds](#asmilliseconds)
+-   [asSeconds](#asseconds)
+-   [asMinutes](#asminutes)
+-   [asHours](#ashours)
+-   [asDecimalMicroseconds](#asdecimalmicroseconds)
+-   [asDecimalMilliseconds](#asdecimalmilliseconds)
+-   [asDecimalSeconds](#asdecimalseconds)
+-   [asDecimalMinutes](#asdecimalminutes)
+-   [asDecimalHours](#asdecimalhours)
+-   [findSeconds](#findseconds)
+-   [findMinutes](#findminutes)
+-   [findHours](#findhours)
+-   [findDays](#finddays)
+-   [findWeeks](#findweeks)
+-   [findMonths](#findmonths)
+-   [findYears](#findyears)
+-   [floor](#floor)
 -   [floorSeconds](#floorseconds)
 -   [floorMinutes](#floorminutes)
 -   [floorHours](#floorhours)
@@ -36,6 +55,9 @@
 -   [subtractWeeks](#subtractweeks)
 -   [subtractMonths](#subtractmonths)
 -   [subtractYears](#subtractyears)
+-   [isValid](#isvalid)
+-   [isInvalid](#isinvalid)
+-   [whenInvalid](#wheninvalid)
 
 ## add
 
@@ -187,6 +209,23 @@ Adds the given amount of hours to the given duration.
 addYears(1, 'P1Y') // => P2Y
 ```
 
+## ceil
+
+Ceils a duration to a given granularity.
+
+**Parameters**
+
+-   `granularity`  {string} - ISO8601 duration
+-   `isoString`  {string} - ISO8601 duration
+
+**Examples**
+
+```javascript
+ceil('PT2s', 'PT5S') // => PT6S
+ceil('PT3s', 'PT5S') // => PT6S
+ceil('PT4s', 'PT5S') // => PT8S
+```
+
 ## ceilSeconds
 
 Ceil a given ISO duration to the next second.
@@ -283,6 +322,252 @@ Ceil a given ISO duration to the next year.
 
 ```javascript
 ceilYears('P1.1Y') // => P2Y
+```
+
+## asMicroseconds
+
+Converts a isoDuration to microseconds. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in microseconds
+
+## asMilliseconds
+
+Converts a isoDuration to milliseconds. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in microseconds
+
+## asSeconds
+
+Converts a isoDuration to seconds. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in microseconds
+
+## asMinutes
+
+Converts a isoDuration to minutes. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in microseconds
+
+## asHours
+
+Converts a isoDuration to hours. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in microseconds
+
+## asDecimalMicroseconds
+
+Converts a duration to decimal microseconds. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in decimal microseconds
+
+## asDecimalMilliseconds
+
+Converts a duration to decimal milliseconds. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in secimal milliseconds
+
+## asDecimalSeconds
+
+Converts a duration to decimal seconds. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in decimal seconds
+
+## asDecimalMinutes
+
+Converts a duration to decimal minutes. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in decimal minutes
+
+## asDecimalHours
+
+Converts a duration to decimal hours. Throws an error when the duration
+contains a date unit because those can't be converted reliably to time units.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** duration in decimal hours
+
+## findSeconds
+
+Finds the seconds in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findSeconds('PT1S') // => 1S
+findSeconds('PT1M') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## findMinutes
+
+Finds the minutes in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findMinutes('PT1S') // => 1S
+findMinutes(P1Y') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## findHours
+
+Finds the hours in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findHours('PT1H') // => 1
+findHours('PT1M') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## findDays
+
+Finds the days in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findDays('P1D') // => 1
+findDays('PT1M') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## findWeeks
+
+Finds the weeks in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findWeeks('P1W') // => 1
+findWeeks('PT1M') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## findMonths
+
+Finds the months in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findMonths('P1M') // => 1
+findMonths('PT1s') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## findYears
+
+Finds the years in a given ISO8601 duration string.
+
+**Parameters**
+
+-   `isoString`  {string} an ISO8601 duration
+
+**Examples**
+
+```javascript
+findYears('P1Y') // => 1
+findYears('PT1M') // => undefined
+```
+
+Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
+
+## floor
+
+Floor a duration by a given granularity.
+
+**Parameters**
+
+-   `granularity`  {string} - ISO8601 duration
+-   `isoString`  {string} - ISO8601 duration
+
+**Examples**
+
+```javascript
+floor('PT2s', 'PT5S') // => PT4S
+floor('PT3s', 'PT5S') // => PT3S
+floor('PT4s', 'PT5S') // => PT4S
 ```
 
 ## floorSeconds
@@ -531,4 +816,44 @@ Adds the given amount of microseconds to the given duration.
 
 ```javascript
 subtractYears(1, 'P2Y') // => P1Y
+```
+
+## isValid
+
+Returns if the iso8601 duration is valid or not.
+
+**Parameters**
+
+-   `isoDuration`  {string}
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+## isInvalid
+
+Returns if the iso8601 duration is invalid or not.
+
+**Parameters**
+
+-   `isoDuration`  {string}
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+## whenInvalid
+
+Returns a default value when the given duration is invalid and duration when it is valid.
+
+**Parameters**
+
+-   `value`  {string}
+-   `isoDuration`  {string}
+
+**Examples**
+
+```javascript
+const add10 = compose(
+  add(10),
+  whenInvalid(() => { throw new Error('Invalid duration') }),
+);
+
+add10('invalid') // => error: 'Invalid duration'
 ```
