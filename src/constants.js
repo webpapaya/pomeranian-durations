@@ -7,6 +7,7 @@ export const ONE_DAY = ONE_HOUR * 24;
 
 export const TIME_DESIGNATOR = 'T';
 export const DURATION_DESIGNATOR = 'P';
+export const INVALID_DURATION = 'Invalid Duration';
 
 export const UNIT_NAMES = {
   microseconds: 'microseconds',
