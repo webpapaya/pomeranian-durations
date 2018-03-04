@@ -1,9 +1,6 @@
 import { curry } from './_utils';
-import { floor } from './floor';
-import { add } from './add';
-
-import * as _add from './add'
-import * as _floor from './floor'
+import * as _add from './add';
+import * as _floor from './floor';
 
 import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';
@@ -26,7 +23,7 @@ const buildCeilFn = (unit) => (isoString) => {
  * ceil('PT4s', 'PT5S') // => PT8S
  */
 export const ceil = curry((granularity, isoString) =>
-  floor(granularity, add(granularity, isoString)));
+  _floor.floor(granularity, _add.add(granularity, isoString)));
 
 /**
  * Ceil a given ISO duration to the next second.
