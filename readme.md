@@ -46,6 +46,7 @@ addSeconds('PT1S', 1) // => PT2S
 addSeconds(1, 'PT1S') // => PT2S
 addSeconds(1)('PT1S') // => PT2S
 ```
+- Wrapper got removed (please use regular functional composition instead)
 
 ## Precision Issues
 Because date components (years, months, weeks, days) can't be converted to other unites without date and timezone information, `pomeranian-durations`
