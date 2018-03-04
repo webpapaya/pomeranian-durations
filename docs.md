@@ -463,7 +463,7 @@ Finds the minutes in a given ISO8601 duration string.
 
 ```javascript
 findMinutes('PT1S') // => 1S
-findMinutes(P1Y') // => undefined
+findMinutes('P1Y') // => undefined
 ```
 
 Returns **([number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** number of seconds
