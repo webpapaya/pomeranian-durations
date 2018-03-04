@@ -53,7 +53,7 @@ export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString)
  * @returns {(number|undefined)} number of seconds
  * @example
  * findMinutes('PT1S') // => 1S
- * findMinutes(P1Y') // => undefined
+ * findMinutes('P1Y') // => undefined
  */
 export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString);
 
