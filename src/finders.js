@@ -37,11 +37,72 @@ const findDateUnit = (unit, isoString) => {
   return findUnit(dateComponent, unit);
 };
 
+/**
+ * Finds the seconds in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findSeconds('PT1S') // => 1S
+ * findSeconds('PT1M') // => undefined
+ */
 export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString);
+
+/**
+ * Finds the minutes in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findMinutes('PT1S') // => 1S
+ * findMinutes(P1Y') // => undefined
+ */
 export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString);
+
+/**
+ * Finds the hours in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findHours('PT1H') // => 1
+ * findHours('PT1M') // => undefined
+ */
 export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
 
+/**
+ * Finds the days in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findDays('P1D') // => 1
+ * findDays('PT1M') // => undefined
+ */
 export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
+
+/**
+ * Finds the weeks in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findWeeks('P1W') // => 1
+ * findWeeks('PT1M') // => undefined
+ */
 export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
+
+/**
+ * Finds the months in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findMonths('P1M') // => 1
+ * findMonths('PT1s') // => undefined
+ */
 export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
+
+/**
+ * Finds the years in a given ISO8601 duration string.
+ * @param isoString {string} an ISO8601 duration
+ * @returns {(number|undefined)} number of seconds
+ * @example
+ * findYears('P1Y') // => 1
+ * findYears('PT1M') // => undefined
+ */
 export const findYears = (isoString) => findDateUnit(UNITS.years, isoString);
