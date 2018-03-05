@@ -47,6 +47,21 @@ addSeconds(1, 'PT1S') // => PT2S
 addSeconds(1)('PT1S') // => PT2S
 ```
 - Wrapper got removed (please use regular functional composition instead)
+- Pomeranian durations return 'Invalid Duration' when it receives an invalid duration. It's up to the developer how this should be handled. This library provides a helper `whenInvalid` which can be used to handle those cases.
+
+```
+import { addSeconds as _addSeconds, whenInvalid } from 'pomeranian-durations';
+
+const addSeconds1 = pipe(
+  whenInvalid(() => 'PT0S'),
+  _addSeconds(10),
+); // => PT10S
+
+const addSeconds2 = pipe(
+  _addSeconds(10),
+  whenInvalid(() => 'PT0S'),
+); // => PT0S
+```
 
 ## Precision Issues
 Because date components (years, months, weeks, days) can't be converted to other unites without date and timezone information, `pomeranian-durations`
