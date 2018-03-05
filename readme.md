@@ -7,7 +7,7 @@ An immutable duration library based on the ISO-8601 format for durations.
 Pomeranian durations provides a couple of helpers to work with ISO8601 durations.
 
 
-```
+```js
   addMinutes('PT3M', 2) // => 'PT5M'
   floorMinutes('PT3.5M') // => 'PT3M'
   findMinutes('PT3M') // => 3
@@ -24,7 +24,7 @@ By default this library returns 'Invalid Duration' when it can't parse the forma
 As every application wants to handle those kinds of errors differently developers
 can use functional composition to create their own verison of pomeranian durations.
 
-```
+```js
 const errorHandler = () => 'An error occured, our team is already on it.'
 const addSchoolHour = pipe(
   addHours(1.5),
@@ -38,7 +38,7 @@ addSchoolHour('Invalid duration') // => 'An error occured, our team is already o
 
 ## Upgrade to version 1.0.0
 - Swapped arguments of add* and subtract* functions, as they're now curried.
-```
+```js
 // version 0.*
 addSeconds('PT1S', 1) // => PT2S
 
@@ -49,7 +49,7 @@ addSeconds(1)('PT1S') // => PT2S
 - Wrapper got removed (please use regular functional composition instead)
 - Pomeranian durations return 'Invalid Duration' when it receives an invalid duration. It's up to the developer how this should be handled. This library provides a helper `whenInvalid` which can be used to handle those cases.
 
-```
+```js
 import { addSeconds as _addSeconds, whenInvalid } from 'pomeranian-durations';
 
 const addSeconds1 = pipe(
