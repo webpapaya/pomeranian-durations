@@ -683,6 +683,12 @@ Converts a given number to an ISO8601 duration
 
 -   `amount`  {number}
 
+**Examples**
+
+```javascript
+fromSeconds(1) // => 'PT1S'
+```
+
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
 ## fromMinutes
@@ -692,6 +698,12 @@ Converts a given number to an ISO8601 duration
 **Parameters**
 
 -   `amount`  {number}
+
+**Examples**
+
+```javascript
+fromMinutes(1) // => 'PT1M'
+```
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
@@ -703,6 +715,12 @@ Converts a given number to an ISO8601 duration
 
 -   `amount`  {number}
 
+**Examples**
+
+```javascript
+fromHours(1) // => 'PT1H'
+```
+
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
 ## fromDays
@@ -712,6 +730,12 @@ Converts a given number to an ISO8601 duration
 **Parameters**
 
 -   `amount`  {number}
+
+**Examples**
+
+```javascript
+fromDays(1) // => 'P1D'
+```
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
@@ -723,6 +747,12 @@ Converts a given number to an ISO8601 duration
 
 -   `amount`  {number}
 
+**Examples**
+
+```javascript
+fromWeeks(1) // => 'PT1W'
+```
+
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
 ## fromMonths
@@ -733,6 +763,12 @@ Converts a given number to an ISO8601 duration
 
 -   `amount`  {number}
 
+**Examples**
+
+```javascript
+fromMonths(1) // => 'P1M'
+```
+
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
 ## fromYears
@@ -742,6 +778,12 @@ Converts a given number to an ISO8601 duration
 **Parameters**
 
 -   `amount`  {number}
+
+**Examples**
+
+```javascript
+fromYears(1) // => 'P1Y'
+```
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
