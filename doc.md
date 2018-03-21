@@ -45,6 +45,8 @@
 -   [floorWeeks](#floorweeks)
 -   [floorMonths](#floormonths)
 -   [floorYears](#flooryears)
+-   [fromMicroseconds](#frommicroseconds)
+-   [fromMilliseconds](#frommilliseconds)
 -   [fromSeconds](#fromseconds)
 -   [fromMinutes](#fromminutes)
 -   [fromHours](#fromhours)
@@ -62,6 +64,8 @@
 -   [subtractWeeks](#subtractweeks)
 -   [subtractMonths](#subtractmonths)
 -   [subtractYears](#subtractyears)
+-   [toIso](#toiso)
+-   [toFragments](#tofragments)
 -   [isValid](#isvalid)
 -   [isInvalid](#isinvalid)
 -   [whenInvalid](#wheninvalid)
@@ -675,6 +679,38 @@ Floor a given ISO duration to the current year.
 floorYears('P1.1Y') // => P1Y
 ```
 
+## fromMicroseconds
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+**Examples**
+
+```javascript
+fromMicroseconds(1) // => 'PT0.000001S'
+```
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromMilliseconds
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+**Examples**
+
+```javascript
+fromMilliseconds(1) // => 'PT0.001S'
+```
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
 ## fromSeconds
 
 Converts a given number to an ISO8601 duration
@@ -936,6 +972,43 @@ Adds the given amount of microseconds to the given duration.
 ```javascript
 subtractYears(1, 'P2Y') // => P1Y
 ```
+
+## toIso
+
+Converts an object to an ISO duration.
+
+**Parameters**
+
+-   `fragments`  {object} - object containing the unit as key.
+       (available keys: seconds, minutes, hours, days, weeks, months, years)
+-   `$1` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
+    -   `$1.includeZeroValues`   (optional, default `false`)
+
+**Examples**
+
+```javascript
+toIso({ seconds: 1, hours: 2 }) // => 'PT1H1S'
+```
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+## toFragments
+
+Splits all components of an ISO8601 duration into its units.
+
+**Parameters**
+
+-   `isoString`  {string}
+-   `$1` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
+    -   `$1.defaultValue`   (optional, default `0`)
+
+**Examples**
+
+```javascript
+toFragments('PT1H1S') // => { seconds: 1, hours: 2 }
+```
+
+Returns **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 ## isValid
 
