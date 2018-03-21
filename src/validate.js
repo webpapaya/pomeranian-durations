@@ -1,4 +1,4 @@
-import { TIME_DESIGNATOR, DURATION_DESIGNATOR } from './constants';
+import { TIME_DESIGNATOR, DURATION_DESIGNATOR, INVALID_DURATION } from './constants';
 import { createRegexBuilder, curry } from './_utils';
 
 const MATCH_NUMBER = /[+-]?\d+(\.\d+)?/.source;
@@ -54,6 +54,29 @@ export const isInvalid = (isoDuration) =>
  */
 export const whenInvalid = curry((value, isoDuration) => {
   if (isValid(isoDuration)) { return isoDuration; }
+  if (typeof value === 'function') { return value(isoDuration); }
+  return value;
+});
+
+/**
+ * Returns a given default value when the given duration matches the string 'Invalid Duration'.
+ * In comparison to whenInvalid the function only returns the default value when it exactly matches
+ * the 'Invalid Duration' string. Otherwise it just returns the value. In many cases you would prefer
+ * this function over `whenInvalid`.
+ *
+ * @param value {string}
+ * @param isoDuration {string}
+ * @example
+ * const convertToHours = compose(
+ *   asHours,
+ *   whenInvalidDuration(null),
+ * );
+ *
+ * convertToHours('PT10H') // => 10
+ * convertToHours('Blub') // => null
+ */
+export const whenInvalidDuration = curry((value, isoDuration) => {
+  if (isoDuration !== INVALID_DURATION) { return isoDuration; }
   if (typeof value === 'function') { return value(isoDuration); }
   return value;
 });

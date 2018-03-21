@@ -1,5 +1,6 @@
 import { assertThat, equalTo } from 'hamjest';
-import { isValid, whenInvalid } from './validate';
+import { isValid, whenInvalid, whenInvalidDuration } from './validate';
+import { INVALID_DURATION } from './constants';
 
 describe('isValid iso8601 duration', () => {
   [
@@ -60,3 +61,21 @@ describe('whenInvalid', () => {
   });
 });
 
+
+describe('whenInvalidDuration', () => {
+  it('returns value', () => {
+    assertThat(whenInvalidDuration(0, 'PT2S'), equalTo('PT2S'));
+  });
+
+  it('returns value when invalid but not an invalid duration', () => {
+    assertThat(whenInvalidDuration(0, 'a random value'), equalTo('a random value'));
+  });
+
+  it('returns value', () => {
+    assertThat(whenInvalidDuration(0, INVALID_DURATION), equalTo(0));
+  });
+
+  it('returns executes function', () => {
+    assertThat(whenInvalidDuration(() => 0, INVALID_DURATION), equalTo(0));
+  });
+});
