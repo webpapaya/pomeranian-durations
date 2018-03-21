@@ -1,5 +1,7 @@
 import { assertThat, equalTo } from 'hamjest';
 import {
+  fromMicroseconds,
+  fromMilliseconds,
   fromSeconds,
   fromMinutes,
   fromHours,
@@ -11,6 +13,8 @@ import {
 
 describe('from<unit>', () => {
   [
+    { fn: fromMicroseconds, unit: 'microseconds', input: 1, result: 'PT0.000001S' },
+    { fn: fromMilliseconds, unit: 'milliseconds', input: 1, result: 'PT0.001S' },
     { fn: fromSeconds, unit: 'seconds', input: 1, result: 'PT1S' },
     { fn: fromMinutes, unit: 'minutes', input: 1, result: 'PT1M' },
     { fn: fromHours, unit: 'hours', input: 1, result: 'PT1H' },
