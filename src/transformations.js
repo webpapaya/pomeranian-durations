@@ -44,12 +44,27 @@ const buildTimeComponent = (fragments, includeZeroValues) => {
   return timeComponent ? `${TIME_DESIGNATOR}${timeComponent}` : '';
 };
 
+/**
+ * Converts an object to an ISO duration.
+ * @param fragments {object} - object containing the unit as key.
+ *    (available keys: seconds, minutes, hours, days, weeks, months, years)
+ * @returns {string}
+ * @example
+ * toIso({ seconds: 1, hours: 2 }) // => 'PT1H1S'
+ */
 export const toIso = (fragments, { includeZeroValues = false } = {}) => {
   const dateComponent = buildDateComponent(fragments, includeZeroValues);
   const timeComponent = buildTimeComponent(fragments, includeZeroValues);
   return `${dateComponent}${timeComponent}`;
 };
 
+/**
+ * Splits all components of an ISO8601 duration into its units.
+ * @param isoString {string}
+ * @returns {object}
+ * @example
+ * toFragments('PT1H1S') // => { seconds: 1, hours: 2 }
+ */
 export const toFragments = (isoString, { defaultValue = 0 } = {}) => {
   return {
     seconds: findSeconds(isoString) || defaultValue,
