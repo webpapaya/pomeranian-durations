@@ -69,6 +69,7 @@
 -   [isValid](#isvalid)
 -   [isInvalid](#isinvalid)
 -   [whenInvalid](#wheninvalid)
+-   [whenInvalidDuration](#wheninvalidduration)
 
 ## add
 
@@ -1048,4 +1049,28 @@ const add10 = compose(
 );
 
 add10('invalid') // => error: 'Invalid duration'
+```
+
+## whenInvalidDuration
+
+Returns a given default value when the given duration matches the string 'Invalid Duration'.
+In comparison to whenInvalid the function only returns the default value when it exactly matches
+the 'Invalid Duration' string. Otherwise it just returns the value. In many cases you would prefer
+this function over `whenInvalid`.
+
+**Parameters**
+
+-   `value`  {string}
+-   `isoDuration`  {string}
+
+**Examples**
+
+```javascript
+const convertToHours = compose(
+  asHours,
+  whenInvalidDuration(null),
+);
+
+convertToHours('PT10H') // => 10
+convertToHours('Blub') // => null
 ```
