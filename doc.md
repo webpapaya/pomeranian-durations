@@ -45,6 +45,13 @@
 -   [floorWeeks](#floorweeks)
 -   [floorMonths](#floormonths)
 -   [floorYears](#flooryears)
+-   [fromSeconds](#fromseconds)
+-   [fromMinutes](#fromminutes)
+-   [fromHours](#fromhours)
+-   [fromDays](#fromdays)
+-   [fromWeeks](#fromweeks)
+-   [fromMonths](#frommonths)
+-   [fromYears](#fromyears)
 -   [subtract](#subtract)
 -   [subtractMilliseconds](#subtractmilliseconds)
 -   [subtractMicroseconds](#subtractmicroseconds)
@@ -667,6 +674,76 @@ Floor a given ISO duration to the current year.
 ```javascript
 floorYears('P1.1Y') // => P1Y
 ```
+
+## fromSeconds
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromMinutes
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromHours
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromDays
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromWeeks
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromMonths
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## fromYears
+
+Converts a given number to an ISO8601 duration
+
+**Parameters**
+
+-   `amount`  {number}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
 
 ## subtract
 
