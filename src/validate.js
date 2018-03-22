@@ -44,7 +44,7 @@ export const isInvalid = (isoDuration) =>
 
 /**
  * Returns a default value when the given duration is invalid and duration when it is valid.
- * @category validation, helper
+ * @category validation
  * @param value {string}
  * @param isoDuration {string}
  * @example
@@ -67,7 +67,7 @@ export const whenInvalid = curry((value, isoDuration) => {
  * the 'Invalid Duration' string. Otherwise it just returns the value. In many cases you would prefer
  * this function over `whenInvalid`.
  *
- * @category validation, helper
+ * @category validation
  * @param value {string}
  * @param isoDuration {string}
  * @example

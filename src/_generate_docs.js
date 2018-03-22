@@ -16,36 +16,40 @@ const getAllCategories = (docs) => Object.keys(docs.reduce((acc, doc) => {
 
 const NEW_LINE = '\n\n';
 const categoryHeading = (category) =>
-  `\n<a name="${category}-category-heading"></a> ${NEW_LINE} ## Category: ${category}`;
+  `\n<a name="category-heading-${category}"></a> ${NEW_LINE} ### Category: ${category}`;
 
 const fnNameList = (category, docs) => docs
   .filter((doc) => doc.category.includes(category))
-  .map((doc) => `- ${doc.longname}`)
-  .join('\n');
-
-const examples = (category, docs) => docs
-  .filter((doc) => doc.examples && doc.category.includes(category))
-  .map((doc) => doc.examples)
-  .reduce((acc, examples) => [...acc, ...examples], [])
-  .map((example) => `\`\`\`javascript\n ${example} \n\`\`\``)
-  .join(NEW_LINE);
+  .map((doc) => `[${doc.longname}](#fn-heading-${doc.longname})`)
+  .join(' | ');
 
 const buildCategorySection = (category, docs) => [
   categoryHeading(category),
   fnNameList(category, docs),
-  examples(category, docs),
 ].join(NEW_LINE);
 
 const buildCategoryOverview = (docs) => getAllCategories(docs)
-  .map((category) => `- [${category}](#${category}-category-heading)`)
+  .map((category) => `- [${category}](#category-heading-${category})`)
   .join('\n');
+
+const buildFullDocs = (docs) => docs
+  .map((doc) => [
+    `<a name="fn-heading-${doc.longname}"></a>`,
+    `### ${doc.longname}\n`,
+    `${doc.description}\n`,
+    (doc.examples || []).map((example) => `\`\`\`javascript\n ${example} \n\`\`\``).join('\n'),
+  ].join('\n'))
+  .join(NEW_LINE);
 
 const parsedDocs = parseDocs();
 const categoryList = buildCategoryOverview(parsedDocs);
 const categoryOverview = getAllCategories(parsedDocs)
   .reduce((output, category) => output + buildCategorySection(category, parsedDocs), '');
 
+
 console.log([
+  '# Pomeranian Durations 🐶\n',
   categoryList,
   categoryOverview,
+  buildFullDocs(parsedDocs),
 ].join(''));

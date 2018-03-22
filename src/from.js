@@ -3,7 +3,7 @@ import { ONE_MILLISECOND, ONE_SECOND } from './constants';
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -13,7 +13,7 @@ export const fromMicroseconds = (amount) => fromSeconds(amount / ONE_SECOND);
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -23,7 +23,7 @@ export const fromMilliseconds = (amount) => fromSeconds(amount / ONE_MILLISECOND
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -33,7 +33,7 @@ export const fromSeconds = (amount) => toIso({ seconds: amount });
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -43,7 +43,7 @@ export const fromMinutes = (amount) => toIso({ minutes: amount });
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -53,7 +53,7 @@ export const fromHours = (amount) => toIso({ hours: amount });
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -63,7 +63,7 @@ export const fromDays = (amount) => toIso({ days: amount });
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -73,7 +73,7 @@ export const fromWeeks = (amount) => toIso({ weeks: amount });
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
@@ -83,7 +83,7 @@ export const fromMonths = (amount) => toIso({ months: amount });
 
 /**
  * Converts a given number to an ISO8601 duration
- * @category conversion, from
+ * @category from
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example

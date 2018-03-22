@@ -16,7 +16,7 @@ import { toFragments, toIso } from './transformations';
 
 /**
  * Subtracts the given iso duration from the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param firstDuration {string} - a duration to be subtracted
  * @param secondDuration {string} - a duration to be subtracted
  * @example
@@ -33,7 +33,7 @@ export const subtract = curry((firstDuration, secondDurations) => {
 
 /**
  * Subtracts the given amount of milliseconds from the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of milliseconds to be subtracted
  * @param isoString {string} - a duration to be subtracted
  * @example
@@ -43,7 +43,7 @@ export const subtractMilliseconds = curry((amount, isoString) => addMilliseconds
 
 /**
  * Subtracts the given amount of microseconds to microseconds from the duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of microseconds to be subtracted
  * @param isoString {string} - a duration to be subtracted
  * @example
@@ -53,7 +53,7 @@ export const subtractMicroseconds = curry((amount, isoString) => addMicroseconds
 
 /**
  * Subtracts the given amount of microseconds seconds from the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of microseconds toseconds subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
@@ -63,7 +63,7 @@ export const subtractSeconds = curry((amount, isoString) => addSeconds(amount * 
 
 /**
  * Subtracts the given amount of microseconds minutes frome given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of microseconds tominutes subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
@@ -73,7 +73,7 @@ export const subtractMinutes = curry((amount, isoString) => addMinutes(amount * 
 
 /**
  * Subtracts the given amount of hours from the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of hours to subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
@@ -83,7 +83,7 @@ export const subtractHours = curry((amount, isoString) => addHours(amount * -1, 
 
 /**
  * Subtracts the given amount of days from the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number ofdays microseconds to subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
@@ -93,7 +93,7 @@ export const subtractDays = curry((amount, isoString) => addDays(amount * -1, is
 
 /**
  * Subtracts the given amount of weeks from the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of weeks to subtract
  * @param isoString {string} - a string to be added
  * @example
@@ -103,7 +103,7 @@ export const subtractWeeks = curry((amount, isoString) => addWeeks(amount * -1, 
 
 /**
  * Subtracts the given amount of microseconds months frome given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of microseconds tmonths subtract
  * @param isoString {string} - a string to be added
  * @example
@@ -113,7 +113,7 @@ export const subtractMonths = curry((amount, isoString) => addMonths(amount * -1
 
 /**
  * Adds the given amount of microseconds to the given duration.
- * @category calculation, subtract
+ * @category subtract
  * @param amount {number} - number of microseconds to add
  * @param isoString {string} - a string to be added
  * @example

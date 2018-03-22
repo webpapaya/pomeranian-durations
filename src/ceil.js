@@ -15,7 +15,7 @@ const buildCeilFn = (unit) => (isoString) => {
 
 /**
  * Ceils a duration to a given granularity.
- * @category calculation, ceil
+ * @category ceil
  * @param granularity {string} - ISO8601 duration
  * @param isoString {string} - ISO8601 duration
  * @example
@@ -28,7 +28,7 @@ export const ceil = curry((granularity, isoString) =>
 
 /**
  * Ceil a given ISO duration to the next second.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilSeconds('PT1.1S') // => PT2S
@@ -37,7 +37,7 @@ export const ceilSeconds = buildCeilFn('Seconds');
 
 /**
  * Ceil a given ISO duration to the next minute.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilMinutes('PT1.1M') // => PT2M
@@ -46,7 +46,7 @@ export const ceilMinutes = buildCeilFn('Minutes');
 
 /**
  * Ceil a given ISO duration to the next hour.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilHours('PT1.1H') // => PT2H
@@ -55,7 +55,7 @@ export const ceilHours = buildCeilFn('Hours');
 
 /**
  * Ceil a given ISO duration to the next day.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilDays('P1.1D') // => P2D
@@ -64,7 +64,7 @@ export const ceilDays = buildCeilFn('Days');
 
 /**
  * Ceil a given ISO duration to the next week.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilWeeks('P1.1W') // => P2W
@@ -73,7 +73,7 @@ export const ceilWeeks = buildCeilFn('Weeks');
 
 /**
  * Ceil a given ISO duration to the next month.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilMonths('P1.1M') // => P2M
@@ -82,7 +82,7 @@ export const ceilMonths = buildCeilFn('Months');
 
 /**
  * Ceil a given ISO duration to the next year.
- * @category calculation, ceil
+ * @category ceil
  * @param isoDuration {string} - ISO8601 duration
  * @example
  * ceilYears('P1.1Y') // => P2Y
