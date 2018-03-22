@@ -54,6 +54,9 @@
 -   [fromWeeks](#fromweeks)
 -   [fromMonths](#frommonths)
 -   [fromYears](#fromyears)
+-   [inSeconds](#inseconds)
+-   [inMinutes](#inminutes)
+-   [inHours](#inhours)
 -   [subtract](#subtract)
 -   [subtractMilliseconds](#subtractmilliseconds)
 -   [subtractMicroseconds](#subtractmicroseconds)
@@ -823,6 +826,48 @@ fromYears(1) // => 'P1Y'
 ```
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** an ISO8601 duration
+
+## inSeconds
+
+Converts all time parts of an ISO8601 duration to seconds and returns the ISO8601 duration string.
+
+**Parameters**
+
+-   `inSeconds`  {string} - isoDuration
+
+**Examples**
+
+```javascript
+inSeconds('PT1M') // => 'PT60S'
+```
+
+## inMinutes
+
+Converts all time parts of an ISO8601 duration to minutes and returns the ISO8601 duration string.
+
+**Parameters**
+
+-   `inSeconds`  {string} - isoDuration
+
+**Examples**
+
+```javascript
+inSeconds('PT1H') // => 'PT60M'
+```
+
+## inHours
+
+Converts all time parts of an ISO8601 duration to hours and returns the ISO8601 duration string.
+
+**Parameters**
+
+-   `inSeconds`  {string} - isoDuration
+
+**Examples**
+
+```javascript
+inSeconds('PT60M') // => 'PT1H'
+```
 
 ## subtract
 
