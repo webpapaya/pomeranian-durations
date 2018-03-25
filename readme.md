@@ -46,7 +46,9 @@ Helpers to ceil an ISO8601 duration to a particular granularity.
 [ceil](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L32) | [ceilSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L41) | [ceilMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L49) | [ceilHours](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L57) | [ceilDays](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L65) | [ceilWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L73) | [ceilMonths](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L81) | [ceilYears](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L89)
 
 ```javascript
-ceil('PT2s', 'PT5S') // => 'PT6S',ceil('PT3s', 'PT5S') // => 'PT6S',ceil('PT4s', 'PT5S') // => 'PT8S'
+ceil('PT2s', 'PT5S') // => 'PT6S'
+ceil('PT3s', 'PT5S') // => 'PT6S'
+ceil('PT4s', 'PT5S') // => 'PT8S'
 ceilSeconds('PT1.1S') // => 'PT2S'
 ceilMinutes('PT1.1M') // => 'PT2M'
 ceilHours('PT1.1H') // => 'PT2H'
@@ -86,13 +88,20 @@ Helpers for finding particular units in a given ISO8601 duration
 [findSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L53) | [findMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L64) | [findHours](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L75) | [findDays](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L86) | [findWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L97) | [findMonths](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L108) | [findYears](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L119)
 
 ```javascript
-findSeconds('PT1S') // => 1,findSeconds('PT1M') // => undefined
-findMinutes('PT1M') // => 1,findMinutes('P1Y') // => undefined
-findHours('PT1H') // => 1,findHours('PT1M') // => undefined
-findDays('P1D') // => 1,findDays('PT1M') // => undefined
-findWeeks('P1W') // => 1,findWeeks('PT1M') // => undefined
-findMonths('P1M') // => 1,findMonths('PT1s') // => undefined
-findYears('P1Y') // => 1,findYears('PT1M') // => undefined
+findSeconds('PT1S') // => 1
+findSeconds('PT1M') // => undefined
+findMinutes('PT1M') // => 1
+findMinutes('P1Y') // => undefined
+findHours('PT1H') // => 1
+findHours('PT1M') // => undefined
+findDays('P1D') // => 1
+findDays('PT1M') // => undefined
+findWeeks('P1W') // => 1
+findWeeks('PT1M') // => undefined
+findMonths('P1M') // => 1
+findMonths('PT1s') // => undefined
+findYears('P1Y') // => 1
+findYears('PT1M') // => undefined
 ```
 
 
@@ -104,7 +113,9 @@ Helpers to floor an ISO8601 duration to a particular granularity.
 [floor](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L45) | [floorSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L66) | [floorMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L74) | [floorHours](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L82) | [floorDays](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L90) | [floorWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L98) | [floorMonths](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L106) | [floorYears](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L114)
 
 ```javascript
-floor('PT2s', 'PT5S') // => 'PT4S',floor('PT3s', 'PT5S') // => 'PT3S',floor('PT4s', 'PT5S') // => 'PT4S'
+floor('PT2s', 'PT5S') // => 'PT4S'
+floor('PT3s', 'PT5S') // => 'PT3S'
+floor('PT4s', 'PT5S') // => 'PT4S'
 floorSeconds('PT1.1S') // => 'PT1S'
 floorMinutes('PT1.1M') // => 'PT1M'
 floorHours('PT1.1H') // => 'PT1H'
