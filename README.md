@@ -198,9 +198,13 @@ subtractYears(1, 'P2Y') // => 'P1Y'
 
 Helpers for validating ISO8601 durations.
 
-[isValid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L36) | [isInvalid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L44) | [whenInvalid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L59) | [whenInvalidDuration](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L82)
+[isValid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L40) | [isInvalid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L52) | [whenInvalid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L67) | [whenInvalidDuration](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L90)
 
 ```javascript
+isValid('PT1S') // => true
+isValid('invalid') // => false
+isInvalid('invalid') // => true
+isInvalid('PT1S') // => false
 const add10 = compose(
   add(10),
   whenInvalid(() => { throw new Error('Invalid duration') }),
