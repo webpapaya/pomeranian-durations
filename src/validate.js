@@ -26,7 +26,6 @@ const MATCH_DURATION = createRegexBuilder()
 
 /**
  * Returns if the iso8601 duration is valid or not.
- * @category validation
  * @param isoDuration {string}
  * @returns {boolean}
  */
@@ -35,7 +34,6 @@ export const isValid = (isoDuration) =>
 
 /**
  * Returns if the iso8601 duration is invalid or not.
- * @category validation
  * @param isoDuration {string}
  * @returns {boolean}
  */
@@ -44,7 +42,6 @@ export const isInvalid = (isoDuration) =>
 
 /**
  * Returns a default value when the given duration is invalid and duration when it is valid.
- * @category validation
  * @param value {string}
  * @param isoDuration {string}
  * @example
@@ -67,7 +64,6 @@ export const whenInvalid = curry((value, isoDuration) => {
  * the 'Invalid Duration' string. Otherwise it just returns the value. In many cases you would prefer
  * this function over `whenInvalid`.
  *
- * @category validation
  * @param value {string}
  * @param isoDuration {string}
  * @example

@@ -1,3 +1,7 @@
+/**
+ * Finds {{unit}} in a given ISO8601 duration
+ * @name default
+ */
 import {
   TIME_DESIGNATOR,
   DURATION_DESIGNATOR,
@@ -39,7 +43,6 @@ const findDateUnit = (unit, isoString) => {
 
 /**
  * Finds the seconds in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
@@ -50,7 +53,6 @@ export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString)
 
 /**
  * Finds the minutes in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
@@ -61,7 +63,6 @@ export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString)
 
 /**
  * Finds the hours in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
@@ -72,7 +73,6 @@ export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
 
 /**
  * Finds the days in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
@@ -83,7 +83,6 @@ export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
 
 /**
  * Finds the weeks in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
@@ -94,7 +93,6 @@ export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
 
 /**
  * Finds the months in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
@@ -105,7 +103,6 @@ export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
 
 /**
  * Finds the years in a given ISO8601 duration string.
- * @category find
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example

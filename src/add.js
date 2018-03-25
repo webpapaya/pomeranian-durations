@@ -5,7 +5,6 @@ import { INVALID_DURATION } from './constants';
 
 /**
  * Adds two iso durations
- * @category add
  * @param firstIsoString {string} - a string to be added
  * @param secondIsoString {string} - a string to be added
  * @example
@@ -25,7 +24,6 @@ export const add = curry((firstIsoString, secondIsoString) => {
 
 /**
  * Adds the given amount of microseconds to the given duration.
- * @category add
  * @param amount {number} - number of microseconds to add
  * @param isoString {string} - a string to be added
  * @example
@@ -35,7 +33,6 @@ export const addMicroseconds = curry((amount, isoString) => add(isoString, `PT${
 
 /**
  * Adds the given amount of milliseconds to the given duration.
- * @category add
  * @param amount {number} - number of milliseconds to add
  * @param isoString {string} - a string to be added
  * @example
@@ -45,7 +42,6 @@ export const addMilliseconds = curry((amount, isoString) => add(isoString, `PT${
 
 /**
  * Adds the given amount of seconds to the given duration.
- * @category add
  * @param amount {number} - number of seconds to add
  * @param isoString {string} - a string to be added
  * @example
@@ -55,7 +51,6 @@ export const addSeconds = curry((amount, isoString) => add(isoString, `PT${amoun
 
 /**
  * Adds the given amount of minutes to the given duration.
- * @category add
  * @param amount {number} - number of minutes to add
  * @param isoString {string} - a string to be added
  * @example
@@ -65,7 +60,6 @@ export const addMinutes = curry((amount, isoString) => add(isoString, `PT${amoun
 
 /**
  * Adds the given amount of hours to the given duration.
- * @category add
  * @param amount {number} - number of hours to add
  * @param isoString {string} - a string to be added
  * @example
@@ -75,7 +69,6 @@ export const addHours = curry((amount, isoString) => add(isoString, `PT${amount}
 
 /**
  * Adds the given amount of hours to the given duration.
- * @category add
  * @param amount {number} - number of days to add
  * @param isoString {string} - a string to be added
  * @example
@@ -85,7 +78,6 @@ export const addDays = curry((amount, isoString) => add(isoString, `P${amount}D`
 
 /**
  * Adds the given amount of hours to the given duration.
- * @category add
  * @param amount {number} - number of weeks to add
  * @param isoString {string} - a string to be added
  * @example
@@ -95,7 +87,6 @@ export const addWeeks = curry((amount, isoString) => add(isoString, `P${amount}W
 
 /**
  * Adds the given amount of hours to the given duration.
- * @category add
  * @param amount {number} - number of months to add
  * @param isoString {string} - a string to be added
  * @example
@@ -105,7 +96,6 @@ export const addMonths = curry((amount, isoString) => add(isoString, `P${amount}
 
 /**
  * Adds the given amount of hours to the given duration.
- * @category add
  * @param amount {number} - number of years to add
  * @param isoString {string} - a string to be added
  * @example
