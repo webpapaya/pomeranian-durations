@@ -32,6 +32,10 @@ const MATCH_DURATION = createRegexBuilder()
  * Returns if the iso8601 duration is valid or not.
  * @param isoDuration {string}
  * @returns {boolean}
+ * @example
+ * isValid('PT1S') // => true
+ * @example
+ * isValid('invalid') // => false
  */
 export const isValid = (isoDuration) =>
   typeof isoDuration === 'string' && MATCH_DURATION.test(isoDuration.toUpperCase());
@@ -40,6 +44,10 @@ export const isValid = (isoDuration) =>
  * Returns if the iso8601 duration is invalid or not.
  * @param isoDuration {string}
  * @returns {boolean}
+ * @example
+ * isInvalid('invalid') // => true
+ * @example
+ * isInvalid('PT1S') // => false
  */
 export const isInvalid = (isoDuration) =>
   !isValid(isoDuration);
