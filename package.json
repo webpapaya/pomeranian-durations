@@ -23,7 +23,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
     "common-tags": "^1.7.2",
-    "documentation": "^5.4.0",
     "eslint-config-crewmeister": "latest",
     "hamjest": "^2.13.0",
     "husky": "^0.14.3",
