@@ -24,7 +24,7 @@ const generateCategoryNavigation = (parsedDocs) => extractCategories(parsedDocs)
 
 const extractCategoryExamples = (parsedDocs, category) => parsedDocs
   .filter((doc) => doc.id !== 'default' && extractCategory(doc) === category && doc.examples)
-  .map((doc) => doc.examples).join('\n');
+  .map((doc) => doc.examples.join('\n')).join('\n');
 
 const generateCategoryHeading = (category) =>
   `<a name="category-${category}"></a>\n## ${category}`;
