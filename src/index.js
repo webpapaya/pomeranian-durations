@@ -6,7 +6,6 @@ export * from './find.js';
 export * from './floor.js';
 export * from './from.js';
 export * from './in.js';
-export * from './index.js';
 export * from './subtract.js';
 export * from './transformations.js';
 export * from './validate.js';
