@@ -20,7 +20,7 @@ const EXAMPLE = [
     name: 'findSeconds',
     description: 'Finds the seconds in a given ISO8601 duration string.',
     params: [[Object]],
-    examples: ['findSeconds(\'PT1S\') // => 1S\nfindSeconds(\'PT1M\') // => undefined'],
+    examples: ['findSeconds(\'PT1S\') // => 1S', 'findSeconds(\'PT1M\') // => undefined'],
     returns: [[Object]],
     meta: { lineno: 53, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' },
   }, {
