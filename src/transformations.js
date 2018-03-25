@@ -50,7 +50,7 @@ const buildTimeComponent = (fragments, includeZeroValues) => {
  *    (available keys: seconds, minutes, hours, days, weeks, months, years)
  * @returns {string}
  * @example
- * toIso({ seconds: 1, hours: 2 }) // => 'PT1H1S'
+ * toIso({ seconds: 1, hours: 2 }) // => 'PT2H1S'
  */
 export const toIso = (fragments, { includeZeroValues = false } = {}) => {
   const dateComponent = buildDateComponent(fragments, includeZeroValues);
@@ -63,7 +63,7 @@ export const toIso = (fragments, { includeZeroValues = false } = {}) => {
  * @param isoString {string}
  * @returns {object}
  * @example
- * toFragments('PT1H1S') // => { seconds: 1, hours: 2 }
+ * toFragments('PT1H1S') // => ({ seconds: 1, minutes: 0, hours: 1, days: 0, weeks: 0, months: 0, years: 0 })
  */
 export const toFragments = (isoString, { defaultValue = 0 } = {}) => {
   return {
