@@ -4,7 +4,7 @@
   "description": "An immutable duration library based on the ISO-8601 format for durations.",
   "main": "lib/index.js",
   "scripts": {
-    "docs": "documentation build src/** -f md > doc.md && git commit -m 'Update docs' doc.md || true",
+    "docs": "node src/_generate_docs.js > readme.md && git commit -m 'Update docs' readme.md || true",
     "build": "node src/_generate_index.js && babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
@@ -22,6 +22,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
+    "common-tags": "^1.7.2",
     "documentation": "^5.4.0",
     "eslint-config-crewmeister": "latest",
     "hamjest": "^2.13.0",
@@ -41,5 +42,5 @@
   "bugs": {
     "url": "https://github.com/webPapaya/pomeranian/issues"
   },
-  "homepage": "https://github.com/webPapaya/pomeranian#readme"
+  "homepage": "https://github.com/webPapaya/pomeranian"
 }
