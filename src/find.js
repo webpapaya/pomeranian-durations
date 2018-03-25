@@ -1,3 +1,7 @@
+/**
+ * Helpers for finding particular units in a given ISO8601 duration
+ * @name default
+ */
 import {
   TIME_DESIGNATOR,
   DURATION_DESIGNATOR,

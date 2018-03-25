@@ -1,3 +1,7 @@
+/**
+ * Helpers for validating ISO8601 durations.
+ * @name default
+ */
 import { TIME_DESIGNATOR, DURATION_DESIGNATOR, INVALID_DURATION } from './constants';
 import { createRegexBuilder, curry } from './_utils';
 

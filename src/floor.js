@@ -1,3 +1,8 @@
+/**
+ * Helpers to floor an ISO8601 duration to a particular granularity.
+ * @name default
+ */
+
 import { toFragments, toIso } from './transformations';
 import { INVALID_DURATION, UNIT_NAMES } from './constants';
 import { isInvalid } from './validate';

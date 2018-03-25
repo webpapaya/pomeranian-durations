@@ -1,3 +1,8 @@
+/**
+ * Helpers to convert an integer to an ISO8601 duration.
+ * @name default
+ */
+
 import { toIso } from './transformations';
 import { ONE_MILLISECOND, ONE_SECOND } from './constants';
 
