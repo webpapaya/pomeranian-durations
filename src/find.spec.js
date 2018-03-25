@@ -8,7 +8,7 @@ import {
   findHours,
   findMinutes,
   findSeconds,
-} from './finders';
+} from './find';
 
 describe('unit finders for P3Y6M1W4DT12H30M17.5S', () => {
   it('finds 3 years', () => assertThat(

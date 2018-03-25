@@ -2,7 +2,7 @@ export * from './add.js';
 export * from './ceil.js';
 export * from './constants.js';
 export * from './conversions.js';
-export * from './finders.js';
+export * from './find.js';
 export * from './floor.js';
 export * from './from.js';
 export * from './in.js';
