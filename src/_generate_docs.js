@@ -13,10 +13,10 @@ console.log(`
 
 An immutable duration library based on the ISO-8601 format for durations.
 
-```
+\`\`\`
 npm install pomeranian-durations --save
 yarn add pomeranian-durations
-```
+\`\`\`
 
 # Helpers
 
