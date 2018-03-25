@@ -1,3 +1,8 @@
+/**
+ * Helpers to ceil an ISO8601 duration to a particular granularity.
+ * @name default
+ */
+
 import { curry } from './_utils';
 import * as _add from './add';
 import * as _floor from './floor';

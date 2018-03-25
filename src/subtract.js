@@ -1,3 +1,8 @@
+/**
+ * Helpers to subtract from a duration.
+ * @name default
+ */
+
 import { curry } from './_utils';
 import {
   add,

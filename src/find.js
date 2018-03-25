@@ -1,5 +1,5 @@
 /**
- * Finds {{unit}} in a given ISO8601 duration
+ * Helpers for finding particular units in a given ISO8601 duration
  * @name default
  */
 import {
