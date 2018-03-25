@@ -9,7 +9,7 @@ import {
   asDecimalMilliseconds,
   asDecimalSeconds,
   asDecimalMinutes,
-  asDecimalHours,
+  asDecimalHours, asDecimalMicroseconds,
 } from './conversions';
 
 describe('as "unit" methods', () => {
@@ -42,6 +42,9 @@ describe('as "unit" methods', () => {
 });
 
 describe('as "decimal unit" methods', () => {
+  it('PT1m1s decimalMicroseconds is 61s', () => assertThat(
+    asDecimalMicroseconds('PT1m1s'), equalTo(0.000061)));
+
   it('PT1m1s decimalMilliseconds is 61s', () => assertThat(
     asDecimalMilliseconds('PT1m1.1s'), equalTo(0.0611)));
 

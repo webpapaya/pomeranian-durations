@@ -32,7 +32,7 @@ export const inSeconds = buildInFunction(fromSeconds, asSeconds);
  * Converts all time parts of an ISO8601 duration to minutes and returns the ISO8601 duration string.
  * @param inSeconds {string} - isoDuration
  * @example
- * inMinuts('PT1H') // => 'PT60M'
+ * inMinutes('PT1H') // => 'PT60M'
  */
 export const inMinutes = buildInFunction(fromMinutes, asMinutes);
 

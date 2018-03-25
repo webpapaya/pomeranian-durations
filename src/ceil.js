@@ -23,9 +23,11 @@ const buildCeilFn = (unit) => (isoString) => {
  * @param granularity {string} - ISO8601 duration
  * @param isoString {string} - ISO8601 duration
  * @example
- * ceil('PT2s', 'PT5S') // => PT6S
- * ceil('PT3s', 'PT5S') // => PT6S
- * ceil('PT4s', 'PT5S') // => PT8S
+ * ceil('PT2s', 'PT5S') // => 'PT6S'
+ * @example
+ * ceil('PT3s', 'PT5S') // => 'PT6S'
+ * @example
+ * ceil('PT4s', 'PT5S') // => 'PT8S'
  */
 export const ceil = curry((granularity, isoString) =>
   _floor.floor(granularity, _add.add(granularity, isoString)));
@@ -34,7 +36,7 @@ export const ceil = curry((granularity, isoString) =>
  * Ceil a given ISO duration to the next second.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilSeconds('PT1.1S') // => PT2S
+ * ceilSeconds('PT1.1S') // => 'PT2S'
  */
 export const ceilSeconds = buildCeilFn('Seconds');
 
@@ -42,7 +44,7 @@ export const ceilSeconds = buildCeilFn('Seconds');
  * Ceil a given ISO duration to the next minute.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilMinutes('PT1.1M') // => PT2M
+ * ceilMinutes('PT1.1M') // => 'PT2M'
  */
 export const ceilMinutes = buildCeilFn('Minutes');
 
@@ -50,7 +52,7 @@ export const ceilMinutes = buildCeilFn('Minutes');
  * Ceil a given ISO duration to the next hour.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilHours('PT1.1H') // => PT2H
+ * ceilHours('PT1.1H') // => 'PT2H'
  */
 export const ceilHours = buildCeilFn('Hours');
 
@@ -58,7 +60,7 @@ export const ceilHours = buildCeilFn('Hours');
  * Ceil a given ISO duration to the next day.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilDays('P1.1D') // => P2D
+ * ceilDays('P1.1D') // => 'P2D'
  */
 export const ceilDays = buildCeilFn('Days');
 
@@ -66,7 +68,7 @@ export const ceilDays = buildCeilFn('Days');
  * Ceil a given ISO duration to the next week.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilWeeks('P1.1W') // => P2W
+ * ceilWeeks('P1.1W') // => 'P2W'
  */
 export const ceilWeeks = buildCeilFn('Weeks');
 
@@ -74,7 +76,7 @@ export const ceilWeeks = buildCeilFn('Weeks');
  * Ceil a given ISO duration to the next month.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilMonths('P1.1M') // => P2M
+ * ceilMonths('P1.1M') // => 'P2M'
  */
 export const ceilMonths = buildCeilFn('Months');
 
@@ -82,6 +84,6 @@ export const ceilMonths = buildCeilFn('Months');
  * Ceil a given ISO duration to the next year.
  * @param isoDuration {string} - ISO8601 duration
  * @example
- * ceilYears('P1.1Y') // => P2Y
+ * ceilYears('P1.1Y') // => 'P2Y'
  */
 export const ceilYears = buildCeilFn('Years');

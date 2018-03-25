@@ -24,7 +24,7 @@ import { toFragments, toIso } from './transformations';
  * @param firstDuration {string} - a duration to be subtracted
  * @param secondDuration {string} - a duration to be subtracted
  * @example
- * subtractMilliseconds(1, 'PT2M') // => PT1M
+ * subtract('PT2M', 'PT1M') // => 'PT1M'
  */
 export const subtract = curry((firstDuration, secondDurations) => {
   const secondFragments = toFragments(secondDurations);
@@ -40,7 +40,7 @@ export const subtract = curry((firstDuration, secondDurations) => {
  * @param amount {number} - number of milliseconds to be subtracted
  * @param isoString {string} - a duration to be subtracted
  * @example
- * subtractMilliseconds(1, 'PT2M') // => PT1M
+ * subtractMilliseconds(1, 'PT2M') // => 'PT2M-0.001S'
  */
 export const subtractMilliseconds = curry((amount, isoString) => addMilliseconds(amount * -1, isoString));
 
@@ -49,7 +49,7 @@ export const subtractMilliseconds = curry((amount, isoString) => addMilliseconds
  * @param amount {number} - number of microseconds to be subtracted
  * @param isoString {string} - a duration to be subtracted
  * @example
- * subtractMicroseconds(1, 'PT2M') // => PT1M
+ * subtractMicroseconds(1, 'PT2M') // => 'PT2M-0.000001S'
  */
 export const subtractMicroseconds = curry((amount, isoString) => addMicroseconds(amount * -1, isoString));
 
@@ -58,7 +58,7 @@ export const subtractMicroseconds = curry((amount, isoString) => addMicroseconds
  * @param amount {number} - number of microseconds toseconds subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
- * subtractSeconds(1, 'PT2S') // => PT1S
+ * subtractSeconds(1, 'PT2S') // => 'PT1S'
  */
 export const subtractSeconds = curry((amount, isoString) => addSeconds(amount * -1, isoString));
 
@@ -67,7 +67,7 @@ export const subtractSeconds = curry((amount, isoString) => addSeconds(amount * 
  * @param amount {number} - number of microseconds tominutes subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
- * subtractMinutes(1, 'PT2M') // => PT1M
+ * subtractMinutes(1, 'PT2M') // => 'PT1M'
  */
 export const subtractMinutes = curry((amount, isoString) => addMinutes(amount * -1, isoString));
 
@@ -76,7 +76,7 @@ export const subtractMinutes = curry((amount, isoString) => addMinutes(amount * 
  * @param amount {number} - number of hours to subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
- * subtractHours(1, 'PT2H') // => PT1H
+ * subtractHours(1, 'PT2H') // => 'PT1H'
  */
 export const subtractHours = curry((amount, isoString) => addHours(amount * -1, isoString));
 
@@ -85,7 +85,7 @@ export const subtractHours = curry((amount, isoString) => addHours(amount * -1, 
  * @param amount {number} - number ofdays microseconds to subtract
  * @param isoString {string} - a duration to be subtracted
  * @example
- * subtractDays(1, 'P2D') // => P1D
+ * subtractDays(1, 'P2D') // => 'P1D'
  */
 export const subtractDays = curry((amount, isoString) => addDays(amount * -1, isoString));
 
@@ -94,7 +94,7 @@ export const subtractDays = curry((amount, isoString) => addDays(amount * -1, is
  * @param amount {number} - number of weeks to subtract
  * @param isoString {string} - a string to be added
  * @example
- * subtractWeeks(1, 'P2W') // => P1W
+ * subtractWeeks(1, 'P2W') // => 'P1W'
  */
 export const subtractWeeks = curry((amount, isoString) => addWeeks(amount * -1, isoString));
 
@@ -103,7 +103,7 @@ export const subtractWeeks = curry((amount, isoString) => addWeeks(amount * -1, 
  * @param amount {number} - number of microseconds tmonths subtract
  * @param isoString {string} - a string to be added
  * @example
- * subtractMonths(1, 'P2M') // => P1M
+ * subtractMonths(1, 'P2M') // => 'P1M'
  */
 export const subtractMonths = curry((amount, isoString) => addMonths(amount * -1, isoString));
 
@@ -112,6 +112,6 @@ export const subtractMonths = curry((amount, isoString) => addMonths(amount * -1
  * @param amount {number} - number of microseconds to add
  * @param isoString {string} - a string to be added
  * @example
- * subtractYears(1, 'P2Y') // => P1Y
+ * subtractYears(1, 'P2Y') // => 'P1Y'
  */
 export const subtractYears = curry((amount, isoString) => addYears(amount * -1, isoString));
