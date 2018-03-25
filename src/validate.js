@@ -54,7 +54,7 @@ export const isInvalid = (isoDuration) =>
  *   whenInvalid(() => { throw new Error('Invalid duration') }),
  * );
  *
- * add10('invalid') // => error: 'Invalid duration'
+ * add10('invalid') // error: 'Invalid duration'
  */
 export const whenInvalid = curry((value, isoDuration) => {
   if (isValid(isoDuration)) { return isoDuration; }
@@ -76,8 +76,8 @@ export const whenInvalid = curry((value, isoDuration) => {
  *   whenInvalidDuration(null),
  * );
  *
- * convertToHours('PT10H') // => 10
- * convertToHours('Blub') // => null
+ * convertToHours('PT10H') // 10
+ * convertToHours('Blub') // null
  */
 export const whenInvalidDuration = curry((value, isoDuration) => {
   if (isoDuration !== INVALID_DURATION) { return isoDuration; }

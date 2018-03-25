@@ -13,7 +13,7 @@ import { INVALID_DURATION } from './constants';
  * @param firstIsoString {string} - a string to be added
  * @param secondIsoString {string} - a string to be added
  * @example
- * addMicroseconds('PT3S', 'PT1S') // => PT4S
+ * add('PT3S', 'PT1S') // => 'PT4S'
  */
 export const add = curry((firstIsoString, secondIsoString) => {
   if (isInvalid(firstIsoString) || isInvalid(secondIsoString)) { return INVALID_DURATION; }
@@ -32,7 +32,7 @@ export const add = curry((firstIsoString, secondIsoString) => {
  * @param amount {number} - number of microseconds to add
  * @param isoString {string} - a string to be added
  * @example
- * addMicroseconds(1, 'PT1S') // => PT1.000001S
+ * addMicroseconds(1, 'PT1S') // => 'PT1.000001S'
  */
 export const addMicroseconds = curry((amount, isoString) => add(isoString, `PT${amount / (10 ** 6)}S`));
 
@@ -41,7 +41,7 @@ export const addMicroseconds = curry((amount, isoString) => add(isoString, `PT${
  * @param amount {number} - number of milliseconds to add
  * @param isoString {string} - a string to be added
  * @example
- * addMilliseconds(1, 'PT1S') // => PT1.001S
+ * addMilliseconds(1, 'PT1S') // => 'PT1.001S'
  */
 export const addMilliseconds = curry((amount, isoString) => add(isoString, `PT${amount / (10 ** 3)}S`));
 
@@ -50,7 +50,7 @@ export const addMilliseconds = curry((amount, isoString) => add(isoString, `PT${
  * @param amount {number} - number of seconds to add
  * @param isoString {string} - a string to be added
  * @example
- * addSeconds(1, 'PT1S') // => PT2S
+ * addSeconds(1, 'PT1S') // => 'PT2S'
  */
 export const addSeconds = curry((amount, isoString) => add(isoString, `PT${amount}S`));
 
@@ -59,7 +59,7 @@ export const addSeconds = curry((amount, isoString) => add(isoString, `PT${amoun
  * @param amount {number} - number of minutes to add
  * @param isoString {string} - a string to be added
  * @example
- * addMinutes(1, 'PT1M') // => PT2M
+ * addMinutes(1, 'PT1M') // => 'PT2M'
  */
 export const addMinutes = curry((amount, isoString) => add(isoString, `PT${amount}M`));
 
@@ -68,7 +68,7 @@ export const addMinutes = curry((amount, isoString) => add(isoString, `PT${amoun
  * @param amount {number} - number of hours to add
  * @param isoString {string} - a string to be added
  * @example
- * addHours(1, 'PT1M') // => PT2M
+ * addHours(1, 'PT1M') // => 'PT1H1M'
  */
 export const addHours = curry((amount, isoString) => add(isoString, `PT${amount}H`));
 
@@ -77,7 +77,7 @@ export const addHours = curry((amount, isoString) => add(isoString, `PT${amount}
  * @param amount {number} - number of days to add
  * @param isoString {string} - a string to be added
  * @example
- * addDays(1, 'P1D') // => P2D
+ * addDays(1, 'P1D') // => 'P2D'
  */
 export const addDays = curry((amount, isoString) => add(isoString, `P${amount}D`));
 
@@ -86,7 +86,7 @@ export const addDays = curry((amount, isoString) => add(isoString, `P${amount}D`
  * @param amount {number} - number of weeks to add
  * @param isoString {string} - a string to be added
  * @example
- * addWeeks(1, 'P1W') // => P2W
+ * addWeeks(1, 'P1W') // => 'P2W'
  */
 export const addWeeks = curry((amount, isoString) => add(isoString, `P${amount}W`));
 
@@ -95,7 +95,7 @@ export const addWeeks = curry((amount, isoString) => add(isoString, `P${amount}W
  * @param amount {number} - number of months to add
  * @param isoString {string} - a string to be added
  * @example
- * addMonths(1, 'P1M') // => P2M
+ * addMonths(1, 'P1M') // => 'P2M'
  */
 export const addMonths = curry((amount, isoString) => add(isoString, `P${amount}M`));
 
@@ -104,6 +104,6 @@ export const addMonths = curry((amount, isoString) => add(isoString, `P${amount}
  * @param amount {number} - number of years to add
  * @param isoString {string} - a string to be added
  * @example
- * addYears(1, 'P1Y') // => P2Y
+ * addYears(1, 'P1Y') // => 'P2Y'
  */
 export const addYears = curry((amount, isoString) => add(isoString, `P${amount}Y`));

@@ -46,7 +46,8 @@ const findDateUnit = (unit, isoString) => {
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
- * findSeconds('PT1S') // => 1S
+ * findSeconds('PT1S') // => 1
+ * @example
  * findSeconds('PT1M') // => undefined
  */
 export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString);
@@ -56,7 +57,8 @@ export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString)
  * @param isoString {string} an ISO8601 duration
  * @returns {(number|undefined)} number of seconds
  * @example
- * findMinutes('PT1S') // => 1S
+ * findMinutes('PT1M') // => 1
+ * @example
  * findMinutes('P1Y') // => undefined
  */
 export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString);
@@ -67,6 +69,7 @@ export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString)
  * @returns {(number|undefined)} number of seconds
  * @example
  * findHours('PT1H') // => 1
+ * @example
  * findHours('PT1M') // => undefined
  */
 export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
@@ -77,6 +80,7 @@ export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
  * @returns {(number|undefined)} number of seconds
  * @example
  * findDays('P1D') // => 1
+ * @example
  * findDays('PT1M') // => undefined
  */
 export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
@@ -87,6 +91,7 @@ export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
  * @returns {(number|undefined)} number of seconds
  * @example
  * findWeeks('P1W') // => 1
+ * @example
  * findWeeks('PT1M') // => undefined
  */
 export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
@@ -97,6 +102,7 @@ export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
  * @returns {(number|undefined)} number of seconds
  * @example
  * findMonths('P1M') // => 1
+ * @example
  * findMonths('PT1s') // => undefined
  */
 export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
@@ -107,6 +113,7 @@ export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
  * @returns {(number|undefined)} number of seconds
  * @example
  * findYears('P1Y') // => 1
+ * @example
  * findYears('PT1M') // => undefined
  */
 export const findYears = (isoString) => findDateUnit(UNITS.years, isoString);

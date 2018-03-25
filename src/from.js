@@ -65,7 +65,7 @@ export const fromDays = (amount) => toIso({ days: amount });
  * @param amount {number}
  * @returns {string} - an ISO8601 duration
  * @example
- * fromWeeks(1) // => 'PT1W'
+ * fromWeeks(1) // => 'P1W'
  */
 export const fromWeeks = (amount) => toIso({ weeks: amount });
 
