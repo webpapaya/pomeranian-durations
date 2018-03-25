@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/webPapaya/pomeranian/issues"
   },
-  "homepage": "https://github.com/webPapaya/pomeranian"
+  "homepage": "https://github.com/webPapaya/pomeranian",
+  "dependencies": {
+    "pomeranian-durations": "^1.3.2"
+  }
 }
