@@ -8,42 +8,40 @@ import {
 } from './_generate_docs_helper';
 
 const EXAMPLE = [
-  { 
+  {
     id: 'default',
     longname: 'default',
     name: 'default',
     description: 'Finds a unit in a given ISO8601 duration',
-    meta: { lineno: 1, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' }
-  }, { 
+    meta: { lineno: 1, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' },
+  }, {
     id: 'findSeconds',
     longname: 'findSeconds',
     name: 'findSeconds',
     description: 'Finds the seconds in a given ISO8601 duration string.',
-    params: [ [Object] ],
-    examples: [ 'findSeconds(\'PT1S\') // => 1S\nfindSeconds(\'PT1M\') // => undefined' ],
-    returns: [ [Object] ],
-    meta: { lineno: 53, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' }
-  }, { 
+    params: [[Object]],
+    examples: ['findSeconds(\'PT1S\') // => 1S\nfindSeconds(\'PT1M\') // => undefined'],
+    returns: [[Object]],
+    meta: { lineno: 53, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' },
+  }, {
     id: 'findMinutes',
     longname: 'findMinutes',
     name: 'findMinutes',
     description: 'Finds the minutes in a given ISO8601 duration string.',
-    params: [ [Object] ],
-    examples: [ 'findMinutes(\'PT1S\') // => 1S\nfindMinutes(\'P1Y\') // => undefined' ],
-    returns: [ [Object] ],
-    meta: { lineno: 64, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' }
+    params: [[Object]],
+    examples: ['findMinutes(\'PT1S\') // => 1S\nfindMinutes(\'P1Y\') // => undefined'],
+    returns: [[Object]],
+    meta: { lineno: 64, filename: 'find.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' },
   }, {
     id: 'fromWeeks',
     longname: 'fromWeeks',
     name: 'fromWeeks',
     description: 'Converts a given number to an ISO8601 duration',
-    params: [ [Object] ],
-    examples: [ 'fromWeeks(1) // => \'PT1W\'' ],
+    params: [[Object]],
+    examples: ['fromWeeks(1) // => \'PT1W\''],
     meta: { lineno: 72, filename: 'from.js', path: '/Users/tmayrhofer/Projects/pomeranian-durations/src' },
   },
 ];
-
-
 
 
 describe('extractCategories', () => {
@@ -55,7 +53,7 @@ describe('extractCategories', () => {
 describe('generateCategoryHeading', () => {
   it('generates category heading correctly', () => {
     assertThat(generateCategoryHeading('find'),
-      equalTo('<a name="category-find"></a>\n## find'))
+      equalTo('<a name="category-find"></a>\n## find'));
   });
 });
 
@@ -85,9 +83,4 @@ describe('extractCategoryDescription', () => {
     assertThat(extractCategoryDescription(EXAMPLE, 'unknown'), equalTo(''));
   });
 });
-
-
-
-
-
 

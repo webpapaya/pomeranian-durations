@@ -1,12 +1,14 @@
-const jsdoc2md = require('jsdoc-to-markdown')
-const parsedDocs =  jsdoc2md.getTemplateDataSync({ files: 'src/*.js' });
+/* eslint-disable max-len */
+const jsdoc2md = require('jsdoc-to-markdown');
+const parsedDocs = jsdoc2md.getTemplateDataSync({ files: 'src/*.js' });
 const {
   generateCategoryNavigation,
   extractCategories,
   generateCategory,
 } = require('./_generate_docs_helper');
 
-console.log(`
+// eslint-disable-next-line no-console
+console.log(` 
 # Pomeranian Durations 🐶
 
 An immutable duration library based on the ISO-8601 format for durations.

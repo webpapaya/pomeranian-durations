@@ -1,15 +1,14 @@
-const { stripIndents } = require('common-tags');
 const { homepage } = require('../package');
 
 const extractCategory = (doc) => doc.meta.filename.replace('.js', '');
 const extractCategories = (parsedDocs) => Object.keys(parsedDocs.reduce((acc, doc) => {
-  acc[extractCategory(doc)] = 0;
+  acc[extractCategory(doc)] = 0; // eslint-disable-line no-param-reassign
   return acc;
 }, {}));
 
 const extractCategoryDescription = (parsedDocs, category) => {
   const categoryDefinition = parsedDocs
-    .find((doc) => doc.id === 'default' && extractCategory(doc) === category)
+    .find((doc) => doc.id === 'default' && extractCategory(doc) === category);
 
   return categoryDefinition ? categoryDefinition.description : '';
 };
@@ -28,7 +27,7 @@ const extractCategoryExamples = (parsedDocs, category) => parsedDocs
   .map((doc) => doc.examples).join('\n');
 
 const generateCategoryHeading = (category) =>
-  `<a name="category-${category}"></a>\n## ${category}`
+  `<a name="category-${category}"></a>\n## ${category}`;
 
 const generateCategory = (parsedDocs, category) => `
 ${generateCategoryHeading(category)}
@@ -51,4 +50,4 @@ module.exports = {
   extractCategoryExamples,
   generateCategoryHeading,
   generateCategory,
-}
+};
