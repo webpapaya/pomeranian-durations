@@ -32,9 +32,9 @@ const generateCategoryHeading = (category) =>
 const generateCategory = (parsedDocs, category) => `
 ${generateCategoryHeading(category)}
 
-${extractCategoryDescription(parsedDocs, category)}
-
 ${generateHeadings(parsedDocs, category)}
+
+${extractCategoryDescription(parsedDocs, category)}
 
 \`\`\`javascript
 ${extractCategoryExamples(parsedDocs, category)}
