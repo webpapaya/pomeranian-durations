@@ -12,6 +12,7 @@ yarn add pomeranian-durations
 
 - [add](#category-add)
 - [ceil](#category-ceil)
+- [compare](#category-compare)
 - [conversions](#category-conversions)
 - [find](#category-find)
 - [floor](#category-floor)
@@ -61,6 +62,40 @@ ceilDays('P1.1D') // => 'P2D'
 ceilWeeks('P1.1W') // => 'P2W'
 ceilMonths('P1.1M') // => 'P2M'
 ceilYears('P1.1Y') // => 'P2Y'
+```
+
+
+<a name="category-compare"></a>
+## compare
+
+Helpers to compare 2 iso durations with each other. Only time parts can be compared
+as otherwise the comparison might be wrong. When any of the functions is partially
+applied the arguments are automatically swapped so one can write the following:
+````javascript
+const isStillBigger = pipe(
+  add('PT10S'),
+  gte('PT1M'),
+)
+isStillBigger('PT50S') // => true
+isStillBigger('PT49S') // => false
+````
+
+[gte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L66) | [gt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L80) | [lt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L94) | [lte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L108) | [eq](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L117)
+
+```javascript
+gte('PT2S', 'PT2S') // => true
+gte('PT3S', 'PT2S') // => true
+gte('PT3S')('PT2S') // => false
+gt('PT2S', 'PT2S') // => false
+gt('PT3S', 'PT2S') // => true
+gt('PT3S')('PT2S') // => false
+lt('PT2S', 'PT2S') // => false
+lt('PT3S', 'PT2S') // => false
+lt('PT3S')('PT2S') // => true
+lte('PT2S', 'PT2S') // => true
+lte('PT3S', 'PT2S') // => false
+lte('PT3S')('PT2S') // => true
+eq('PT2S', 'PT2S') // => true
 ```
 
 
