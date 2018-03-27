@@ -26,9 +26,9 @@ yarn add pomeranian-durations
 <a name="category-add"></a>
 ## add
 
-Helpers to add to a duration.
-
 [add](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L18) | [addMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L37) | [addMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L46) | [addSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L55) | [addMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L64) | [addHours](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L73) | [addDays](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L82) | [addWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L91) | [addMonths](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L100) | [addYears](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L109)
+
+Helpers to add to a duration.
 
 ```javascript
 add('PT3S', 'PT1S') // => 'PT4S'
@@ -47,9 +47,9 @@ addYears(1, 'P1Y') // => 'P2Y'
 <a name="category-ceil"></a>
 ## ceil
 
-Helpers to ceil an ISO8601 duration to a particular granularity.
-
 [ceil](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L32) | [ceilSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L41) | [ceilMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L49) | [ceilHours](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L57) | [ceilDays](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L65) | [ceilWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L73) | [ceilMonths](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L81) | [ceilYears](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L89)
+
+Helpers to ceil an ISO8601 duration to a particular granularity.
 
 ```javascript
 ceil('PT2s', 'PT5S') // => 'PT6S'
@@ -68,6 +68,8 @@ ceilYears('P1.1Y') // => 'P2Y'
 <a name="category-compare"></a>
 ## compare
 
+[gte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L66) | [gt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L80) | [lt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L94) | [lte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L108) | [eq](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L117)
+
 Helpers to compare 2 iso durations with each other. Only time parts can be compared
 as otherwise the comparison might be wrong. When any of the functions is partially
 applied the arguments are automatically swapped so one can write the following:
@@ -79,8 +81,6 @@ const isStillBigger = pipe(
 isStillBigger('PT50S') // => true
 isStillBigger('PT49S') // => false
 ````
-
-[gte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L66) | [gt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L80) | [lt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L94) | [lte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L108) | [eq](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L117)
 
 ```javascript
 gte('PT2S', 'PT2S') // => true
@@ -102,9 +102,9 @@ eq('PT2S', 'PT2S') // => true
 <a name="category-conversions"></a>
 ## conversions
 
-Helpers to convert between different units.
-
 [asMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L48) | [asMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L67) | [asSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L77) | [asMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L87) | [asHours](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L97) | [asDecimalMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L107) | [asDecimalMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L117) | [asDecimalSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L127) | [asDecimalMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L137) | [asDecimalHours](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L147)
+
+Helpers to convert between different units.
 
 ```javascript
 asMicroseconds('PT2s') // => 2000000
@@ -123,9 +123,9 @@ asDecimalHours('PT1m1s') // => 0.016944444444444443
 <a name="category-find"></a>
 ## find
 
-Helpers for finding particular units in a given ISO8601 duration
-
 [findSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L53) | [findMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L64) | [findHours](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L75) | [findDays](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L86) | [findWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L97) | [findMonths](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L108) | [findYears](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L119)
+
+Helpers for finding particular units in a given ISO8601 duration
 
 ```javascript
 findSeconds('PT1S') // => 1
@@ -148,9 +148,9 @@ findYears('PT1M') // => undefined
 <a name="category-floor"></a>
 ## floor
 
-Helpers to floor an ISO8601 duration to a particular granularity.
-
 [floor](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L45) | [floorSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L66) | [floorMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L74) | [floorHours](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L82) | [floorDays](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L90) | [floorWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L98) | [floorMonths](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L106) | [floorYears](https://github.com/webPapaya/pomeranian/blob/master/src/floor.js#L114)
+
+Helpers to floor an ISO8601 duration to a particular granularity.
 
 ```javascript
 floor('PT2s', 'PT5S') // => 'PT4S'
@@ -169,9 +169,9 @@ floorYears('P1.1Y') // => 'P1Y'
 <a name="category-from"></a>
 ## from
 
-Helpers to convert an integer to an ISO8601 duration.
-
 [fromMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L16) | [fromMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L25) | [fromSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L34) | [fromMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L43) | [fromHours](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L52) | [fromDays](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L61) | [fromWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L70) | [fromMonths](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L79) | [fromYears](https://github.com/webPapaya/pomeranian/blob/master/src/from.js#L88)
+
+Helpers to convert an integer to an ISO8601 duration.
 
 ```javascript
 fromMicroseconds(1) // => 'PT0.000001S'
@@ -189,6 +189,8 @@ fromYears(1) // => 'P1Y'
 <a name="category-in"></a>
 ## in
 
+[inSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/in.js#L29) | [inMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/in.js#L37) | [inHours](https://github.com/webPapaya/pomeranian/blob/master/src/in.js#L45)
+
 Helpers to convert an ISO8601 duration to a different unit.
 Date components (years, months, weeks, days) can't be
 converted to other unites without date and timezone information.
@@ -197,8 +199,6 @@ supported right now. To do precise arithmetic operations it is
 recommended to avoid years, months, weeks and days completely
 when using durations. For more information have a look at
 http://www.ostyn.com/standards/scorm/samples/ISOTimeForSCORM.htm
-
-[inSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/in.js#L29) | [inMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/in.js#L37) | [inHours](https://github.com/webPapaya/pomeranian/blob/master/src/in.js#L45)
 
 ```javascript
 inSeconds('PT1M') // => 'PT60S'
@@ -210,9 +210,9 @@ inHours('PT60M') // => 'PT1H'
 <a name="category-subtract"></a>
 ## subtract
 
-Helpers to subtract from a duration.
-
 [subtract](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L29) | [subtractMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L45) | [subtractMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L54) | [subtractSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L63) | [subtractMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L72) | [subtractHours](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L81) | [subtractDays](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L90) | [subtractWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L99) | [subtractMonths](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L108) | [subtractYears](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L117)
+
+Helpers to subtract from a duration.
 
 ```javascript
 subtract('PT2M', 'PT1M') // => 'PT1M'
@@ -231,9 +231,9 @@ subtractYears(1, 'P2Y') // => 'P1Y'
 <a name="category-validate"></a>
 ## validate
 
-Helpers for validating ISO8601 durations.
-
 [isValid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L40) | [isInvalid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L52) | [whenInvalid](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L67) | [whenInvalidDuration](https://github.com/webPapaya/pomeranian/blob/master/src/validate.js#L90)
+
+Helpers for validating ISO8601 durations.
 
 ```javascript
 isValid('PT1S') // => true
