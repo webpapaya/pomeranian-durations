@@ -4,6 +4,8 @@ import { INVALID_DURATION } from './constants';
 
 describe('isValid iso8601 duration', () => {
   [
+    { isoDuration: 'P', valid: true },
+    { isoDuration: 'p', valid: true },
     { isoDuration: 'P1y', valid: true },
     { isoDuration: 'P1Y', valid: true },
     { isoDuration: 'P1.5Y', valid: true },
