@@ -18,6 +18,7 @@ yarn add pomeranian-durations
 - [floor](#category-floor)
 - [from](#category-from)
 - [in](#category-in)
+- [sort](#category-sort)
 - [subtract](#category-subtract)
 - [validate](#category-validate)
 - [transformations](#category-transformations)
@@ -204,6 +205,26 @@ http://www.ostyn.com/standards/scorm/samples/ISOTimeForSCORM.htm
 inSeconds('PT1M') // => 'PT60S'
 inMinutes('PT1H') // => 'PT60M'
 inHours('PT60M') // => 'PT1H'
+```
+
+
+<a name="category-sort"></a>
+## sort
+
+[sortAsc](https://github.com/webPapaya/pomeranian/blob/master/src/sort.js#L36) | [sortAscBy](https://github.com/webPapaya/pomeranian/blob/master/src/sort.js#L48) | [sortDesc](https://github.com/webPapaya/pomeranian/blob/master/src/sort.js#L59) | [sortDescBy](https://github.com/webPapaya/pomeranian/blob/master/src/sort.js#L70)
+
+Helpers to sort durations. Attention durations with multiple date parts can only
+be compared using an approximation, so the result might be incorrect! (eg. on some
+days the following is true: 'PT23H1M' > 'PT1D'). If you're using the same units in
+all given durations that is not an issue.
+
+```javascript
+['PT2S', 'PT1S'].sort(sortAsc) // ['PT1S', 'PT2S']
+[{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+   .sort(sortAsc('randomKey')) // [{ randomKey: 'PT1S' }, { randomKey: 'PT2S' }]
+['PT1S', 'PT2S'].sort(sortDesc) // ['PT2S', 'PT1S']
+[{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+   .sort(sortAsc('randomKey')) // [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
 ```
 
 
