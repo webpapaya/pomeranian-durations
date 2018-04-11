@@ -42,8 +42,8 @@ export const sortAsc = (a, b) =>
  * @param a, {string} an ISO8601 duration
  * @param b, {string} an ISO8601 duration
  * @example
- * [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
- *    .sort(sortAscBy('randomKey')) // [{ randomKey: 'PT1S' }, { randomKey: 'PT2S' }]
+ * [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }].sort(sortAscBy('randomKey'))
+ *   // => [{ randomKey: 'PT1S' }, { randomKey: 'PT2S' }]
  */
 export const sortAscBy = curry((key, a, b) =>
   sortAsc(a[key], b[key]));
@@ -64,8 +64,8 @@ export const sortDesc = flipArguments(sortAsc);
  * @param a, {string} an ISO8601 duration
  * @param b, {string} an ISO8601 duration
  * @example
- * [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
- *    .sort(sortDescBy('randomKey')) // [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+ * [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }].sort(sortDescBy('randomKey'))
+ *   // => [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
  */
 export const sortDescBy = curry((key, a, b) =>
   sortDesc(a[key], b[key]));
