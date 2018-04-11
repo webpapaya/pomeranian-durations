@@ -39,7 +39,7 @@ export const sortAsc = (a, b) =>
  * @param a, {string} an ISO8601 duration
  * @param b, {string} an ISO8601 duration
  * @example
- * ['PT1S', 'PT2S'].sort(sortAsc) // ['PT2S', 'PT1S']
+ * ['PT1S', 'PT2S'].sort(sortDesc) // ['PT2S', 'PT1S']
  */
 export const sortDesc = (a, b) =>
   toApproximateSeconds(b) - toApproximateSeconds(a);
