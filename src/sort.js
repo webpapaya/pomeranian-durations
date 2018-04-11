@@ -8,6 +8,7 @@
 
 import { ONE_DAY, ONE_HOUR, ONE_MINUTE, ONE_SECOND } from './constants';
 import { toFragments } from './transformations';
+import { curry } from './_utils';
 
 const toApproximateSeconds = (isoDuration) => {
   const fragments = toFragments(isoDuration);
@@ -22,6 +23,8 @@ const toApproximateSeconds = (isoDuration) => {
   ].reduce((sum, seconds) => sum + seconds, 0);
 };
 
+const flipArguments = (fn) => (a, b) => fn(b, a);
+
 /**
  * A function which can be used to sort durations ASC.
  *
@@ -34,6 +37,18 @@ export const sortAsc = (a, b) =>
   toApproximateSeconds(a) - toApproximateSeconds(b);
 
 /**
+ * A function which can be used to sort durations in an array of objects ASC.
+ *
+ * @param a, {string} an ISO8601 duration
+ * @param b, {string} an ISO8601 duration
+ * @example
+ * [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+ *    .sort(sortAsc('randomKey')) // [{ randomKey: 'PT1S' }, { randomKey: 'PT2S' }]
+ */
+export const sortAscBy = curry((key, a, b) =>
+  sortAsc(a[key], b[key]));
+
+/**
  * A function which can be used to sort durations DESC.
  *
  * @param a, {string} an ISO8601 duration
@@ -41,5 +56,16 @@ export const sortAsc = (a, b) =>
  * @example
  * ['PT1S', 'PT2S'].sort(sortDesc) // ['PT2S', 'PT1S']
  */
-export const sortDesc = (a, b) =>
-  toApproximateSeconds(b) - toApproximateSeconds(a);
+export const sortDesc = flipArguments(sortAsc);
+
+/**
+ * A function which can be used to sort durations in an array of objects DESC.
+ *
+ * @param a, {string} an ISO8601 duration
+ * @param b, {string} an ISO8601 duration
+ * @example
+ * [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+ *    .sort(sortAsc('randomKey')) // [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+ */
+export const sortDescBy = curry((key, a, b) =>
+  sortDesc(a[key], b[key]));
