@@ -221,10 +221,10 @@ all given durations that is not an issue.
 ```javascript
 ['PT2S', 'PT1S'].sort(sortAsc) // ['PT1S', 'PT2S']
 [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
-   .sort(sortAsc('randomKey')) // [{ randomKey: 'PT1S' }, { randomKey: 'PT2S' }]
+   .sort(sortAscBy('randomKey')) // [{ randomKey: 'PT1S' }, { randomKey: 'PT2S' }]
 ['PT1S', 'PT2S'].sort(sortDesc) // ['PT2S', 'PT1S']
 [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
-   .sort(sortAsc('randomKey')) // [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
+   .sort(sortDescBy('randomKey')) // [{ randomKey: 'PT2S' }, { randomKey: 'PT1S' }]
 ```
 
 
