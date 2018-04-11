@@ -220,7 +220,7 @@ all given durations that is not an issue.
 
 ```javascript
 ['PT2S', 'PT1S'].sort(sortAsc) // ['PT1S', 'PT2S']
-['PT1S', 'PT2S'].sort(sortAsc) // ['PT2S', 'PT1S']
+['PT1S', 'PT2S'].sort(sortDesc) // ['PT2S', 'PT1S']
 ```
 
 
