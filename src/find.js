@@ -7,7 +7,7 @@ import {
   DURATION_DESIGNATOR,
   UNITS,
 } from './constants';
-import { curry } from "./_utils";
+import { curry } from './_utils';
 
 const charsBetween = (string, start, end) =>
   string.substring(string.lastIndexOf(start) + 1, string.lastIndexOf(end));
