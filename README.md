@@ -124,7 +124,7 @@ asDecimalHours('PT1m1s') // => 0.016944444444444443
 <a name="category-find"></a>
 ## find
 
-[findSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L53) | [findMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L64) | [findHours](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L75) | [findDays](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L86) | [findWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L97) | [findMonths](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L108) | [findYears](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L119)
+[findSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L54) | [findMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L65) | [findHours](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L76) | [findDays](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L87) | [findWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L98) | [findMonths](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L109) | [findYears](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L120)
 
 Helpers for finding particular units in a given ISO8601 duration
 
