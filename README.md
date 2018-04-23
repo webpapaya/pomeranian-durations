@@ -340,3 +340,8 @@ doesn't support them yet. To do precise arithmetic operations it is recommended 
 
 For more information have a look at http://www.ostyn.com/standards/scorm/samples/ISOTimeForSCORM.htm
 
+# Contributing
+
+All contributions are very welcome. If you need help with the setup or if this library is missing 
+some features just create an issue or ping me on Twitter (@webpapaya). I'm happy to help you out.
+
