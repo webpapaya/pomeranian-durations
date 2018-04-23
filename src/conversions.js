@@ -18,7 +18,7 @@ import {
   findWeeks,
   findMonths,
   findYears,
-} from './index';
+} from './find';
 import { isInvalid } from './validate';
 
 const asUnit = (isoString, divider) => {

@@ -4,7 +4,7 @@
  */
 
 import { curry } from './_utils';
-import { toIso, toFragments } from './index';
+import { toIso, toFragments } from './transformations';
 import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';
 

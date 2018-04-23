@@ -15,7 +15,7 @@
 
 import { toFragments } from './transformations';
 import { ONE_HOUR, ONE_MINUTE, ONE_SECOND } from './constants';
-import { findDays, findMonths, findWeeks, findYears } from './index';
+import { findDays, findMonths, findWeeks, findYears } from './find';
 import { isInvalid } from './validate';
 
 const containsDateUnits = (isoString) => {

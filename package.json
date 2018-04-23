@@ -8,6 +8,7 @@
     "rebuild-docs-index": "node src/_generate_docs.js > README.md && node src/_generate_index.js > src/index.js && git commit -m 'Regenerate docs and index' README.md src/index.js || true",
     "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
+    "circular": "madge src --circular",
     "test": "mocha src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive --compilers js:babel-register",
     "preversion": "npm run lint && npm run test && npm run build",
     "prepush": "npm run build"
@@ -28,6 +29,7 @@
     "hamjest": "^2.13.0",
     "husky": "^0.14.3",
     "jsdoc-to-markdown": "^4.0.1",
+    "madge": "^3.0.1",
     "mocha": "^2.5.3"
   },
   "keywords": [

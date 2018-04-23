@@ -14,7 +14,7 @@ import {
   findMonths,
   findWeeks,
   findYears,
-} from './index';
+} from './find';
 
 const inArray = (array, element) => array.indexOf(element) !== -1;
 const hasKey = (object, keyName) => inArray(Object.keys(object), keyName);
