@@ -7,6 +7,7 @@ import {
   DURATION_DESIGNATOR,
   UNITS,
 } from './constants';
+import { curry } from './_utils';
 
 const charsBetween = (string, start, end) =>
   string.substring(string.lastIndexOf(start) + 1, string.lastIndexOf(end));
@@ -31,15 +32,15 @@ const findUnit = (stringComponent, unit) => {
   return parseFloat(matchedUnit[0].slice(0, -1));
 };
 
-const findTimeUnit = (unit, isoString) => {
+const buildTimeFinder = curry((unit, isoString) => {
   const timeComponent = extractTimeComponents(isoString || '');
   return findUnit(timeComponent, unit);
-};
+});
 
-const findDateUnit = (unit, isoString) => {
+const buildDateFinder = curry((unit, isoString) => {
   const dateComponent = extractDateComponents(isoString || '');
   return findUnit(dateComponent, unit);
-};
+});
 
 /**
  * Finds the seconds in a given ISO8601 duration string.
@@ -50,7 +51,7 @@ const findDateUnit = (unit, isoString) => {
  * @example
  * findSeconds('PT1M') // => undefined
  */
-export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString);
+export const findSeconds = buildTimeFinder(UNITS.seconds);
 
 /**
  * Finds the minutes in a given ISO8601 duration string.
@@ -61,7 +62,7 @@ export const findSeconds = (isoString) => findTimeUnit(UNITS.seconds, isoString)
  * @example
  * findMinutes('P1Y') // => undefined
  */
-export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString);
+export const findMinutes = buildTimeFinder(UNITS.minutes);
 
 /**
  * Finds the hours in a given ISO8601 duration string.
@@ -72,7 +73,7 @@ export const findMinutes = (isoString) => findTimeUnit(UNITS.minutes, isoString)
  * @example
  * findHours('PT1M') // => undefined
  */
-export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
+export const findHours = buildTimeFinder(UNITS.hours);
 
 /**
  * Finds the days in a given ISO8601 duration string.
@@ -83,7 +84,7 @@ export const findHours = (isoString) => findTimeUnit(UNITS.hours, isoString);
  * @example
  * findDays('PT1M') // => undefined
  */
-export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
+export const findDays = buildDateFinder(UNITS.days);
 
 /**
  * Finds the weeks in a given ISO8601 duration string.
@@ -94,7 +95,7 @@ export const findDays = (isoString) => findDateUnit(UNITS.days, isoString);
  * @example
  * findWeeks('PT1M') // => undefined
  */
-export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
+export const findWeeks = buildDateFinder(UNITS.weeks);
 
 /**
  * Finds the months in a given ISO8601 duration string.
@@ -105,7 +106,7 @@ export const findWeeks = (isoString) => findDateUnit(UNITS.weeks, isoString);
  * @example
  * findMonths('PT1s') // => undefined
  */
-export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
+export const findMonths = buildDateFinder(UNITS.months);
 
 /**
  * Finds the years in a given ISO8601 duration string.
@@ -116,4 +117,4 @@ export const findMonths = (isoString) => findDateUnit(UNITS.months, isoString);
  * @example
  * findYears('PT1M') // => undefined
  */
-export const findYears = (isoString) => findDateUnit(UNITS.years, isoString);
+export const findYears = buildDateFinder(UNITS.years);
