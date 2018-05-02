@@ -1,5 +1,6 @@
 /**
- * Helpers to convert from an SQL Time interval to an ISO8601 duration
+ * Helpers to convert from an SQL Time interval to an ISO8601 duration. More information
+ * can be found here http://www.postgresqltutorial.com/postgresql-interval/
  * @name default
  */
 
@@ -22,8 +23,8 @@ const parsePositive = buildFloatParser('+');
 const parseNegative = buildFloatParser('-');
 const findTimeUnits = (stringComponent) => {
   const matchTimeUnits = new RegExp('[+-]?[0-9]+:[0-9]+:[0-9]+');
-
   const matchedUnit = stringComponent.toLowerCase().match(matchTimeUnits);
+
   if (!matchedUnit) { return 0; }
 
   const parse = matchedUnit[0][0] === '-' ? parseNegative : parsePositive;
