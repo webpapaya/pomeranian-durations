@@ -16,6 +16,7 @@ yarn add pomeranian-durations
 - [conversions](#category-conversions)
 - [find](#category-find)
 - [floor](#category-floor)
+- [from-sql](#category-from-sql)
 - [from](#category-from)
 - [in](#category-in)
 - [sort](#category-sort)
@@ -164,6 +165,20 @@ floorDays('P1.1D') // => 'P1D'
 floorWeeks('P1.1W') // => 'P1W'
 floorMonths('P1.1M') // => 'P1M'
 floorYears('P1.1Y') // => 'P1Y'
+```
+
+
+<a name="category-from-sql"></a>
+## from-sql
+
+[fromPostgres](https://github.com/webPapaya/pomeranian/blob/master/src/from-sql.js#L42) | [fromPostgresVerbose](https://github.com/webPapaya/pomeranian/blob/master/src/from-sql.js#L56)
+
+Helpers to convert from an SQL Time interval to an ISO8601 duration. More information
+can be found here http://www.postgresqltutorial.com/postgresql-interval/
+
+```javascript
+fromPostgres('1 mons 01:02:03') // => 'P1MT1H2M3S'
+fromPostgresVerbose('1 mons 3 secs 1 day') // => 'P1M1DT3S'
 ```
 
 
