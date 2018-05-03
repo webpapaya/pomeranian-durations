@@ -41,3 +41,23 @@ export const createRegexBuilder = (regex = '') => {
     isBuilder: true,
   };
 };
+
+export const pick = curry((keys, object) => {
+  return keys.reduce((result, key) => {
+    if (key in object) { result[key] = object[key]; }
+    return result;
+  }, {})
+});
+
+export const except = curry((keys, object) => {
+  return Object.keys(object).reduce((result, key) => {
+    if (!keys.includes(key)) { result[key] = object[key]; }
+    return result;
+  }, {});
+});
+
+export const leftpad = curry((amount, fill, string) => {
+  if (string.length >= amount) { return string; }
+  const prefix = Array.from({ length: amount }).reduce((result) => `${result}${fill}`);
+  return `${prefix}${string}`.substr(-amount);
+});

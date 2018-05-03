@@ -1,5 +1,5 @@
 import { assertThat, equalTo } from 'hamjest';
-import { toPostgresVerbose } from './to-sql';
+import { toPostgresVerbose, toPostgres } from './to-sql';
 import { INVALID_DURATION } from "./constants";
 
 describe('toPostgresVerbose converts', () => {
@@ -17,6 +17,18 @@ describe('toPostgresVerbose converts', () => {
   ].forEach(({ input, result }) => {
     it(`${input} to ${result}`, () => {
       assertThat(toPostgresVerbose(input), equalTo(result));
+    });
+  });
+});
+
+describe.only('toPostgres converts', () => {
+  [
+    { input: 'Invalid', result: INVALID_DURATION },
+    { input: 'PT1S', result: '00:00:01' },
+    { input: 'PT1111S', result: '00:00:01' }
+  ].forEach(({ input, result }) => {
+    it(`${input} to ${result}`, () => {
+      assertThat(toPostgres(input), equalTo(result));
     });
   });
 });
