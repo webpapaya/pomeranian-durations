@@ -18,7 +18,7 @@ const removeUnits = curry((units, isoDuration) => {
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeSeconds('PT1S') // => 'P'
+ * removeSeconds('PT1M1S') // => 'PT1M'
  */
 export const removeSeconds = removeUnits([UNIT_NAMES.seconds]);
 
@@ -27,7 +27,7 @@ export const removeSeconds = removeUnits([UNIT_NAMES.seconds]);
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeMinutes('PT1M') // => 'P'
+ * removeMinutes('PT1M1S') // => 'PT1S'
  */
 export const removeMinutes = removeUnits([UNIT_NAMES.minutes]);
 
@@ -36,7 +36,7 @@ export const removeMinutes = removeUnits([UNIT_NAMES.minutes]);
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeHours('PT1H') // => 'P'
+ * removeHours('PT1H1M') // => 'PT1M'
  */
 export const removeHours = removeUnits([UNIT_NAMES.hours]);
 
@@ -45,7 +45,7 @@ export const removeHours = removeUnits([UNIT_NAMES.hours]);
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeDays('P1D') // => 'P'
+ * removeDays('P1DT1M') // => 'PT1M'
  */
 export const removeDays = removeUnits([UNIT_NAMES.days]);
 
@@ -54,7 +54,7 @@ export const removeDays = removeUnits([UNIT_NAMES.days]);
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeWeeks('P1W') // => 'P'
+ * removeWeeks('P1WT1M') // => 'PT1M'
  */
 export const removeWeeks = removeUnits([UNIT_NAMES.weeks]);
 
@@ -63,7 +63,7 @@ export const removeWeeks = removeUnits([UNIT_NAMES.weeks]);
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeMonths('P1M') // => 'P'
+ * removeMonths('P1MT1M') // => 'PT1M'
  */
 export const removeMonths = removeUnits([UNIT_NAMES.months]);
 
@@ -72,7 +72,7 @@ export const removeMonths = removeUnits([UNIT_NAMES.months]);
  * @param isoDuration {string} - ISO8601 duration
  * @returns isoDuration {string}
  * @example
- * removeYears('P1Y') // => 'P'
+ * removeYears('P1YT1M') // => 'PT1M'
  */
 export const removeYears = removeUnits([UNIT_NAMES.years]);
 
