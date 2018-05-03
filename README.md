@@ -261,13 +261,13 @@ normalizeTime('PT1S') // => 'PT1S'
 Helpers to remove certain units from an ISO8601 string.
 
 ```javascript
-removeSeconds('PT1S') // => 'P'
-removeMinutes('PT1M') // => 'P'
-removeHours('PT1H') // => 'P'
-removeDays('P1D') // => 'P'
-removeWeeks('P1W') // => 'P'
-removeMonths('P1M') // => 'P'
-removeYears('P1Y') // => 'P'
+removeSeconds('PT1M1S') // => 'PT1M'
+removeMinutes('PT1M1S') // => 'PT1S'
+removeHours('PT1H1M') // => 'PT1M'
+removeDays('P1DT1M') // => 'PT1M'
+removeWeeks('P1WT1M') // => 'PT1M'
+removeMonths('P1MT1M') // => 'PT1M'
+removeYears('P1YT1M') // => 'PT1M'
 removeTimeUnits('P1DT1M') // => 'P1D'
 removeDateUnits('P1DT1M') // => 'PT1M'
 ```
