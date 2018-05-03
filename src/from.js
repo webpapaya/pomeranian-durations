@@ -87,4 +87,3 @@ export const fromMonths = (amount) => toIso({ months: amount });
  */
 export const fromYears = (amount) => toIso({ years: amount });
 
-

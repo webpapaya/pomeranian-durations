@@ -47,20 +47,20 @@ export const createRegexBuilder = (regex = '') => {
 
 export const pick = curry((keys, object) => {
   return keys.reduce((result, key) => {
-    if (key in object) { result[key] = object[key]; }
+    if (key in object) { result[key] = object[key]; } // eslint-disable-line no-param-reassign
     return result;
-  }, {})
+  }, {});
 });
 
 export const mapValues = curry((fn, object) =>
   Object.keys(object).reduce((result, key) => {
-    result[key] = Math.abs(object[key]);
+    result[key] = Math.abs(object[key]); // eslint-disable-line no-param-reassign
     return result;
   }, {}));
 
 export const except = curry((keys, object) => {
   return Object.keys(object).reduce((result, key) => {
-    if (!keys.includes(key)) { result[key] = object[key]; }
+    if (!keys.includes(key)) { result[key] = object[key]; } // eslint-disable-line no-param-reassign
     return result;
   }, {});
 });
@@ -76,5 +76,5 @@ export const leftpad = curry((amount, fill, input) => {
   const prefixedNumber = `${prefix}${number}`.substr(-amount);
   return decimals
     ? `${prefixedNumber}.${decimals}`
-    : prefixedNumber
+    : prefixedNumber;
 });

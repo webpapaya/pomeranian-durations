@@ -3,8 +3,8 @@
  * @name default
  */
 
-import { toFragments, toIso } from "./transformations";
-import { mapValues, pipe } from "./_utils";
+import { toFragments, toIso } from './transformations';
+import { mapValues, pipe } from './_utils';
 
 /**
  * Converts all negative values from a duration and converts them to be positive.

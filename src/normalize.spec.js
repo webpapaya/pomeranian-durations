@@ -1,6 +1,6 @@
 import { assertThat, equalTo } from 'hamjest';
 import { normalizeTime } from './normalize';
-import { INVALID_DURATION } from "./constants";
+import { INVALID_DURATION } from './constants';
 
 describe('normalizeTime converts', () => {
   [

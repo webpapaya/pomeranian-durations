@@ -4,8 +4,8 @@
  * @name default
  */
 
-import { curry } from "./_utils";
-import { toIso } from "./transformations";
+import { curry } from './_utils';
+import { toIso } from './transformations';
 
 const findExtendedUnit = (stringComponent, units) => {
   const findUnitWithValue = new RegExp(units.map((unit) => `[+,-]?[0-9] ?${unit} `).join('|'));

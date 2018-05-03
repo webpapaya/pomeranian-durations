@@ -3,10 +3,10 @@
  * @name default
  */
 
-import { curry, except, pipe } from "./_utils";
-import { toFragments, toIso } from "./transformations";
-import { INVALID_DURATION, UNIT_NAMES } from "./constants";
-import { isInvalid } from "./validate";
+import { curry, except, pipe } from './_utils';
+import { toFragments, toIso } from './transformations';
+import { INVALID_DURATION, UNIT_NAMES } from './constants';
+import { isInvalid } from './validate';
 
 const removeUnits = curry((units, isoDuration) => {
   if (isInvalid(isoDuration)) { return INVALID_DURATION; }

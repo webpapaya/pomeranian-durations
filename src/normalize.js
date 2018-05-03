@@ -3,11 +3,11 @@
  * @name default
  */
 
-import { INVALID_DURATION, ONE_HOUR, ONE_MINUTE, ONE_SECOND, UNIT_NAMES } from "./constants";
+import { INVALID_DURATION, ONE_HOUR, ONE_MINUTE, ONE_SECOND, UNIT_NAMES } from './constants';
 import { toFragments, toIso } from './transformations';
 import { asMicroseconds } from './conversions';
 import { isInvalid } from './validate';
-import { pick, pipe } from "./_utils";
+import { pick, pipe } from './_utils';
 
 const TIME_UNITS = [UNIT_NAMES.hours, UNIT_NAMES.minutes, UNIT_NAMES.seconds];
 
@@ -30,5 +30,5 @@ export const normalizeTime = (isoString) => {
   const minutes = Math.floor((microseconds - hour * ONE_HOUR) / ONE_MINUTE);
   const seconds = (microseconds - hour * ONE_HOUR - minutes * ONE_MINUTE) / ONE_SECOND;
 
-  return toIso({ ...fragments, hour, minutes, seconds});
+  return toIso({ ...fragments, hour, minutes, seconds });
 };

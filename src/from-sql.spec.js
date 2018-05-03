@@ -1,5 +1,5 @@
 import { assertThat, equalTo } from 'hamjest';
-import { fromPostgres, fromPostgresVerbose } from "./from-sql";
+import { fromPostgres, fromPostgresVerbose } from './from-sql';
 
 describe('fromPostgres converts', () => {
   [
