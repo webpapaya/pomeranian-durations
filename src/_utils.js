@@ -12,6 +12,9 @@ export const curry = (fn) => {
   }());
 };
 
+export const pipe = (initialValue, ...fns) =>
+  fns.reduce((result, fn) => fn(result), initialValue);
+
 export const createRegexBuilder = (regex = '') => {
   const valueOf = (value) => value.isBuilder
     ? value.toValue()
@@ -49,6 +52,12 @@ export const pick = curry((keys, object) => {
   }, {})
 });
 
+export const mapValues = curry((fn, object) =>
+  Object.keys(object).reduce((result, key) => {
+    result[key] = Math.abs(object[key]);
+    return result;
+  }, {}));
+
 export const except = curry((keys, object) => {
   return Object.keys(object).reduce((result, key) => {
     if (!keys.includes(key)) { result[key] = object[key]; }
@@ -56,8 +65,16 @@ export const except = curry((keys, object) => {
   }, {});
 });
 
-export const leftpad = curry((amount, fill, string) => {
-  if (string.length >= amount) { return string; }
+export const joinWhen = (compareFn, string, ...values) =>
+  values.filter(compareFn).join(string);
+
+export const leftpad = curry((amount, fill, input) => {
+  const string = `${input}`;
+  const [number, decimals] = string.split('.');
+  if (number.length >= amount) { return input; }
   const prefix = Array.from({ length: amount }).reduce((result) => `${result}${fill}`);
-  return `${prefix}${string}`.substr(-amount);
+  const prefixedNumber = `${prefix}${number}`.substr(-amount);
+  return decimals
+    ? `${prefixedNumber}.${decimals}`
+    : prefixedNumber
 });
