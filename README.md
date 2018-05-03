@@ -19,9 +19,13 @@ yarn add pomeranian-durations
 - [from-sql](#category-from-sql)
 - [from](#category-from)
 - [in](#category-in)
+- [math](#category-math)
+- [normalize](#category-normalize)
+- [remove](#category-remove)
 - [sort](#category-sort)
 - [subtract](#category-subtract)
 - [validate](#category-validate)
+- [to-sql](#category-to-sql)
 - [transformations](#category-transformations)
 
 
@@ -223,6 +227,52 @@ inHours('PT60M') // => 'PT1H'
 ```
 
 
+<a name="category-math"></a>
+## math
+
+[absolute](https://github.com/webPapaya/pomeranian/blob/master/src/math.js#L18)
+
+Generic helpers to do math operations on durations.
+
+```javascript
+absolute('PT-1S') // => 'PT1S'
+absolute('PT1S') // => 'PT1S'
+```
+
+
+<a name="category-normalize"></a>
+## normalize
+
+[normalizeTime](https://github.com/webPapaya/pomeranian/blob/master/src/normalize.js#L23)
+
+Helpers to normalize an ISO8601 duration. (eg. 61 seconds => 1 minute 1 second)
+
+```javascript
+normalizeTime('P1DT1234S') // => 'P1DT20M34S'
+normalizeTime('PT1S') // => 'PT1S'
+```
+
+
+<a name="category-remove"></a>
+## remove
+
+[removeSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L23) | [removeMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L32) | [removeHours](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L41) | [removeDays](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L50) | [removeWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L59) | [removeMonths](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L68) | [removeYears](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L77) | [removeTimeUnits](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L86) | [removeDateUnits](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L99)
+
+Helpers to remove certain units from an ISO8601 string.
+
+```javascript
+removeSeconds('PT1S') // => 'P'
+removeMinutes('PT1M') // => 'P'
+removeHours('PT1H') // => 'P'
+removeDays('P1D') // => 'P'
+removeWeeks('P1W') // => 'P'
+removeMonths('P1M') // => 'P'
+removeYears('P1Y') // => 'P'
+removeTimeUnits('P1DT1M') // => 'P1D'
+removeDateUnits('P1DT1M') // => 'PT1M'
+```
+
+
 <a name="category-sort"></a>
 ## sort
 
@@ -289,6 +339,17 @@ const convertToHours = compose(
 
 convertToHours('PT10H') // 10
 convertToHours('Blub') // null
+```
+
+
+<a name="category-to-sql"></a>
+## to-sql
+
+[toPostgresVerbose](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L47) | [toPostgres](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L59)
+
+```javascript
+toPostgresVerbose('P2DT3M') // => '2 days 3 mins'
+toPostgres('P2DT1M') // => '2 days 00:01:00'
 ```
 
 
