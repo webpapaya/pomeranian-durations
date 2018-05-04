@@ -12,6 +12,9 @@ export const curry = (fn) => {
   }());
 };
 
+export const pipe = (initialValue, ...fns) =>
+  fns.reduce((result, fn) => fn(result), initialValue);
+
 export const createRegexBuilder = (regex = '') => {
   const valueOf = (value) => value.isBuilder
     ? value.toValue()
@@ -41,3 +44,39 @@ export const createRegexBuilder = (regex = '') => {
     isBuilder: true,
   };
 };
+
+export const pick = curry((keys, object) => {
+  return keys.reduce((result, key) => {
+    if (key in object) { result[key] = object[key]; } // eslint-disable-line no-param-reassign
+    return result;
+  }, {});
+});
+
+export const mapValues = curry((fn, object) =>
+  Object.keys(object).reduce((result, key) => {
+    result[key] = Math.abs(object[key]); // eslint-disable-line no-param-reassign
+    return result;
+  }, {}));
+
+export const except = curry((keys, object) => {
+  return Object.keys(object).reduce((result, key) => {
+    if (!keys.includes(key)) { result[key] = object[key]; } // eslint-disable-line no-param-reassign
+    return result;
+  }, {});
+});
+
+export const joinWhen = (compareFn, string, ...values) =>
+  values.filter(compareFn).join(string);
+
+export const leftpad = curry((amount, fill, input) => {
+  const string = `${input}`;
+  const [number, decimals] = string.split('.');
+  if (number.length >= amount) { return input; }
+  const prefix = Array.from({ length: amount }).reduce((result) => `${result}${fill}`);
+  const prefixedNumber = `${prefix}${number}`.substr(-amount);
+  return decimals
+    ? `${prefixedNumber}.${decimals}`
+    : prefixedNumber;
+});
+
+export const values = (object) => Object.keys(object).map((key) => object[key]);

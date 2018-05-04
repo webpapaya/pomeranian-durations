@@ -21,6 +21,18 @@ export const UNIT_NAMES = {
   years: 'years',
 };
 
+export const UNIT_ORDER = [
+  UNIT_NAMES.microseconds,
+  UNIT_NAMES.milliseconds,
+  UNIT_NAMES.seconds,
+  UNIT_NAMES.minutes,
+  UNIT_NAMES.hours,
+  UNIT_NAMES.days,
+  UNIT_NAMES.weeks,
+  UNIT_NAMES.months,
+  UNIT_NAMES.years,
+];
+
 export const TIME_UNITS = {
   [UNIT_NAMES.seconds]: 'S',
   [UNIT_NAMES.minutes]: 'M',

@@ -16,11 +16,16 @@ yarn add pomeranian-durations
 - [conversions](#category-conversions)
 - [find](#category-find)
 - [floor](#category-floor)
+- [from-sql](#category-from-sql)
 - [from](#category-from)
 - [in](#category-in)
+- [math](#category-math)
+- [normalize](#category-normalize)
+- [remove](#category-remove)
 - [sort](#category-sort)
 - [subtract](#category-subtract)
 - [validate](#category-validate)
+- [to-sql](#category-to-sql)
 - [transformations](#category-transformations)
 
 
@@ -167,6 +172,20 @@ floorYears('P1.1Y') // => 'P1Y'
 ```
 
 
+<a name="category-from-sql"></a>
+## from-sql
+
+[fromPostgres](https://github.com/webPapaya/pomeranian/blob/master/src/from-sql.js#L42) | [fromPostgresVerbose](https://github.com/webPapaya/pomeranian/blob/master/src/from-sql.js#L56)
+
+Helpers to convert from an SQL Time interval to an ISO8601 duration. More information
+can be found here http://www.postgresqltutorial.com/postgresql-interval/
+
+```javascript
+fromPostgres('1 mons 01:02:03') // => 'P1MT1H2M3S'
+fromPostgresVerbose('1 mons 3 secs 1 day') // => 'P1M1DT3S'
+```
+
+
 <a name="category-from"></a>
 ## from
 
@@ -205,6 +224,52 @@ http://www.ostyn.com/standards/scorm/samples/ISOTimeForSCORM.htm
 inSeconds('PT1M') // => 'PT60S'
 inMinutes('PT1H') // => 'PT60M'
 inHours('PT60M') // => 'PT1H'
+```
+
+
+<a name="category-math"></a>
+## math
+
+[absolute](https://github.com/webPapaya/pomeranian/blob/master/src/math.js#L18)
+
+Generic helpers to do math operations on durations.
+
+```javascript
+absolute('PT-1S') // => 'PT1S'
+absolute('PT1S') // => 'PT1S'
+```
+
+
+<a name="category-normalize"></a>
+## normalize
+
+[normalizeTime](https://github.com/webPapaya/pomeranian/blob/master/src/normalize.js#L23)
+
+Helpers to normalize an ISO8601 duration. (eg. 61 seconds => 1 minute 1 second)
+
+```javascript
+normalizeTime('P1DT1234S') // => 'P1DT20M34S'
+normalizeTime('PT1S') // => 'PT1S'
+```
+
+
+<a name="category-remove"></a>
+## remove
+
+[removeSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L23) | [removeMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L32) | [removeHours](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L41) | [removeDays](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L50) | [removeWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L59) | [removeMonths](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L68) | [removeYears](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L77) | [removeTimeUnits](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L86) | [removeDateUnits](https://github.com/webPapaya/pomeranian/blob/master/src/remove.js#L99)
+
+Helpers to remove certain units from an ISO8601 string.
+
+```javascript
+removeSeconds('PT1M1S') // => 'PT1M'
+removeMinutes('PT1M1S') // => 'PT1S'
+removeHours('PT1H1M') // => 'PT1M'
+removeDays('P1DT1M') // => 'PT1M'
+removeWeeks('P1WT1M') // => 'PT1M'
+removeMonths('P1MT1M') // => 'PT1M'
+removeYears('P1YT1M') // => 'PT1M'
+removeTimeUnits('P1DT1M') // => 'P1D'
+removeDateUnits('P1DT1M') // => 'PT1M'
 ```
 
 
@@ -274,6 +339,18 @@ const convertToHours = compose(
 
 convertToHours('PT10H') // 10
 convertToHours('Blub') // null
+```
+
+
+<a name="category-to-sql"></a>
+## to-sql
+
+[toPostgresVerbose](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L54) | [toPostgres](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L66) | [toSql](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L80)
+
+```javascript
+toPostgresVerbose('P2DT3M') // => '@ 2 days 3 mins'
+toPostgres('P2DT1M') // => '2 days 00:01:00'
+toSql('P1Y2DT1M') // => '1-0 2 0:01:00'
 ```
 
 
