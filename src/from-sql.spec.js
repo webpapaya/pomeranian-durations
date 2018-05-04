@@ -87,6 +87,10 @@ describe('fromPostgresVerbose converts', () => {
       it(`'-2 ${unitName.toUpperCase()}' => ${negativeResult}`, () => {
         assertThat(fromPostgresVerbose(`-2 ${unitName.toUpperCase()}`), equalTo(negativeResult));
       });
+
+      it(`'@ 2 ${unitName.toUpperCase()}' => ${negativeResult}`, () => {
+        assertThat(fromPostgresVerbose(`@ 2 ${unitName.toUpperCase()}`), equalTo(positiveResult));
+      });
     });
   });
 

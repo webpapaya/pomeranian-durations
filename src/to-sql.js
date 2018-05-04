@@ -1,7 +1,7 @@
 import { toFragments } from './transformations';
 import { isInvalid } from './validate';
 import { INVALID_DURATION, UNIT_ORDER } from './constants';
-import { leftpad, pipe, joinWhen } from './_utils';
+import { leftpad, pipe, joinWhen, curry, values } from './_utils';
 import { asMicroseconds } from './conversions';
 import { absolute } from './math';
 import { normalizeTime } from './normalize';
@@ -26,39 +26,60 @@ const isoStringToPostgresVerbose = (isoString) => {
     .join(' ');
 };
 
-const fragmentsToPostgresTime = (isoString) => {
+const fragmentsToSqlTime = curry((leftPadHours, isoString) => {
   const microseconds = pipe(isoString, asMicroseconds);
+  if (microseconds === 0) { return ''; }
   const updatedFragments = pipe(isoString, absolute, normalizeTime, toFragments);
   const sign = microseconds < 0 ? '-' : '';
   return sign + [
-    leftPadZeros(updatedFragments.hours),
+    leftPadHours ? leftPadZeros(updatedFragments.hours) : updatedFragments.hours,
     leftPadZeros(updatedFragments.minutes),
     leftPadZeros(updatedFragments.seconds),
   ].join(':');
-};
+});
+
+const fragmentsToSqlDate = curry((isoString) => {
+  const fragments = toFragments(isoString);
+  if (values(fragments).reduce((sum, a) => sum + a, 0) === 0) { return ''; }
+  return `${fragments.years}-${fragments.months} ${fragments.days}`;
+});
 
 /**
  * Converts an ISO8601 duration to a Postgres verbose duration.
  * @param isoString {string} - ISO8601 duration
  * @returns {string} - postgres verbose duration string
  * @example
- * toPostgresVerbose('P2DT3M') // => '2 days 3 mins'
+ * toPostgresVerbose('P2DT3M') // => '@ 2 days 3 mins'
  */
 export const toPostgresVerbose = (isoString) => {
   if (isInvalid(isoString)) { return INVALID_DURATION; }
-  return isoStringToPostgresVerbose(isoString);
+  return `@ ${isoStringToPostgresVerbose(isoString)}`.trim();
 };
 
 /**
  * Converts an ISO8601 duration to a Postgres duration.
  * @param isoString {string} - ISO8601 duration
- * @returns {string} - postgres verbose duration string
+ * @returns {string} - postgres duration string
  * @example
  * toPostgres('P2DT1M') // => '2 days 00:01:00'
  */
 export const toPostgres = (isoString) => {
   if (isInvalid(isoString)) { return INVALID_DURATION; }
-  const timeParts = pipe(isoString, removeDateUnits, fragmentsToPostgresTime);
+  const timeParts = pipe(isoString, removeDateUnits, fragmentsToSqlTime(true));
   const dateParts = pipe(isoString, removeTimeUnits, isoStringToPostgresVerbose);
+  return joinWhen((value) => value !== '', ' ', dateParts, timeParts);
+};
+
+/**
+ * Converts an ISO8601 duration to a SQL duration.
+ * @param isoString {string} - ISO8601 duration
+ * @returns {string} - sql duration string
+ * @example
+ * toSql('P1Y2DT1M') // => '1-0 2 0:01:00'
+ */
+export const toSql = (isoString) => {
+  if (isInvalid(isoString)) { return INVALID_DURATION; }
+  const timeParts = pipe(isoString, removeDateUnits, fragmentsToSqlTime(false));
+  const dateParts = pipe(isoString, removeTimeUnits, fragmentsToSqlDate);
   return joinWhen((value) => value !== '', ' ', dateParts, timeParts);
 };

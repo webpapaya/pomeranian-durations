@@ -78,3 +78,5 @@ export const leftpad = curry((amount, fill, input) => {
     ? `${prefixedNumber}.${decimals}`
     : prefixedNumber;
 });
+
+export const values = (object) => Object.keys(object).map((key) => object[key]);
