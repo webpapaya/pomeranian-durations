@@ -345,11 +345,12 @@ convertToHours('Blub') // null
 <a name="category-to-sql"></a>
 ## to-sql
 
-[toPostgresVerbose](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L47) | [toPostgres](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L59)
+[toPostgresVerbose](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L54) | [toPostgres](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L66) | [toSql](https://github.com/webPapaya/pomeranian/blob/master/src/to-sql.js#L80)
 
 ```javascript
-toPostgresVerbose('P2DT3M') // => '2 days 3 mins'
+toPostgresVerbose('P2DT3M') // => '@ 2 days 3 mins'
 toPostgres('P2DT1M') // => '2 days 00:01:00'
+toSql('P1Y2DT1M') // => '1-0 2 0:01:00'
 ```
 
 
