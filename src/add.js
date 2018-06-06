@@ -8,6 +8,7 @@ import { toIso, toFragments } from './transformations';
 import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';
 
+
 /**
  * Adds two iso durations
  * @param firstIsoString {string} - a string to be added
@@ -26,6 +27,15 @@ export const add = curry((firstIsoString, secondIsoString) => {
   }, {});
   return toIso(updatedFragments);
 });
+
+/**
+ * Sums an array of durations
+ * @param durations {array} - a string to be added
+ * @example
+ * sum(['PT1M', 'PT2M', 'PT3M']) // => 'PT6M'
+ */
+export const sum = (durations) =>
+  durations.reduce((result, current) => add(result, current));
 
 /**
  * Adds the given amount of microseconds to the given duration.
