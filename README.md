@@ -32,12 +32,13 @@ yarn add pomeranian-durations
 <a name="category-add"></a>
 ## add
 
-[add](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L18) | [addMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L37) | [addMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L46) | [addSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L55) | [addMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L64) | [addHours](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L73) | [addDays](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L82) | [addWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L91) | [addMonths](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L100) | [addYears](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L109)
+[add](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L19) | [sum](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L37) | [addMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L47) | [addMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L56) | [addSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L65) | [addMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L74) | [addHours](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L83) | [addDays](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L92) | [addWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L101) | [addMonths](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L110) | [addYears](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L119)
 
 Helpers to add to a duration.
 
 ```javascript
 add('PT3S', 'PT1S') // => 'PT4S'
+sum(['PT1M', 'PT2M', 'PT3M']) // => 'PT6M'
 addMicroseconds(1, 'PT1S') // => 'PT1.000001S'
 addMilliseconds(1, 'PT1S') // => 'PT1.001S'
 addSeconds(1, 'PT1S') // => 'PT2S'
