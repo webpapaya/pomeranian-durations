@@ -1,6 +1,7 @@
 import { assertThat, equalTo } from 'hamjest';
 import {
   add,
+  sum,
   addMicroseconds,
   addMilliseconds,
   addSeconds,
@@ -52,3 +53,14 @@ import { INVALID_DURATION } from './constants';
     assertThat(fn(amount, isoString), equalTo(result));
   });
 });
+
+describe('sum', () => {
+  it('accepts sums durations correctly', () => {
+    assertThat(sum(['PT1S', 'PT2S', 'PT3S']), equalTo('PT6S'));
+  });
+
+  it('returns invalid duration when one element is invalid', () => {
+    assertThat(sum(['PT1S', INVALID_DURATION, 'PT3S']), equalTo(INVALID_DURATION));
+  });
+});
+
