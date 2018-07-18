@@ -16,6 +16,7 @@ yarn add pomeranian-durations
 - [conversions](#category-conversions)
 - [find](#category-find)
 - [floor](#category-floor)
+- [format](#category-format)
 - [from-sql](#category-from-sql)
 - [from](#category-from)
 - [in](#category-in)
@@ -25,7 +26,6 @@ yarn add pomeranian-durations
 - [sort](#category-sort)
 - [subtract](#category-subtract)
 - [validate](#category-validate)
-- [format](#category-format)
 - [to-sql](#category-to-sql)
 - [transformations](#category-transformations)
 
@@ -171,6 +171,43 @@ floorDays('P1.1D') // => 'P1D'
 floorWeeks('P1.1W') // => 'P1W'
 floorMonths('P1.1M') // => 'P1M'
 floorYears('P1.1Y') // => 'P1Y'
+```
+
+
+<a name="category-format"></a>
+## format
+
+[format](https://github.com/webPapaya/pomeranian/blob/master/src/format.js#L84)
+
+Helpers to format an iso duration. Available tokens are:
+
++---------+----------+------------------+
+| Token   | Unit     | Result example   |
++---------+----------+------------------+
+| %y'     | years    |  0, 01, ..., 112 |
+| %yy     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+| %M'     | months   |  0, 01, ..., 112 |
+| %MM     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+| %w'     | weeks    |  0, 01, ..., 112 |
+| %ww     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+| %d'     | days     |  0, 01, ..., 112 |
+| %dd     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+| %h'     | hours    |  0, 01, ..., 112 |
+| %hh     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+| %m'     | minutes  |  0, 01, ..., 112 |
+| %mm     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+| %s'     | seconds  |  0, 01, ..., 112 |
+| %ss     |          | 00, 01, ..., 112 |
++---------+----------+------------------+
+
+```javascript
+format('%hh:%mm:%ss', 'PT1M2S') // => '00:01:02'
 ```
 
 
@@ -341,16 +378,6 @@ const convertToHours = compose(
 
 convertToHours('PT10H') // 10
 convertToHours('Blub') // null
-```
-
-
-<a name="category-format"></a>
-## format
-
-[format](https://github.com/webPapaya/pomeranian/blob/master/src/format.js#L78)
-
-```javascript
-format('%hh:%mm:%ss', 'PT1M2S') // => '00:01:02'
 ```
 
 
