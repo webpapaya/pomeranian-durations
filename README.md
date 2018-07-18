@@ -177,7 +177,7 @@ floorYears('P1.1Y') // => 'P1Y'
 <a name="category-format"></a>
 ## format
 
-[format](https://github.com/webPapaya/pomeranian/blob/master/src/format.js#L77)
+[format](https://github.com/webPapaya/pomeranian/blob/master/src/format.js#L75)
 
 Helpers to format an iso duration. Available tokens are:
 
