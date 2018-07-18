@@ -39,6 +39,10 @@ describe('format', () => {
   testFormat('%s', 'PT1S', '1');
   testFormat('%ss', 'P', '00');
   testFormat('%ss', 'PT1S', '01');
+
+  testFormat('%mm:%ss', 'PT1S', '00:01');
+  testFormat('%ss %ss', 'PT1S', '01 01');
+  testFormat('unknown token', 'PT1S', 'unknown token');
 });
 
 
