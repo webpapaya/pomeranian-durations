@@ -5,6 +5,7 @@ export * from './constants.js';
 export * from './conversions.js';
 export * from './find.js';
 export * from './floor.js';
+export * from './format.js';
 export * from './from-sql.js';
 export * from './from.js';
 export * from './in.js';

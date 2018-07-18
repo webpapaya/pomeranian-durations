@@ -25,6 +25,7 @@ yarn add pomeranian-durations
 - [sort](#category-sort)
 - [subtract](#category-subtract)
 - [validate](#category-validate)
+- [format](#category-format)
 - [to-sql](#category-to-sql)
 - [transformations](#category-transformations)
 
@@ -340,6 +341,16 @@ const convertToHours = compose(
 
 convertToHours('PT10H') // 10
 convertToHours('Blub') // null
+```
+
+
+<a name="category-format"></a>
+## format
+
+[format](https://github.com/webPapaya/pomeranian/blob/master/src/format.js#L78)
+
+```javascript
+format('%hh:%mm:%ss', 'PT1M2S') // => '00:01:02'
 ```
 
 
