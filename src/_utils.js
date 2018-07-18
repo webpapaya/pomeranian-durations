@@ -69,7 +69,7 @@ export const joinWhen = (compareFn, string, ...values) =>
   values.filter(compareFn).join(string);
 
 export const leftpad = curry((amount, fill, input) => {
-  const string = (input || fill) + '';
+  const string = `${input || fill }`;
   const [number, decimals] = string.split('.');
   if (number.length >= amount) { return string; }
   const prefix = Array.from({ length: amount }).reduce((result) => `${result}${fill}`);

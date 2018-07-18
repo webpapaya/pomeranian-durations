@@ -17,12 +17,12 @@
  * | %mm     |          | 00, 01, ..., 112 |
  * | %s'     | seconds  |  0, 01, ..., 112 |
  * | %ss     |          | 00, 01, ..., 112 |
-
+ *
  * @name default
  */
 
 
-import { curry, leftpad } from "./_utils";
+import { curry, leftpad } from './_utils';
 import {
   findDays,
   findHours,
@@ -31,7 +31,7 @@ import {
   findSeconds,
   findWeeks,
   findYears,
-} from "./find";
+} from './find';
 
 const compose = (...fns) => (initialValue) =>
   fns.reduce((result, fn) => fn(result), initialValue);
@@ -62,8 +62,6 @@ const TOKEN = {
   '%ss': compose(findSeconds, toPaddedString(2)),
 };
 const SORTED_KEYS = Object.keys(TOKEN).sort((a, b) => b.length - a.length);
-
-
 
 
 /**

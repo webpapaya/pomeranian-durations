@@ -45,4 +45,3 @@ describe('format', () => {
   testFormat('unknown token', 'PT1S', 'unknown token');
 });
 
-
