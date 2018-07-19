@@ -65,6 +65,7 @@ describe('eg', () => {
     { first: 'PT0S', second: 'PT1S', result: false },
     { first: 'LALA', second: 'PT0S', result: false },
     { first: 'PT10S', second: 'LALA', result: false },
+    { first: 'LALA', second: 'LALA', result: false },
   ].forEach(({ first, second, result }) => {
     it(`eq for ${first} and ${second} returns ${result}`, () => {
       assertThat(eq(first, second), equalTo(result));
