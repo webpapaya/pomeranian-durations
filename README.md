@@ -183,7 +183,7 @@ Helpers to format an iso duration. Available tokens are:
 
 | Token   | Unit     | Result example   |
 |---------|----------|------------------|
-| %Y      | years    |  0, 01, ..., 112 |
+| %Y      | years    |  0,  1, ..., 112 |
 | %YY     | years    | 00, 01, ..., 112 |
 | %M'     | months   |  0,  1, ..., 112 |
 | %MM     | months   | 00, 01, ..., 112 |
