@@ -3,20 +3,20 @@
  *
  * | Token   | Unit     | Result example   |
  * |---------|----------|------------------|
- * | %y'     | years    |  0, 01, ..., 112 |
- * | %yy     |          | 00, 01, ..., 112 |
- * | %M'     | months   |  0, 01, ..., 112 |
- * | %MM     |          | 00, 01, ..., 112 |
- * | %w'     | weeks    |  0, 01, ..., 112 |
- * | %ww     |          | 00, 01, ..., 112 |
- * | %d'     | days     |  0, 01, ..., 112 |
- * | %dd     |          | 00, 01, ..., 112 |
- * | %h'     | hours    |  0, 01, ..., 112 |
- * | %hh     |          | 00, 01, ..., 112 |
- * | %m'     | minutes  |  0, 01, ..., 112 |
- * | %mm     |          | 00, 01, ..., 112 |
- * | %s'     | seconds  |  0, 01, ..., 112 |
- * | %ss     |          | 00, 01, ..., 112 |
+ * | %Y      | years    |  0, 01, ..., 112 |
+ * | %YY     | years    | 00, 01, ..., 112 |
+ * | %M'     | months   |  0,  1, ..., 112 |
+ * | %MM     | months   | 00, 01, ..., 112 |
+ * | %W      | weeks    |  0,  1, ..., 112 |
+ * | %WW     | weeks    | 00, 01, ..., 112 |
+ * | %D      | days     |  0,  1, ..., 112 |
+ * | %DD     | days     | 00, 01, ..., 112 |
+ * | %h      | hours    |  0,  1, ..., 112 |
+ * | %hh     | hours    | 00, 01, ..., 112 |
+ * | %m      | minutes  |  0,  1, ..., 112 |
+ * | %mm     | minutes  | 00, 01, ..., 112 |
+ * | %s      | seconds  |  0,  1, ..., 112 |
+ * | %ss     | seconds  | 00, 01, ..., 112 |
  *
  * @name default
  */
@@ -40,17 +40,17 @@ const toPaddedString = curry((number, value) =>
   `${leftpad(number, '0', value)}`);
 
 const TOKEN = {
-  '%y': compose(findYears, toPaddedString(1)),
-  '%yy': compose(findYears, toPaddedString(2)),
+  '%Y': compose(findYears, toPaddedString(1)),
+  '%YY': compose(findYears, toPaddedString(2)),
 
   '%M': compose(findMonths, toPaddedString(1)),
   '%MM': compose(findMonths, toPaddedString(2)),
 
-  '%w': compose(findWeeks, toPaddedString(1)),
-  '%ww': compose(findWeeks, toPaddedString(2)),
+  '%W': compose(findWeeks, toPaddedString(1)),
+  '%WW': compose(findWeeks, toPaddedString(2)),
 
-  '%d': compose(findDays, toPaddedString(1)),
-  '%dd': compose(findDays, toPaddedString(2)),
+  '%D': compose(findDays, toPaddedString(1)),
+  '%DD': compose(findDays, toPaddedString(2)),
 
   '%h': compose(findHours, toPaddedString(1)),
   '%hh': compose(findHours, toPaddedString(2)),
