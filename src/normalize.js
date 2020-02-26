@@ -23,12 +23,12 @@ const TIME_UNITS = [UNIT_NAMES.hours, UNIT_NAMES.minutes, UNIT_NAMES.seconds];
 export const normalizeTime = (isoString) => {
   if (isInvalid(isoString)) { return INVALID_DURATION; }
 
+
   const fragments = toFragments(isoString);
   const microseconds = pipe(fragments, pick(TIME_UNITS), toIso, asMicroseconds);
+  const hours = Math.floor(microseconds / ONE_HOUR);
+  const minutes = Math.floor((microseconds - hours * ONE_HOUR) / ONE_MINUTE);
+  const seconds = (microseconds - hours * ONE_HOUR - minutes * ONE_MINUTE) / ONE_SECOND;
 
-  const hour = Math.floor(microseconds / ONE_HOUR);
-  const minutes = Math.floor((microseconds - hour * ONE_HOUR) / ONE_MINUTE);
-  const seconds = (microseconds - hour * ONE_HOUR - minutes * ONE_MINUTE) / ONE_SECOND;
-
-  return toIso({ ...fragments, hour, minutes, seconds });
+  return toIso({ ...fragments, hours, minutes, seconds });
 };
