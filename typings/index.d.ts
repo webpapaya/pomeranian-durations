@@ -1,7 +1,7 @@
 declare module 'pomeranian-durations' {
   //add.js
   export function add(firstIsoString: string, secondIsoString: string): string
-  export function sum(...durations: string[]): string
+  export function sum(durations: string[]): string
   export function addMicroseconds(amount: number, isoString: string): string
   export function addMilliseconds(amount: number, isoString: string): string
   export function addSeconds(amount: number, isoString: string): string
