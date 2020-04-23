@@ -44,5 +44,6 @@
   "bugs": {
     "url": "https://github.com/webPapaya/pomeranian/issues"
   },
-  "homepage": "https://github.com/webPapaya/pomeranian"
+  "homepage": "https://github.com/webPapaya/pomeranian",
+  "types": "./typings/index.d.ts"
 }
