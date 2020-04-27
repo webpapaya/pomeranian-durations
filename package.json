@@ -10,6 +10,7 @@
     "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
     "circular": "madge src --circular",
+    "check-types": "tsc",
     "test": "mocha -r @babel/register src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive",
     "preversion": "npm run lint && npm run test && npm run build",
     "prepush": "npm run build"
@@ -24,13 +25,16 @@
     "@babel/plugin-transform-typescript": "^7.9.4",
     "@babel/preset-env": "^7.9.5",
     "@babel/register": "^7.9.0",
+    "@types/mocha": "^7.0.2",
+    "babel-plugin-module-resolver": "^4.0.0",
     "common-tags": "^1.8.0",
     "eslint-config-crewmeister": "latest",
     "hamjest": "^3.3.1",
     "husky": "^4.2.5",
     "jsdoc-to-markdown": "^5.0.3",
     "madge": "^3.8.0",
-    "mocha": "^6.2.3"
+    "mocha": "^6.2.3",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "time",

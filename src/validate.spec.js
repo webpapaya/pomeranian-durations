@@ -1,5 +1,7 @@
+// @ts-check
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { isValid, whenInvalid, whenInvalidDuration } from './validate';
+import { isValid, whenInvalid, whenInvalidDuration } from 'pomeranian-durations';
 import { INVALID_DURATION } from './constants';
 
 describe('isValid iso8601 duration', () => {

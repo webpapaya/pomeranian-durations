@@ -1,3 +1,5 @@
+// @ts-check
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import {
   add,
@@ -11,7 +13,7 @@ import {
   addWeeks,
   addMonths,
   addYears,
-} from './add';
+} from 'pomeranian-durations';
 import { INVALID_DURATION } from './constants';
 
 [
@@ -42,12 +44,17 @@ import { INVALID_DURATION } from './constants';
   { name: 'addMonths', fn: addMonths, isoString: 'P0M', amount: 1, result: 'P1M' },
   { name: 'addMonths', fn: addMonths, isoString: 'I\'m invalid', amount: 1, result: INVALID_DURATION },
 
-  { name: 'addYears', fn: addYears, isoString: 'P0Y', amount: 1, result: 'P1Y' },
+  { name: 'addYears', fn: addYears, isoString: 1, amount: 1, result: 'P1Y' },
   { name: 'addYears', fn: addYears, isoString: 'I\'m invalid', amount: 1, result: INVALID_DURATION },
+].forEach(({ name, fn, isoString, amount, result }) => {
+  it(`${name} ${amount} to ${isoString} results in ${result}`, () => {
+    assertThat(fn(amount, isoString), equalTo(result));
+  });
+});
 
+[
   { name: 'add', fn: add, isoString: 'PT1S', amount: 'PT1S', result: 'PT2S' },
   { name: 'add', fn: add, isoString: 'I\'m invalid', amount: 'I\'m invalid', result: INVALID_DURATION },
-
 ].forEach(({ name, fn, isoString, amount, result }) => {
   it(`${name} ${amount} to ${isoString} results in ${result}`, () => {
     assertThat(fn(amount, isoString), equalTo(result));

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+		"module": "commonjs",
+    "paths": {"pomeranian-durations": ["./index.js"] },
+    "noEmit": true,
+    "baseUrl": "./src",
+    "allowJs": true
+  },
+  "include": [
+      "./src/**/*.spec.js"
+  ],
+  "typeRoots" : ["./typings"],
+  "exclude": ["node_modules", "lib"]
+}

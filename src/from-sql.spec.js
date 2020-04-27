@@ -1,5 +1,7 @@
+// @ts-check
+
 import { assertThat, equalTo } from 'hamjest';
-import { fromPostgres, fromPostgresVerbose } from './from-sql';
+import { fromPostgres, fromPostgresVerbose } from 'pomeranian-durations';
 
 describe('fromPostgres converts', () => {
   [
@@ -52,8 +54,8 @@ describe('fromPostgresVerbose converts', () => {
     { unitNames: 'minutes minute mins min m'.split(' '), result: 'PT${result}M' },
     { unitNames: 'seconds second secs sec s'.split(' '), result: 'PT${result}S' },
   ].forEach(({ unitNames, result }) => {
-    const positiveResult = result.replace('${result}', 2);
-    const negativeResult = result.replace('${result}', -2);
+    const positiveResult = result.replace('${result}', '2');
+    const negativeResult = result.replace('${result}', '-2');
 
     unitNames.forEach((unitName) => {
       it(`'2 ${unitName}' => ${positiveResult}`, () => {

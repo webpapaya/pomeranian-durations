@@ -1,4 +1,10 @@
 {
   "presets": ["@babel/env"],
-  "plugins": ["@babel/plugin-transform-typescript"]
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "pomeranian-durations": "./src/index.js"
+      }
+    }]
+  ]
 }

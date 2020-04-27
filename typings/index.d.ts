@@ -100,7 +100,7 @@ declare module 'pomeranian-durations' {
   export function asDecimalSeconds(isoString: string): number
   export function asDecimalMinutes(isoString: string): number
   export function asDecimalHours(isoString: string): number
-  
+
   //find.js
   export function findSeconds(isoString: string): number | undefined
   export function findMinutes(isoString: string): number | undefined
@@ -188,7 +188,7 @@ declare module 'pomeranian-durations' {
   export function toFragments(isoString: string): Units
 
   //validate.js
-  export function isValid(isoString: string): boolean
+  export function isValid(isoString: any): boolean
   export function isInvalid(isoString: string): boolean
   export function whenInvalid(value: string | Function, isoDuration: string): string
   export function whenInvalidDuration(value: string | Function, isoDuration: string): string
