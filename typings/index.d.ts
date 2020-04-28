@@ -190,6 +190,7 @@ declare module 'pomeranian-durations' {
   //validate.js
   export function isValid(isoString: any): boolean
   export function isInvalid(isoString: string): boolean
-  export function whenInvalid(value: string | Function, isoDuration: string): string
-  export function whenInvalidDuration(value: string | Function, isoDuration: string): string
+  export function whenInvalid(value: any | Function, isoDuration: string): string
+
+  export function whenInvalidDuration(value: any | Function, isoDuration: string): string
 }

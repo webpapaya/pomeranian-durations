@@ -5,11 +5,13 @@
     "paths": {"pomeranian-durations": ["./index.js"] },
     "noEmit": true,
     "baseUrl": "./src",
-    "allowJs": true
+    "allowJs": true,
+    "strict": true
   },
   "include": [
-      "./src/**/*.spec.js"
+      "./src/**/*",
+      "./typings/**/*",
   ],
-  "typeRoots" : ["./typings"],
+  "typeRoots" : ["./typings/index.d.ts"],
   "exclude": ["node_modules", "lib"]
 }

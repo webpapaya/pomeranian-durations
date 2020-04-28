@@ -10,8 +10,8 @@
     "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js",
     "lint": "eslint-crewmeister src",
     "circular": "madge src --circular",
-    "check-types": "tsc",
-    "test": "mocha -r @babel/register src/{*,**/*,**/**/*,**/**/**/*}.spec.js --recursive",
+    "check-types": "tsc --noemit",
+    "test": "mocha -r @babel/register src/{*,**/*,**/**/*,**/**/**/*}.spec.{js,ts} --watch-extensions js,ts --recursive",
     "preversion": "npm run lint && npm run test && npm run build",
     "prepush": "npm run build"
   },
