@@ -164,9 +164,29 @@ declare module 'pomeranian-durations' {
 
   //sort.js
   export function sortAsc(firstisoString: string, secondIsoString: string): number
-  export function sortAscBy(key: string, firstisoString: string, secondIsoString: string): number
+  export function sortAscBy<Key extends string>
+    (key: string): (
+    firstisoString: { [key in Key]: string },
+    secondIsoString: { [key in Key]: string }
+  ) => number
+  export function sortAscBy<Key extends string>(
+    key: Key,
+    firstisoString: { [key in Key]: string },
+    secondIsoString: { [key in Key]: string },
+  ): number
+
   export function sortDesc(firstisoString: string, secondIsoString: string): number
-  export function sortDescBy(key: string, firstisoString: string, secondIsoString: string): number
+  export function sortDescBy<Key extends string>
+    (key: string): (
+    firstisoString: { [key in Key]: string },
+    secondIsoString: { [key in Key]: string }
+  ) => number
+  export function sortDescBy<Key extends string>(
+    key: Key,
+    firstisoString: { [key in Key]: string },
+    secondIsoString: { [key in Key]: string },
+  ): number
+
 
   //substruct.js
   export function subtract(firstIsoString: string, secondIsoString: string): string

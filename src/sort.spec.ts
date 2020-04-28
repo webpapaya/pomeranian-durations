@@ -1,5 +1,6 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { sortAsc, sortAscBy, sortDesc, sortDescBy } from './sort';
+import { sortAsc, sortAscBy, sortDesc, sortDescBy } from 'pomeranian-durations';
 
 const TEST_DATA = [
   { input: ['PT20S', 'PT30S', 'PT10S'], output: ['PT10S', 'PT20S', 'PT30S'] },
@@ -12,8 +13,8 @@ const TEST_DATA = [
   },
 ];
 
-const toArrayOfObjects = (array) => array.map((i) => ({ randomKey: i }));
-const reverse = (array) => [...array].reverse();
+const toArrayOfObjects = (array: string[]) => array.map((i) => ({ randomKey: i }));
+const reverse = <T>(array: T[]) => [...array].reverse();
 
 describe('sortAsc', () => {
   TEST_DATA.forEach(({ input, output }) => {
