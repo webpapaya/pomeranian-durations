@@ -56,37 +56,39 @@ declare module 'pomeranian-durations' {
 
   export const UNIT_ORDER: string[]
 
+
+  type TIME_UNIT = number | string
   export const TIME_UNITS: {
-    [UNIT_NAMES.seconds]: string
-    [UNIT_NAMES.minutes]: string
-    [UNIT_NAMES.hours]: string
+    [UNIT_NAMES.seconds]: TIME_UNIT
+    [UNIT_NAMES.minutes]: TIME_UNIT
+    [UNIT_NAMES.hours]: TIME_UNIT
   }
 
   export const DATE_UNITS: {
-    [UNIT_NAMES.days]: string
-    [UNIT_NAMES.weeks]: string
-    [UNIT_NAMES.months]: string
-    [UNIT_NAMES.years]: string
+    [UNIT_NAMES.days]: TIME_UNIT
+    [UNIT_NAMES.weeks]: TIME_UNIT
+    [UNIT_NAMES.months]: TIME_UNIT
+    [UNIT_NAMES.years]: TIME_UNIT
   }
 
   export const UNITS: {
-    [UNIT_NAMES.seconds]: string
-    [UNIT_NAMES.minutes]: string
-    [UNIT_NAMES.hours]: string
-    [UNIT_NAMES.days]: string
-    [UNIT_NAMES.weeks]: string
-    [UNIT_NAMES.months]: string
-    [UNIT_NAMES.years]: string
+    [UNIT_NAMES.seconds]: TIME_UNIT
+    [UNIT_NAMES.minutes]: TIME_UNIT
+    [UNIT_NAMES.hours]: TIME_UNIT
+    [UNIT_NAMES.days]: TIME_UNIT
+    [UNIT_NAMES.weeks]: TIME_UNIT
+    [UNIT_NAMES.months]: TIME_UNIT
+    [UNIT_NAMES.years]: TIME_UNIT
   }
 
   type Units = {
-    [UNIT_NAMES.seconds]?: string
-    [UNIT_NAMES.minutes]?: string
-    [UNIT_NAMES.hours]?: string
-    [UNIT_NAMES.days]?: string
-    [UNIT_NAMES.weeks]?: string
-    [UNIT_NAMES.months]?: string
-    [UNIT_NAMES.years]?: string
+    [UNIT_NAMES.seconds]?: TIME_UNIT
+    [UNIT_NAMES.minutes]?: TIME_UNIT
+    [UNIT_NAMES.hours]?: TIME_UNIT
+    [UNIT_NAMES.days]?: TIME_UNIT
+    [UNIT_NAMES.weeks]?: TIME_UNIT
+    [UNIT_NAMES.months]?: TIME_UNIT
+    [UNIT_NAMES.years]?: TIME_UNIT
   }
 
   //conversions.js
@@ -184,8 +186,8 @@ declare module 'pomeranian-durations' {
   export function toSql(isoString: string): string
 
   //transformations.js
-  export function toIso(fragments: Units): string
-  export function toFragments(isoString: string): Units
+  export function toIso(fragments: Units, options?: { includeZeroValues: true }): string
+  export function toFragments(isoString: string | null | undefined): Units
 
   //validate.js
   export function isValid(isoString: any): boolean

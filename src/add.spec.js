@@ -1,4 +1,3 @@
-// @ts-check
 // @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import {

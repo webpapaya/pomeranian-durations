@@ -1,5 +1,6 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { toIso, toFragments } from './transformations';
+import { toIso, toFragments } from 'pomeranian-durations';
 
 describe('toIso', () => {
   it('responds correct format', () => assertThat(
