@@ -11,7 +11,7 @@ describe('verify docs', () => {
     examples.forEach((example) => {
       it(replace(example, '\n'), () => {
         const [fn, result] = example.split('// =>');
-        const index = require('./index') // eslint-disable-line no-unused-vars
+        const index = require('./index'); // eslint-disable-line no-unused-vars
         assertThat(eval(replace(fn, name, `index.${name}`)), equalTo(eval(result))); // eslint-disable-line no-eval
       });
     });
