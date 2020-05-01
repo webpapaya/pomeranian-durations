@@ -11,7 +11,7 @@
     "lint": "eslint-crewmeister src",
     "circular": "madge src --circular",
     "check-types": "tsc --noemit",
-    "test": "mocha -r @babel/register src/{*,**/*,**/**/*,**/**/**/*}.spec.{js,ts} --watch-extensions js,ts --recursive",
+    "test": "mocha -r ts-node/register -r tsconfig-paths/register src/{*,**/*,**/**/*,**/**/**/*}.spec.{js,ts} --watch-extensions js,ts --recursive",
     "preversion": "npm run lint && npm run test && npm run build",
     "prepush": "npm run build"
   },
@@ -24,6 +24,7 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-typescript": "^7.9.4",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
     "@babel/register": "^7.9.0",
     "@types/mocha": "^7.0.2",
     "babel-plugin-module-resolver": "^4.0.0",
@@ -34,6 +35,8 @@
     "jsdoc-to-markdown": "^5.0.3",
     "madge": "^3.8.0",
     "mocha": "^6.2.3",
+    "ts-node": "^8.9.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.8.3"
   },
   "keywords": [
