@@ -1,16 +1,37 @@
 declare module 'pomeranian-durations' {
   //add.js
-  export function add(firstIsoString: string, secondIsoString: string): string
   export function sum(durations: string[]): string
+
+  export function add(firstIsoString: string, secondIsoString: string): string
+  export function add(firstIsoString: string): (secondIsoString: string) => string
+
   export function addMicroseconds(amount: number, isoString: string): string
+  export function addMicroseconds(amount: number): (isoString: string) => string
+
   export function addMilliseconds(amount: number, isoString: string): string
+  export function addMilliseconds(amount: number): (isoString: string) => string
+
   export function addSeconds(amount: number, isoString: string): string
+  export function addSeconds(amount: number): (isoString: string) => string
+
   export function addMinutes(amount: number, isoString: string): string
+  export function addMinutes(amount: number): (isoString: string) => string
+
   export function addHours(amount: number, isoString: string): string
+  export function addHours(amount: number): (isoString: string) => string
+
   export function addDays(amount: number, isoString: string): string
+  export function addDays(amount: number): (isoString: string) => string
+
   export function addWeeks(amount: number, isoString: string): string
+  export function addWeeks(amount: number): (isoString: string) => string
+
   export function addMonths(amount: number, isoString: string): string
+  export function addMonths(amount: number): (isoString: string) => string
+
   export function addYears(amount: number, isoString: string): string
+  export function addYears(amount: number): (isoString: string) => string
+
 
   //ceil.js
   export function ceil(granularity: string, isoString: string): string
@@ -24,10 +45,20 @@ declare module 'pomeranian-durations' {
 
   //compare.js
   export function gte(firstIsoDuration: string, secondIsoDuration: string): boolean
+  export function gte(firstIsoDuration: string): (secondIsoDuration: string) => boolean
+
   export function gt(firstIsoDuration: string, secondIsoDuration: string): boolean
+  export function gt(firstIsoDuration: string): (secondIsoDuration: string) => boolean
+
   export function lt(firstIsoDuration: string, secondIsoDuration: string): boolean
+  export function lt(firstIsoDuration: string): (secondIsoDuration: string) => boolean
+
   export function lte(firstIsoDuration: string, secondIsoDuration: string): boolean
+  export function lte(firstIsoDuration: string): (secondIsoDuration: string) => boolean
+
   export function eq(firstIsoDuration: string, secondIsoDuration: string): boolean
+  export function eq(firstIsoDuration: string): (secondIsoDuration: string) => boolean
+
 
   //constatnts.js
   export {}
@@ -190,15 +221,35 @@ declare module 'pomeranian-durations' {
 
   //substruct.js
   export function subtract(firstIsoString: string, secondIsoString: string): string
+  export function subtract(firstIsoString: string): (secondIsoString: string) => string
+
   export function subtractMilliseconds(amount: number, isoString: string): string
+  export function subtractMilliseconds(amount: number): (isoString: string) => string
+
   export function subtractMicroseconds(amount: number, isoString: string): string
+  export function subtractMicroseconds(amount: number): (isoString: string) => string
+
   export function subtractSeconds(amount: number, isoString: string): string
+  export function subtractSeconds(amount: number): (isoString: string) => string
+
   export function subtractMinutes(amount: number, isoString: string): string
+  export function subtractMinutes(amount: number): (isoString: string) => string
+
   export function subtractHours(amount: number, isoString: string): string
+  export function subtractHours(amount: number): (isoString: string) => string
+
   export function subtractDays(amount: number, isoString: string): string
+  export function subtractDays(amount: number): (isoString: string) => string
+
   export function subtractWeeks(amount: number, isoString: string): string
+  export function subtractWeeks(amount: number): (isoString: string) => string
+
   export function subtractMonths(amount: number, isoString: string): string
+  export function subtractMonths(amount: number): (isoString: string) => string
+
   export function subtractYears(amount: number, isoString: string): string
+  export function subtractYears(amount: number): (isoString: string) => string
+
 
   //to-sql.js
   export function toPostgresVerbose(isoString: string): string
@@ -212,7 +263,11 @@ declare module 'pomeranian-durations' {
   //validate.js
   export function isValid(isoString: any): boolean
   export function isInvalid(isoString: string): boolean
+
   export function whenInvalid(value: any | Function, isoDuration: string): string
+  export function whenInvalid(value: any | Function): (isoDuration: string) => string
 
   export function whenInvalidDuration(value: any | Function, isoDuration: string): string
+  export function whenInvalidDuration(value: any | Function): (isoDuration: string) => string
+
 }
