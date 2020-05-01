@@ -1,6 +1,6 @@
-import jsdoc2md from 'jsdoc-to-markdown';
+import { getTemplateDataSync } from 'jsdoc-to-markdown';
 import { assertThat, equalTo } from 'hamjest';
-const parsedDocs = jsdoc2md.getTemplateDataSync({ files: 'src/*.js' });
+const parsedDocs = getTemplateDataSync({ files: 'src/*.js' });
 
 const replace = (string, search, repl = '') =>
   string.replace(new RegExp(search, 'g'), repl);

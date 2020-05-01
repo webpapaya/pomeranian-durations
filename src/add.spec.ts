@@ -12,8 +12,8 @@ import {
   addWeeks,
   addMonths,
   addYears,
+  INVALID_DURATION
 } from 'pomeranian-durations';
-import { INVALID_DURATION } from './constants';
 
 [
   { name: 'addMicroseconds', fn: addMicroseconds, isoString: 'PT0S', amount: 1, result: 'PT0.000001S' },
