@@ -4,7 +4,9 @@
  */
 
 import { curry } from './_utils';
-import { toIso, toFragments, isInvalid, INVALID_DURATION } from './transformations';
+import { toIso, toFragments } from './transformations';
+import { isInvalid } from './validate';
+import { INVALID_DURATION } from './constants';
 
 /**
  * Adds two iso durations
