@@ -30,7 +30,7 @@ const MATCH_DURATION = createRegexBuilder()
 
 /**
  * Returns if the iso8601 duration is valid or not.
- * @param isoDuration {string}
+ * @param isoDuration
  * @returns {boolean}
  * @example
  * isValid('PT1S') // => true

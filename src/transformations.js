@@ -60,7 +60,7 @@ export const toIso = (fragments, { includeZeroValues = false } = {}) => {
 
 /**
  * Splits all components of an ISO8601 duration into its units.
- * @param isoString {string}
+ * @param isoString {string|undefined|null}
  * @returns {object}
  * @example
  * toFragments('PT1H1S') // => ({ seconds: 1, minutes: 0, hours: 1, days: 0, weeks: 0, months: 0, years: 0 })
