@@ -1,3 +1,4 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 
 import {
@@ -8,7 +9,7 @@ import {
   findHours,
   findMinutes,
   findSeconds,
-} from './find';
+} from 'pomeranian-durations';
 
 describe('unit finders for P3Y6M1W4DT12H30M17.5S', () => {
   it('finds 3 years', () => assertThat(

@@ -1,3 +1,4 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import {
   ceil,
@@ -8,7 +9,7 @@ import {
   ceilWeeks,
   ceilMonths,
   ceilYears,
-} from './ceil';
+} from 'pomeranian-durations';
 import { INVALID_DURATION } from './constants';
 
 describe('ceil<Unit>', () => {

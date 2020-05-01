@@ -1,3 +1,4 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import {
   floorSeconds,
@@ -8,7 +9,7 @@ import {
   floorMonths,
   floorYears,
   floor,
-} from './floor';
+} from 'pomeranian-durations';
 import { INVALID_DURATION } from './constants';
 
 describe('floor<Unit>', () => {

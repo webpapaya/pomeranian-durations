@@ -1,5 +1,6 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { absolute } from './math';
+import { absolute } from 'pomeranian-durations';
 
 describe('absolute converts', () => {
   [

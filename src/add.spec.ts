@@ -43,7 +43,7 @@ import { INVALID_DURATION } from './constants';
   { name: 'addMonths', fn: addMonths, isoString: 'P0M', amount: 1, result: 'P1M' },
   { name: 'addMonths', fn: addMonths, isoString: 'I\'m invalid', amount: 1, result: INVALID_DURATION },
 
-  { name: 'addYears', fn: addYears, isoString: 1, amount: 1, result: 'P1Y' },
+  { name: 'addYears', fn: addYears, isoString: 'P0Y', amount: 1, result: 'P1Y' },
   { name: 'addYears', fn: addYears, isoString: 'I\'m invalid', amount: 1, result: INVALID_DURATION },
 ].forEach(({ name, fn, isoString, amount, result }) => {
   it(`${name} ${amount} to ${isoString} results in ${result}`, () => {

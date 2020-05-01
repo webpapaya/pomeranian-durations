@@ -1,5 +1,6 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { INVALID_DURATION } from './constants';
+import { INVALID_DURATION } from 'pomeranian-durations';
 import { inSeconds, inMinutes, inHours } from './in';
 
 describe('in<unit>', () => {

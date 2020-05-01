@@ -1,3 +1,4 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import {
   fromMicroseconds,
@@ -9,7 +10,7 @@ import {
   fromWeeks,
   fromMonths,
   fromYears,
-} from './from';
+} from 'pomeranian-durations';
 
 describe('from<unit>', () => {
   [

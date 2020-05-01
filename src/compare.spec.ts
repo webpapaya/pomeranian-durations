@@ -1,5 +1,6 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { gt, gte, lt, lte, eq } from './compare';
+import { gt, gte, lt, lte, eq } from 'pomeranian-durations';
 
 describe('gt', () => {
   [

@@ -1,3 +1,4 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import { INVALID_DURATION } from './constants';
 import {
@@ -10,7 +11,7 @@ import {
   removeYears,
   removeTimeUnits,
   removeDateUnits,
-} from './remove';
+} from 'pomeranian-durations';
 
 describe('remove', () => {
   [

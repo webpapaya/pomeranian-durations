@@ -17,7 +17,7 @@ declare module 'pomeranian-durations' {
   export function ceilSeconds(isoDuration: string): string
   export function ceilMinutes(isoDuration: string): string
   export function ceilHours(isoDuration: string): string
-  export function ceilDay(isoDuration: string): string
+  export function ceilDays(isoDuration: string): string
   export function ceilWeeks(isoDuration: string): string
   export function ceilMonths(isoDuration: string): string
   export function ceilYears(isoDuration: string): string

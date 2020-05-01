@@ -1,3 +1,4 @@
+// @ts-ignore
 import { assertThat, equalTo, throws } from 'hamjest';
 import {
   asMicroseconds,
@@ -10,7 +11,7 @@ import {
   asDecimalSeconds,
   asDecimalMinutes,
   asDecimalHours, asDecimalMicroseconds,
-} from './conversions';
+} from 'pomeranian-durations';
 
 describe('as "unit" methods', () => {
   it('PT2s asMicroseconds is 2000000μs', () => assertThat(

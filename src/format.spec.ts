@@ -1,7 +1,8 @@
+// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import { format } from './format';
 
-const testFormat = (token, isoString, result) =>
+const testFormat = (token: string, isoString: string, result: string) =>
   it(`'${token}' with '${isoString}' results in '${result}'`, () =>
     assertThat(format(token, isoString), equalTo(result)));
 
