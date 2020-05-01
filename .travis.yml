@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - "node"
+  - "14"
+  - "10"
   - "8"
-  - "7"
 script:
   - 'npm run lint'
   - 'npm run circular'
