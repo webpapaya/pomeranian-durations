@@ -1,4 +1,3 @@
-// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import { gt, gte, lt, lte, eq } from 'pomeranian-durations';
 

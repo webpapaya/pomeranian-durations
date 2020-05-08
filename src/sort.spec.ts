@@ -1,4 +1,3 @@
-// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import { sortAsc, sortAscBy, sortDesc, sortDescBy } from 'pomeranian-durations';
 

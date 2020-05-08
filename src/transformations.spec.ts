@@ -1,4 +1,3 @@
-// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import { toIso, toFragments } from 'pomeranian-durations';
 
