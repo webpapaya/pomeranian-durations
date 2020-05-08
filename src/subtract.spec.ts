@@ -11,6 +11,7 @@ import {
   subtractWeeks,
   subtractMonths,
   subtractYears,
+  subtractFromDate,
 } from 'pomeranian-durations';
 import { INVALID_DURATION } from './constants';
 
@@ -136,4 +137,47 @@ describe('subtract', () => {
   });
 })
 
+describe('subtractFromDate', () => {
+  [
+    {
+      amount: 'PT1S',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-12-31T23:59:59Z')
+    }, {
+      amount: 'PT1M',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-12-31T23:59:00Z'),
+    }, {
+      amount: 'PT1H',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-12-31T23:00:00Z'),
+    }, {
+      amount: 'P1D',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-12-31T00:00:00Z'),
+    },  {
+      amount: 'P1W',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-12-25T00:00:00Z'),
+    },
+    {
+      amount: 'P1M',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-12-01T00:00:00Z'),
+    },
+    {
+      amount: 'P1Y',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('1999-01-01T00:00:00Z'),
+    }, {
+      amount: INVALID_DURATION,
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: INVALID_DURATION,
+    },
+  ].forEach(({ amount, result, date }) => {
+    it(`${amount} to ${date} results in ${result}`, () => {
+      assertThat(subtractFromDate(amount, date), equalTo(result));
+    });
+  });
+});
 

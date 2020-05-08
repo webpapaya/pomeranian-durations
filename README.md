@@ -33,7 +33,7 @@ yarn add pomeranian-durations
 <a name="category-add"></a>
 ## add
 
-[add](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L18) | [sum](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L36) | [addMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L46) | [addMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L55) | [addSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L64) | [addMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L73) | [addHours](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L82) | [addDays](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L91) | [addWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L100) | [addMonths](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L109) | [addYears](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L118)
+[add](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L18) | [sum](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L36) | [addMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L46) | [addMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L55) | [addSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L64) | [addMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L73) | [addHours](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L82) | [addDays](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L91) | [addWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L100) | [addMonths](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L109) | [addYears](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L118) | [addToDate](https://github.com/webPapaya/pomeranian/blob/master/src/add.js#L131)
 
 Helpers to add to a duration.
 
@@ -49,6 +49,9 @@ addDays(1, 'P1D') // => 'P2D'
 addWeeks(1, 'P1W') // => 'P2W'
 addMonths(1, 'P1M') // => 'P2M'
 addYears(1, 'P1Y') // => 'P2Y'
+addToDate('PT1S', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-01-01T00:00:01Z')
+addToDate('PT1H', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-01-01T01:00:00Z')
+addToDate('P1M', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-02-01T00:00:00Z')
 ```
 
 
@@ -261,13 +264,15 @@ inHours('PT60M') // => 'PT1H'
 <a name="category-math"></a>
 ## math
 
-[absolute](https://github.com/webPapaya/pomeranian/blob/master/src/math.js#L18)
+[absolute](https://github.com/webPapaya/pomeranian/blob/master/src/math.js#L18) | [invert](https://github.com/webPapaya/pomeranian/blob/master/src/math.js#L34)
 
 Generic helpers to do math operations on durations.
 
 ```javascript
 absolute('PT-1S') // => 'PT1S'
 absolute('PT1S') // => 'PT1S'
+invert('PT-1M') // => 'PT1M'
+invert('P-1DT1S') // => 'P1DT-1S'
 ```
 
 
@@ -327,7 +332,7 @@ all given durations that is not an issue.
 <a name="category-subtract"></a>
 ## subtract
 
-[subtract](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L29) | [subtractMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L45) | [subtractMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L54) | [subtractSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L63) | [subtractMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L72) | [subtractHours](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L81) | [subtractDays](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L90) | [subtractWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L99) | [subtractMonths](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L108) | [subtractYears](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L117)
+[subtract](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L33) | [subtractMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L49) | [subtractMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L58) | [subtractSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L67) | [subtractMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L76) | [subtractHours](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L85) | [subtractDays](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L94) | [subtractWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L103) | [subtractMonths](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L112) | [subtractYears](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L121) | [subtractFromDate](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L130)
 
 Helpers to subtract from a duration.
 
@@ -342,6 +347,7 @@ subtractDays(1, 'P2D') // => 'P1D'
 subtractWeeks(1, 'P2W') // => 'P1W'
 subtractMonths(1, 'P2M') // => 'P1M'
 subtractYears(1, 'P2Y') // => 'P1Y'
+subtractFromDate('PT1S', new Date('2000-01-01T00:00:00Z')) // => new Date('1999-12-31T23:59:59Z')
 ```
 
 

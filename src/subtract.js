@@ -15,9 +15,13 @@ import {
   addSeconds,
   addWeeks,
   addYears,
+  addToDate,
 } from './add';
+import { invert } from './math';
 
 import { toFragments, toIso } from './transformations';
+import { isInvalid } from './validate';
+import { INVALID_DURATION } from './constants';
 
 /**
  * Subtracts the given iso duration from the given duration.
@@ -115,3 +119,16 @@ export const subtractMonths = curry((amount, isoString) => addMonths(amount * -1
  * subtractYears(1, 'P2Y') // => 'P1Y'
  */
 export const subtractYears = curry((amount, isoString) => addYears(amount * -1, isoString));
+
+/**
+ * Subtracts an iso duration from a js date.
+ * @param amount {string} - iso duration to be subtracted
+ * @param date {Date} - a date to be subtracted from
+ * @example
+ * subtractFromDate('PT1S', new Date('2000-01-01T00:00:00Z')) // => new Date('1999-12-31T23:59:59Z')
+ */
+export const subtractFromDate = curry((amount, date) => {
+  if (isInvalid(amount)) { return INVALID_DURATION; }
+  return addToDate(invert(amount), date);
+});
+

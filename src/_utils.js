@@ -54,7 +54,7 @@ export const pick = curry((keys, object) => {
 
 export const mapValues = curry((fn, object) =>
   Object.keys(object).reduce((result, key) => {
-    result[key] = Math.abs(object[key]); // eslint-disable-line no-param-reassign
+    result[key] = fn(object[key]); // eslint-disable-line no-param-reassign
     return result;
   }, {}));
 

@@ -21,3 +21,19 @@ export const absolute = (isoString) => pipe(
   mapValues(Math.abs),
   toIso,
 );
+
+/**
+ * Inverts all units of an iso duration.
+ * @param isoString {string} - isoString
+ * @returns isoString
+ * @example
+ * invert('PT-1M') // => 'PT1M'
+ * @example
+ * invert('P-1DT1S') // => 'P1DT-1S'
+ */
+export const invert = (isoString) => pipe(
+  isoString,
+  toFragments,
+  mapValues((value) => value * -1),
+  toIso,
+);

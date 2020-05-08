@@ -118,9 +118,9 @@ export const addMonths = curry((amount, isoString) => add(isoString, `P${amount}
 export const addYears = curry((amount, isoString) => add(isoString, `P${amount}Y`));
 
 /**
- * Adds the given amount of hours to the given duration.
+ * Adds the given iso duration to a date.
  * @param amount {string} - iso duration to be added
- * @param date {Date} - date to be added
+ * @param date {Date} - a date to be added to
  * @example
  * addToDate('PT1S', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-01-01T00:00:01Z')
  * @example

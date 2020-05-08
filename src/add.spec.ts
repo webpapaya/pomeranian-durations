@@ -87,6 +87,10 @@ describe('addToDate', () => {
       date: new Date('2000-01-01T00:00:00Z'),
       result: new Date('2000-01-01T01:00:00Z'),
     }, {
+      amount: 'P1D',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2000-01-02T00:00:00Z'),
+    }, {
       amount: 'P1W',
       date: new Date('2000-01-01T00:00:00Z'),
       result: new Date('2000-01-08T00:00:00Z'),
