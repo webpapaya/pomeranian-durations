@@ -1,4 +1,3 @@
-// @ts-ignore
 import { assertThat, equalTo, throws } from 'hamjest';
 import {
   asMicroseconds,

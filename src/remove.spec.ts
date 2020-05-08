@@ -1,4 +1,3 @@
-// @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
 import { INVALID_DURATION } from './constants';
 import {
