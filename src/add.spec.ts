@@ -12,6 +12,7 @@ import {
   addWeeks,
   addMonths,
   addYears,
+  addToDate,
   INVALID_DURATION
 } from 'pomeranian-durations';
 
@@ -67,6 +68,45 @@ describe('sum', () => {
 
   it('returns invalid duration when one element is invalid', () => {
     assertThat(sum(['PT1S', INVALID_DURATION, 'PT3S']), equalTo(INVALID_DURATION));
+  });
+});
+
+
+describe('addToDate', () => {
+  [
+    {
+      amount: 'PT1S',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2000-01-01T00:00:01Z'),
+    }, {
+      amount: 'PT1M',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2000-01-01T00:01:00Z'),
+    }, {
+      amount: 'PT1H',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2000-01-01T01:00:00Z'),
+    }, {
+      amount: 'P1W',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2000-01-08T00:00:00Z'),
+    }, {
+      amount: 'P1M',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2000-02-01T00:00:00Z'),
+    }, {
+      amount: 'P1Y',
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: new Date('2001-01-01T00:00:00Z'),
+    }, {
+      amount: INVALID_DURATION,
+      date: new Date('2000-01-01T00:00:00Z'),
+      result: INVALID_DURATION,
+    },
+  ].forEach(({ amount, result, date }) => {
+    it(`${amount} to ${date} results in ${result}`, () => {
+      assertThat(addToDate(amount, date), equalTo(result));
+    });
   });
 });
 

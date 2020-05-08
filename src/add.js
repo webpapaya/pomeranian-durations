@@ -116,3 +116,30 @@ export const addMonths = curry((amount, isoString) => add(isoString, `P${amount}
  * addYears(1, 'P1Y') // => 'P2Y'
  */
 export const addYears = curry((amount, isoString) => add(isoString, `P${amount}Y`));
+
+/**
+ * Adds the given amount of hours to the given duration.
+ * @param amount {string} - iso duration to be added
+ * @param date {Date} - date to be added
+ * @example
+ * addToDate('PT1S', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-01-01T00:00:01Z')
+ * @example
+ * addToDate('PT1H', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-01-01T01:00:00Z')
+ * @example
+ * addToDate('P1M', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-02-01T00:00:00Z')
+ */
+export const addToDate = curry((amount, date) => {
+  if (isInvalid(amount)) { return INVALID_DURATION; }
+  const dateCopy = new Date(date);
+  const fragments = toFragments(amount);
+
+  dateCopy.setSeconds(dateCopy.getSeconds() + fragments.seconds);
+  dateCopy.setMinutes(dateCopy.getMinutes() + fragments.minutes);
+  dateCopy.setHours(dateCopy.getHours() + fragments.hours);
+  dateCopy.setDate(dateCopy.getDate() + fragments.days);
+  dateCopy.setDate(dateCopy.getDate() + fragments.weeks * 7);
+  dateCopy.setMonth(dateCopy.getMonth() + fragments.months);
+  dateCopy.setFullYear(dateCopy.getFullYear() + fragments.years);
+
+  return dateCopy;
+});
