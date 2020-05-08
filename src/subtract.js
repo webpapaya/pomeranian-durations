@@ -123,7 +123,7 @@ export const subtractYears = curry((amount, isoString) => addYears(amount * -1, 
 /**
  * Subtracts an iso duration from a js date.
  * @param amount {string} - iso duration to be subtracted
- * @param date {date} - a js date
+ * @param date {Date} - a date to be subtracted from
  * @example
  * subtractFromDate('PT1S', new Date('2000-01-01T00:00:00Z')) // => new Date('1999-12-31T23:59:59Z')
  */
