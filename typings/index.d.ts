@@ -180,6 +180,7 @@ declare module 'pomeranian-durations' {
 
   //math.js
   export function absolute(isoDuration: string): string
+  export function invert(isoDuration: string): string
 
   //normolize.js
   export function normalizeTime(isoDuration: string): string

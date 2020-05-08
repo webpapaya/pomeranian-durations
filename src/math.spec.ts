@@ -1,6 +1,6 @@
 // @ts-ignore
 import { assertThat, equalTo } from 'hamjest';
-import { absolute } from 'pomeranian-durations';
+import { absolute, invert } from 'pomeranian-durations';
 
 describe('absolute converts', () => {
   [
@@ -13,3 +13,13 @@ describe('absolute converts', () => {
   });
 });
 
+describe('invert converts', () => {
+  [
+    { input: 'PT1S', result: 'PT-1S' },
+    { input: 'PT-1S', result: 'PT1S' },
+  ].forEach(({ input, result }) => {
+    it(`${input} to ${result}`, () => {
+      assertThat(invert(input), equalTo(result));
+    });
+  });
+});
