@@ -32,8 +32,8 @@ declare module 'pomeranian-durations' {
   export function addYears(amount: number, isoString: string): string
   export function addYears(amount: number): (isoString: string) => string
 
+  export function addToDate(amount: string): (date: Date) => Date
   export function addToDate(amount: string, date: Date): Date
-
 
   //ceil.js
   export function ceil(granularity: string, isoString: string): string
@@ -253,6 +253,8 @@ declare module 'pomeranian-durations' {
   export function subtractYears(amount: number, isoString: string): string
   export function subtractYears(amount: number): (isoString: string) => string
 
+  export function subtractFromDate(amount: string): (date: Date) => Date
+  export function subtractFromDate(amount: string, date: Date): Date
 
   //to-sql.js
   export function toPostgresVerbose(isoString: string): string
