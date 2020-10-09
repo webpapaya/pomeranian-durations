@@ -394,11 +394,13 @@ toSql('P1Y2DT1M') // => '1-0 2 0:01:00'
 <a name="category-transformations"></a>
 ## transformations
 
-[toIso](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L55) | [toFragments](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L68)
+[toIso](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L56) | [toFragments](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L69) | [unitNamesAsc](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L89) | [unitNamesDesc](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L103)
 
 ```javascript
 toIso({ seconds: 1, hours: 2 }) // => 'PT2H1S'
 toFragments('PT1H1S') // => ({ seconds: 1, minutes: 0, hours: 1, days: 0, weeks: 0, months: 0, years: 0 })
+unitNamesAsc('PT1H1S') // => ['seconds', 'hours']
+unitNamesDesc('PT1H1S') // => ['hours', 'seconds']
 ```
 
 
