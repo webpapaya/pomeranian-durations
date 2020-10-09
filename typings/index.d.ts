@@ -264,6 +264,8 @@ declare module 'pomeranian-durations' {
   //transformations.js
   export function toIso(fragments: Units, options?: { includeZeroValues: true }): string
   export function toFragments(isoString: string | null | undefined): Units
+  export function unitNamesAsc(isoString: string): keyof typeof UNIT_NAMES
+  export function unitNamesDesc(isoString: string): keyof typeof UNIT_NAMES
 
   //validate.js
   export function isValid(isoString: any): boolean

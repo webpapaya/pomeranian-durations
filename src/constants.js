@@ -9,17 +9,23 @@ export const TIME_DESIGNATOR = 'T';
 export const DURATION_DESIGNATOR = 'P';
 export const INVALID_DURATION = 'Invalid Duration';
 
-export const UNIT_NAMES = {
-  microseconds: 'microseconds',
-  milliseconds: 'milliseconds',
-  seconds: 'seconds',
-  minutes: 'minutes',
-  hours: 'hours',
-  days: 'days',
-  weeks: 'weeks',
-  months: 'months',
-  years: 'years',
-};
+export const UNIT_NAMES_LIST = [
+  'microseconds',
+  'milliseconds',
+  'seconds',
+  'minutes',
+  'hours',
+  'days',
+  'weeks',
+  'months',
+  'years',
+];
+
+export const UNIT_NAMES = UNIT_NAMES_LIST.reduce((result, unitName) => {
+  // eslint-disable-next-line no-param-reassign
+  result[unitName] = unitName;
+  return result;
+}, {});
 
 export const UNIT_ORDER = [
   UNIT_NAMES.microseconds,

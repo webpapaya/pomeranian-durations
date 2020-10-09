@@ -4,6 +4,7 @@ import {
   UNITS,
   DATE_UNITS,
   TIME_UNITS,
+  UNIT_NAMES_LIST,
 } from './constants';
 
 import {
@@ -75,4 +76,30 @@ export const toFragments = (isoString, { defaultValue = 0 } = {}) => {
     months: findMonths(isoString) || defaultValue,
     years: findYears(isoString) || defaultValue,
   };
+};
+
+
+/**
+ * Returns all non 0 unit names from a given ISO8601 duration ordered from lowest to highest
+ * @param isoString {string|undefined|null}
+ * @returns {String[]}
+ * @example
+ * unitNamesAsc('PT1H1S') // => ['seconds', 'hours']
+ */
+export const unitNamesAsc = (isoString) => {
+  return Object.entries(toFragments(isoString))
+    .filter((entry) => entry[1] !== 0)
+    .map(([unitName]) => unitName)
+    .sort((a, b) => UNIT_NAMES_LIST.indexOf(a) - UNIT_NAMES_LIST.indexOf(b));
+};
+
+/**
+ * Returns all non 0 unit names from a given ISO8601 duration ordered from highest to lowest
+ * @param isoString {string|undefined|null}
+ * @returns {String[]}
+ * @example
+ * unitNamesDesc('PT1H1S') // => ['hours', 'seconds']
+ */
+export const unitNamesDesc = (isoString) => {
+  return unitNamesAsc(isoString).reverse();
 };
