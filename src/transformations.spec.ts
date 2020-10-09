@@ -1,5 +1,5 @@
 import { assertThat, equalTo } from 'hamjest';
-import { toIso, toFragments } from 'pomeranian-durations';
+import { toIso, toFragments, unitNamesAsc, unitNamesDesc } from 'pomeranian-durations';
 
 describe('toIso', () => {
   it('responds correct format', () => assertThat(
@@ -97,3 +97,27 @@ describe('toFragments', () => {
       seconds: 0,
     })));
 });
+
+describe('unitNamesAsc', () => {
+  [
+    { isoString: 'PT1S', result: ['seconds'] },
+    { isoString: 'PT1H', result: ['hours'] },
+    { isoString: 'PT1H1M', result: ['minutes', 'hours'] },
+    { isoString: 'P1MT1H1M', result: ['minutes', 'hours', 'months'] },
+  ].forEach(({ isoString, result }) => {
+    it(`returns ${result.join(', ')} for ${isoString}`, () => {
+      assertThat(unitNamesAsc(isoString), equalTo(result));
+    })
+  })
+})
+
+describe('unitNamesDesc', () => {
+  [
+    { isoString: 'PT1S', result: ['seconds'] },
+    { isoString: 'PT1H1M', result: ['hours', 'minutes'] },
+  ].forEach(({ isoString, result }) => {
+    it(`returns ${result.join(', ')} for ${isoString}`, () => {
+      assertThat(unitNamesDesc(isoString), equalTo(result));
+    })
+  })
+})
