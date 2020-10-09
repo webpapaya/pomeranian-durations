@@ -90,7 +90,7 @@ export const unitNamesAsc = (isoString) => {
   return Object.entries(toFragments(isoString))
     .filter((entry) => entry[1] !== 0)
     .map(([unitName]) => unitName)
-    .sort((unitName) => UNIT_NAMES_LIST.indexOf(unitName));
+    .sort((a, b) => UNIT_NAMES_LIST.indexOf(a) - UNIT_NAMES_LIST.indexOf(b));
 };
 
 /**
