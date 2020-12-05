@@ -7,11 +7,7 @@ import { curry } from './_utils';
 import * as _add from './add';
 import * as _floor from './floor';
 
-import { isInvalid } from './validate';
-import { INVALID_DURATION } from './constants';
-
 const buildCeilFn = (unit) => (isoString) => {
-  if (isInvalid(isoString)) { return INVALID_DURATION; }
   const floorFn = _floor[`floor${unit}`];
   const addFn = _add[`add${unit}`];
 

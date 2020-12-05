@@ -1,4 +1,4 @@
-import { assertThat, equalTo, throws } from 'hamjest';
+import { assertThat, equalTo, hasProperties, hasProperty, throws } from 'hamjest';
 import { gt, gte, lt, lte, eq } from 'pomeranian-durations';
 
 const DATE_UNITS = [
@@ -12,6 +12,7 @@ describe('gt', () => {
   [
     { first: 'PT0S', second: 'PT0S', result: false },
     { first: 'PT1S', second: 'PT0S', result: true },
+    { first: 'PT1M', second: 'PT61S', result: false },
     { first: 'LALA', second: 'PT0S', result: false },
     { first: 'PT10S', second: 'LALA', result: false },
   ].forEach(({ first, second, result }) => {
@@ -28,7 +29,8 @@ describe('gt', () => {
   describe('throws error for date units', () => {
     DATE_UNITS.forEach((unit) => {
       it(unit, () => {
-        assertThat(() => gt(unit, unit), throws());
+        assertThat(() => gt(unit, unit), throws(hasProperty('message',
+          'Can\'t convert from date units.')));
       })
     })
   })
@@ -54,7 +56,8 @@ describe('gte', () => {
   describe('throws error for date units', () => {
     DATE_UNITS.forEach((unit) => {
       it(unit, () => {
-        assertThat(() => gte(unit, unit), throws());
+        assertThat(() => gte(unit, unit), throws(hasProperty('message',
+        'Can\'t convert from date units.')));
       })
     })
   })
@@ -82,7 +85,8 @@ describe('lt', () => {
   describe('throws error for date units', () => {
     DATE_UNITS.forEach((unit) => {
       it(unit, () => {
-        assertThat(() => lt(unit, unit), throws());
+        assertThat(() => lt(unit, unit), throws(hasProperty('message',
+        'Can\'t convert from date units.')));
       })
     })
   })
@@ -110,7 +114,8 @@ describe('lt', () => {
   describe('throws error for date units', () => {
     DATE_UNITS.forEach((unit) => {
       it(unit, () => {
-        assertThat(() => lte(unit, unit), throws());
+        assertThat(() => lte(unit, unit), throws(hasProperty('message',
+        'Can\'t convert from date units.')));
       })
     })
   })
@@ -139,7 +144,8 @@ describe('eg', () => {
   describe('throws error for date units', () => {
     DATE_UNITS.forEach((unit) => {
       it(unit, () => {
-        assertThat(() => eq(unit, unit), throws());
+        assertThat(() => eq(unit, unit), throws(hasProperty('message',
+          'Can\'t convert from date units.')));
       })
     })
   })

@@ -30,11 +30,11 @@ const asUnit = (isoString, divider) => {
 
 const containsDateUnits = (isoString) => {
   return [
-    findDays(isoString) || 0,
-    findWeeks(isoString) || 0,
-    findMonths(isoString) || 0,
-    findYears(isoString) || 0,
-  ].some((element) => element !== 0);
+    findDays(isoString),
+    findWeeks(isoString),
+    findMonths(isoString),
+    findYears(isoString),
+  ].some((element) => element);
 };
 
 /**

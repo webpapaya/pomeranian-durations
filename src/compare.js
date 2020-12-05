@@ -13,30 +13,8 @@
  * @name default
  */
 
-import { toFragments } from './transformations';
-import { ONE_HOUR, ONE_MINUTE, ONE_SECOND } from './constants';
-import { findDays, findMonths, findWeeks, findYears } from './find';
 import { isInvalid } from './validate';
-
-const containsDateUnits = (isoString) => {
-  return [
-    findDays(isoString) || 0,
-    findWeeks(isoString) || 0,
-    findMonths(isoString) || 0,
-    findYears(isoString) || 0,
-  ].some((element) => element !== 0);
-};
-
-const toApproximateSeconds = (isoDuration) => {
-  if (containsDateUnits(isoDuration)) { throw new Error('Can\'t convert from date units.'); }
-
-  const fragments = toFragments(isoDuration);
-  return [
-    fragments.seconds * ONE_SECOND,
-    fragments.minutes * ONE_MINUTE,
-    fragments.hours * ONE_HOUR,
-  ].reduce((sum, seconds) => sum + seconds, 0);
-};
+import { asMicroseconds } from 'pomeranian-durations';
 
 const buildCompareFn = (compareFn) => {
   return function resolver(...args) {
@@ -45,8 +23,8 @@ const buildCompareFn = (compareFn) => {
     if (args.length !== 2) { return (_second) => resolver(_second, first); }
 
     if (isInvalid(first) || isInvalid(second)) { return false;}
-    const firstAsSeconds = toApproximateSeconds(first);
-    const secondAsSeconds = toApproximateSeconds(second);
+    const firstAsSeconds = asMicroseconds(first);
+    const secondAsSeconds = asMicroseconds(second);
     return compareFn(firstAsSeconds, secondAsSeconds);
   };
 };
