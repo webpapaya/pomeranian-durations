@@ -13,8 +13,9 @@
  * @name default
  */
 
+import { asMicroseconds } from './conversions';
 import { isInvalid } from './validate';
-import { asMicroseconds } from 'pomeranian-durations';
+
 
 const buildCompareFn = (compareFn) => {
   return function resolver(...args) {

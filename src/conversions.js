@@ -7,7 +7,7 @@ import {
   ONE_MILLISECOND,
   ONE_SECOND,
   ONE_MINUTE,
-  ONE_HOUR, INVALID_DURATION,
+  ONE_HOUR,
 } from './constants';
 
 import {

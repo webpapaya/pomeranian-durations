@@ -5,8 +5,8 @@ import { leftPad, pipe, joinWhen, curry, values } from './_utils';
 import { absolute } from './math';
 import { normalizeTime } from './normalize';
 import { removeDateUnits, removeTimeUnits } from './remove';
-import { eq } from './compare';
-import { lt } from 'pomeranian-durations';
+import { eq, lt } from './compare';
+
 
 const KEY_TO_POSTGRES_MAP = {
   years: 'years',

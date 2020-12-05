@@ -79,7 +79,6 @@ export const toFragments = (isoString, { defaultValue = 0 } = {}) => {
 };
 
 
-
 /**
  * Returns all non 0 unit names from a given ISO8601 duration ordered from lowest to highest
  * @param isoString {string|undefined|null}
@@ -90,10 +89,10 @@ export const toFragments = (isoString, { defaultValue = 0 } = {}) => {
 export const unitNamesAsc = (isoString) => {
   const unitNames = Object.entries(toFragments(isoString))
     .filter((entry) => entry[1] !== 0)
-    .map(([unitName]) => unitName)
+    .map(([unitName]) => unitName);
 
   return UNIT_NAMES_LIST
-    .filter((unitName) => unitNames.includes(unitName))
+    .filter((unitName) => unitNames.includes(unitName));
 };
 
 /**

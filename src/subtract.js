@@ -24,8 +24,6 @@ import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';
 
 
-
-
 /**
  * Subtracts the given iso duration from the given duration.
  * @param firstDuration {string} - a duration to be subtracted
