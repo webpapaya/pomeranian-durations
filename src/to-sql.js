@@ -1,7 +1,7 @@
 import { toFragments } from './transformations';
 import { isInvalid } from './validate';
 import { INVALID_DURATION, UNIT_ORDER } from './constants';
-import { leftpad, pipe, joinWhen, curry, values } from './_utils';
+import { leftPad, pipe, joinWhen, curry, values } from './_utils';
 import { asMicroseconds } from './conversions';
 import { absolute } from './math';
 import { normalizeTime } from './normalize';
@@ -16,7 +16,7 @@ const KEY_TO_POSTGRES_MAP = {
   seconds: 'seconds',
 };
 
-const leftPadZeros = leftpad(2, '0');
+const leftPadZeros = (value) => leftPad(2, '0', value);
 const isoStringToPostgresVerbose = (isoString) => {
   const fragments = toFragments(isoString);
   return Object.keys(fragments)
@@ -38,11 +38,11 @@ const fragmentsToSqlTime = curry((leftPadHours, isoString) => {
   ].join(':');
 });
 
-const fragmentsToSqlDate = curry((isoString) => {
+const fragmentsToSqlDate = (isoString) => {
   const fragments = toFragments(isoString);
-  if (values(fragments).reduce((sum, a) => sum + a, 0) === 0) { return ''; }
+  if (values(fragments).every((fragment) => fragment === 0)) { return ''; }
   return `${fragments.years}-${fragments.months} ${fragments.days}`;
-});
+};
 
 /**
  * Converts an ISO8601 duration to a Postgres verbose duration.

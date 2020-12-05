@@ -22,7 +22,7 @@
  */
 
 
-import { curry, leftpad } from './_utils';
+import { curry, leftPad } from './_utils';
 import {
   findDays,
   findHours,
@@ -37,7 +37,7 @@ const compose = (...fns) => (initialValue) =>
   fns.reduce((result, fn) => fn(result), initialValue);
 
 const toPaddedString = curry((number, value) =>
-  `${leftpad(number, '0', value)}`);
+  `${leftPad(number, '0', value)}`);
 
 const TOKEN = {
   '%Y': compose(findYears, toPaddedString(1)),

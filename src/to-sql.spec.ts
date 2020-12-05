@@ -10,6 +10,7 @@ describe('toPostgresVerbose converts', () => {
     { input: 'P-2Y', result: '@ -2 years' },
     { input: 'P2DT3M', result: '@ 2 days 3 mins' },
 
+
     { input: 'P2M', result: '@ 2 mons' },
     { input: 'P-2M', result: '@ -2 mons' },
 
@@ -45,6 +46,7 @@ describe('toSql', () => {
     { input: 'P2YT1S', result: '2-0 0 0:00:01' },
     { input: 'PT1S', result: '0:00:01' },
     { input: 'PT1111S', result: '0:18:31' },
+    { input: 'PT999H', result: '999:00:00' },
     { input: 'PT999H', result: '999:00:00' },
     { input: 'PT1.1S', result: '0:00:01.1' },
     { input: 'PT-1.1S', result: '-0:00:01.1' },
