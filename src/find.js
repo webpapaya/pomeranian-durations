@@ -33,12 +33,14 @@ const findUnit = (stringComponent, unit) => {
 };
 
 const buildTimeFinder = curry((unit, isoString) => {
-  const timeComponent = extractTimeComponents(isoString || '');
+  if (!isoString) { return void 0; }
+  const timeComponent = extractTimeComponents(isoString);
   return findUnit(timeComponent, unit);
 });
 
 const buildDateFinder = curry((unit, isoString) => {
-  const dateComponent = extractDateComponents(isoString || '');
+  if (!isoString) { return void 0; }
+  const dateComponent = extractDateComponents(isoString);
   return findUnit(dateComponent, unit);
 });
 

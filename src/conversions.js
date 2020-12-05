@@ -19,11 +19,8 @@ import {
   findMonths,
   findYears,
 } from './find';
-import { isInvalid } from './validate';
 
 const asUnit = (isoString, divider) => {
-  if (isInvalid(isoString)) { return INVALID_DURATION; }
-
   const microseconds = asMicroseconds(isoString);
   return microseconds / divider;
 };
@@ -46,7 +43,6 @@ const containsDateUnits = (isoString) => {
  * asMicroseconds('PT2s') // => 2000000
  */
 export const asMicroseconds = (isoString) => {
-  if (isInvalid(isoString)) { return INVALID_DURATION; }
   if (containsDateUnits(isoString)) { throw new Error('Can\'t convert from date units.'); }
 
   return [

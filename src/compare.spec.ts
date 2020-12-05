@@ -40,6 +40,8 @@ describe('gte', () => {
   [
     { first: 'PT0S', second: 'PT0S', result: true },
     { first: 'PT1S', second: 'PT0S', result: true },
+    { first: 'PT1S', second: 'PT1S', result: true },
+    { first: 'PT0S', second: 'PT1S', result: false },
     { first: 'LALA', second: 'PT0S', result: false },
     { first: 'PT10S', second: 'LALA', result: false },
   ].forEach(({ first, second, result }) => {
