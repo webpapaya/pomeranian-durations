@@ -1,11 +1,12 @@
 import { toFragments } from './transformations';
 import { isInvalid } from './validate';
-import { INVALID_DURATION, UNIT_ORDER } from './constants';
+import { INVALID_DURATION, UNIT_ORDER, ZERO } from './constants';
 import { leftPad, pipe, joinWhen, curry, values } from './_utils';
-import { asMicroseconds } from './conversions';
 import { absolute } from './math';
 import { normalizeTime } from './normalize';
 import { removeDateUnits, removeTimeUnits } from './remove';
+import { eq } from './compare';
+import { lt } from 'pomeranian-durations';
 
 const KEY_TO_POSTGRES_MAP = {
   years: 'years',
@@ -27,10 +28,9 @@ const isoStringToPostgresVerbose = (isoString) => {
 };
 
 const fragmentsToSqlTime = curry((leftPadHours, isoString) => {
-  const microseconds = pipe(isoString, asMicroseconds);
-  if (microseconds === 0) { return ''; }
+  if (eq(isoString, ZERO)) { return ''; }
   const updatedFragments = pipe(isoString, absolute, normalizeTime, toFragments);
-  const sign = microseconds < 0 ? '-' : '';
+  const sign = lt(isoString, ZERO) ? '-' : '';
   return sign + [
     leftPadHours ? leftPadZeros(updatedFragments.hours) : updatedFragments.hours,
     leftPadZeros(updatedFragments.minutes),

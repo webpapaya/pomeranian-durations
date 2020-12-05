@@ -8,9 +8,13 @@ import {
   findHours,
   findMinutes,
   findSeconds,
+  INVALID_DURATION,
 } from 'pomeranian-durations';
 
 describe('unit finders for P3Y6M1W4DT12H30M17.5S', () => {
+  it('finds 3 years', () => assertThat(
+    findYears(void 0 as unknown as string), equalTo(void 0)));
+
   it('finds 3 years', () => assertThat(
     findYears('P3Y6M1W4DT12H30M17.5S'), equalTo(3)));
 

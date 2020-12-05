@@ -10,6 +10,8 @@ describe('toPostgresVerbose converts', () => {
     { input: 'P-2Y', result: '@ -2 years' },
     { input: 'P2DT3M', result: '@ 2 days 3 mins' },
 
+    { input: 'PT1S', result: '@ 1 seconds' },
+    { input: 'PT1H', result: '@ 1 hours' },
 
     { input: 'P2M', result: '@ 2 mons' },
     { input: 'P-2M', result: '@ -2 mons' },
@@ -42,8 +44,11 @@ describe('toPostgres converts', () => {
 describe('toSql', () => {
   [
     { input: 'Invalid', result: INVALID_DURATION },
+    { input: 'P', result: '' },
+    { input: 'PT1M-60S', result: '' },
     { input: 'P2Y', result: '2-0 0' },
     { input: 'P2YT1S', result: '2-0 0 0:00:01' },
+
     { input: 'PT1S', result: '0:00:01' },
     { input: 'PT1111S', result: '0:18:31' },
     { input: 'PT999H', result: '999:00:00' },
