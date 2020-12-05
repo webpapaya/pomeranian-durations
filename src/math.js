@@ -4,7 +4,7 @@
  */
 
 import { toFragments, toIso } from './transformations';
-import { mapValues, pipe } from './_utils';
+import { mapValues, negate, pipe } from './_utils';
 
 /**
  * Converts all negative values from a duration and converts them to be positive.
@@ -34,6 +34,6 @@ export const absolute = (isoString) => pipe(
 export const invert = (isoString) => pipe(
   isoString,
   toFragments,
-  mapValues((value) => value * -1),
+  mapValues(negate),
   toIso,
 );

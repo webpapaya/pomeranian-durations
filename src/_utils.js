@@ -80,3 +80,5 @@ export const leftPad = curry((amount, fill, input) => {
 });
 
 export const values = (object) => Object.keys(object).map((key) => object[key]);
+
+export const negate = (value) => value * -1;

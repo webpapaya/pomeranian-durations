@@ -3,7 +3,7 @@
  * @name default
  */
 
-import { curry } from './_utils';
+import { curry, negate } from './_utils';
 import {
   add,
   addDays,
@@ -23,7 +23,8 @@ import { toFragments, toIso } from './transformations';
 import { isInvalid } from './validate';
 import { INVALID_DURATION } from './constants';
 
-const negate = (value) => value * -1;
+
+
 
 /**
  * Subtracts the given iso duration from the given duration.
