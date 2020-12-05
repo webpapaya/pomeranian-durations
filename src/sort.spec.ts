@@ -23,7 +23,7 @@ const reverse = <T>(array: T[]) => [...array].reverse();
 describe('sortAsc', () => {
   TEST_DATA.forEach(({ input, output }) => {
     it(`sorts ${input} correctly`, () => {
-      assertThat(input.sort(sortAsc), equalTo(output));
+      assertThat([...input].sort(sortAsc), equalTo(output));
     });
   });
 });
@@ -40,7 +40,7 @@ describe('sortAscBy', () => {
 describe('sortDesc', () => {
   TEST_DATA.forEach(({ input, output }) => {
     it(`sorts ${input} correctly`, () => {
-      assertThat(input.sort(sortDesc), equalTo(reverse([...output])));
+      assertThat([...input].sort(sortDesc), equalTo(reverse([...output])));
     });
   });
 });
