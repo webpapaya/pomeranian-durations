@@ -7,7 +7,7 @@ import {
   ONE_MILLISECOND,
   ONE_SECOND,
   ONE_MINUTE,
-  ONE_HOUR, INVALID_DURATION,
+  ONE_HOUR,
 } from './constants';
 
 import {
@@ -19,22 +19,19 @@ import {
   findMonths,
   findYears,
 } from './find';
-import { isInvalid } from './validate';
 
 const asUnit = (isoString, divider) => {
-  if (isInvalid(isoString)) { return INVALID_DURATION; }
-
   const microseconds = asMicroseconds(isoString);
   return microseconds / divider;
 };
 
 const containsDateUnits = (isoString) => {
   return [
-    findDays(isoString) || 0,
-    findWeeks(isoString) || 0,
-    findMonths(isoString) || 0,
-    findYears(isoString) || 0,
-  ].some((element) => element !== 0);
+    findDays(isoString),
+    findWeeks(isoString),
+    findMonths(isoString),
+    findYears(isoString),
+  ].some((element) => element);
 };
 
 /**
@@ -46,7 +43,6 @@ const containsDateUnits = (isoString) => {
  * asMicroseconds('PT2s') // => 2000000
  */
 export const asMicroseconds = (isoString) => {
-  if (isInvalid(isoString)) { return INVALID_DURATION; }
   if (containsDateUnits(isoString)) { throw new Error('Can\'t convert from date units.'); }
 
   return [

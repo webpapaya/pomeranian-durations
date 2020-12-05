@@ -43,8 +43,8 @@ const createFloorFnFor = (unit) => (isoString) => {
  * floor('PT4s', 'PT5S') // => 'PT4S'
  */
 export const floor = (granularity, isoString) => {
-  const durationAsFragments = toFragments(isoString, { defaultValue: null });
-  const granularityAsFragments = toFragments(granularity, { defaultValue: null });
+  const durationAsFragments = toFragments(isoString);
+  const granularityAsFragments = toFragments(granularity);
 
   const flooredFragments = ALL_UNITS.reduce((acc, currentUnit) => {
     if (!durationAsFragments[currentUnit] || !granularityAsFragments[currentUnit]) { return acc; }

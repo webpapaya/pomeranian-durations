@@ -2,6 +2,11 @@ import { assertThat, equalTo } from 'hamjest';
 import { sortAsc, sortAscBy, sortDesc, sortDescBy } from 'pomeranian-durations';
 
 const TEST_DATA = [
+  { input: ['PT61S', 'PT1M'], output: ['PT1M', 'PT61S'] },
+  { input: ['PT61M', 'PT1H'], output: ['PT1H', 'PT61M'] },
+  { input: ['PT25H', 'P1D'], output: ['P1D', 'PT25H'] },
+
+
   { input: ['PT20S', 'PT30S', 'PT10S'], output: ['PT10S', 'PT20S', 'PT30S'] },
   { input: ['PT20S', 'PT1M', 'PT10S'], output: ['PT10S', 'PT20S', 'PT1M'] },
   { input: ['PT20S', 'P1M', 'PT10S'], output: ['PT10S', 'PT20S', 'P1M'] },
@@ -18,7 +23,7 @@ const reverse = <T>(array: T[]) => [...array].reverse();
 describe('sortAsc', () => {
   TEST_DATA.forEach(({ input, output }) => {
     it(`sorts ${input} correctly`, () => {
-      assertThat(input.sort(sortAsc), equalTo(output));
+      assertThat([...input].sort(sortAsc), equalTo(output));
     });
   });
 });
@@ -35,7 +40,7 @@ describe('sortAscBy', () => {
 describe('sortDesc', () => {
   TEST_DATA.forEach(({ input, output }) => {
     it(`sorts ${input} correctly`, () => {
-      assertThat(input.sort(sortDesc), equalTo(reverse([...output])));
+      assertThat([...input].sort(sortDesc), equalTo(reverse([...output])));
     });
   });
 });

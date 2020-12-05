@@ -9,10 +9,16 @@ import {
   asDecimalMilliseconds,
   asDecimalSeconds,
   asDecimalMinutes,
-  asDecimalHours, asDecimalMicroseconds,
+  asDecimalHours, asDecimalMicroseconds, INVALID_DURATION,
 } from 'pomeranian-durations';
 
 describe('as "unit" methods', () => {
+  it('INVALID_DURATION returns 0', () => assertThat(
+    asMicroseconds(INVALID_DURATION), equalTo(0)));
+
+    it('INVALID_DURATION returns 0', () => assertThat(
+      asSeconds(INVALID_DURATION), equalTo(0)));
+
   it('PT2s asMicroseconds is 2000000μs', () => assertThat(
     asMicroseconds('PT2s'), equalTo(2000000)));
 
