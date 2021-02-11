@@ -62,7 +62,7 @@ declare module 'pomeranian-durations' {
   export function eq(firstIsoDuration: string): (secondIsoDuration: string) => boolean
 
 
-  //constatnts.js
+  //constants.js
   export {}
   export const ONE_MICROSECOND: number
   export const ONE_MILLISECOND: number
@@ -122,6 +122,16 @@ declare module 'pomeranian-durations' {
     [UNIT_NAMES.weeks]?: TIME_UNIT
     [UNIT_NAMES.months]?: TIME_UNIT
     [UNIT_NAMES.years]?: TIME_UNIT
+  }
+
+  export interface Fragments {
+    [UNIT_NAMES.seconds]: number
+    [UNIT_NAMES.minutes]: number
+    [UNIT_NAMES.hours]: number
+    [UNIT_NAMES.days]: number
+    [UNIT_NAMES.weeks]: number
+    [UNIT_NAMES.months]: number
+    [UNIT_NAMES.years]: number
   }
 
   //conversions.js
@@ -263,7 +273,7 @@ declare module 'pomeranian-durations' {
 
   //transformations.js
   export function toIso(fragments: Units, options?: { includeZeroValues: true }): string
-  export function toFragments(isoString: string | null | undefined): Units
+  export function toFragments(isoString: string | null | undefined): Fragments
   export function unitNamesAsc(isoString: string): Array<keyof typeof UNIT_NAMES>
   export function unitNamesDesc(isoString: string): Array<keyof typeof UNIT_NAMES>
 
