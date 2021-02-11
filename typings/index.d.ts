@@ -92,47 +92,39 @@ declare module 'pomeranian-durations' {
 
   type TIME_UNIT = number | string
   export const TIME_UNITS: {
-    [UNIT_NAMES.seconds]: TIME_UNIT
-    [UNIT_NAMES.minutes]: TIME_UNIT
-    [UNIT_NAMES.hours]: TIME_UNIT
+    seconds: TIME_UNIT
+    minutes: TIME_UNIT
+    hours: TIME_UNIT
   }
 
   export const DATE_UNITS: {
-    [UNIT_NAMES.days]: TIME_UNIT
-    [UNIT_NAMES.weeks]: TIME_UNIT
-    [UNIT_NAMES.months]: TIME_UNIT
-    [UNIT_NAMES.years]: TIME_UNIT
+    days: TIME_UNIT
+    weeks: TIME_UNIT
+    months: TIME_UNIT
+    years: TIME_UNIT
   }
 
   export const UNITS: {
-    [UNIT_NAMES.seconds]: TIME_UNIT
-    [UNIT_NAMES.minutes]: TIME_UNIT
-    [UNIT_NAMES.hours]: TIME_UNIT
-    [UNIT_NAMES.days]: TIME_UNIT
-    [UNIT_NAMES.weeks]: TIME_UNIT
-    [UNIT_NAMES.months]: TIME_UNIT
-    [UNIT_NAMES.years]: TIME_UNIT
+    seconds: TIME_UNIT
+    minutes: TIME_UNIT
+    hours: TIME_UNIT
+    days: TIME_UNIT
+    weeks: TIME_UNIT
+    months: TIME_UNIT
+    years: TIME_UNIT
   }
 
-  type Units = {
-    [UNIT_NAMES.seconds]?: TIME_UNIT
-    [UNIT_NAMES.minutes]?: TIME_UNIT
-    [UNIT_NAMES.hours]?: TIME_UNIT
-    [UNIT_NAMES.days]?: TIME_UNIT
-    [UNIT_NAMES.weeks]?: TIME_UNIT
-    [UNIT_NAMES.months]?: TIME_UNIT
-    [UNIT_NAMES.years]?: TIME_UNIT
+  export interface Fragments<DEFAULT> {
+    seconds: number | DEFAULT
+    minutes: number | DEFAULT
+    hours: number | DEFAULT
+    days: number | DEFAULT
+    weeks: number | DEFAULT
+    months: number | DEFAULT
+    years: number | DEFAULT
   }
 
-  export interface Fragments {
-    [UNIT_NAMES.seconds]: number
-    [UNIT_NAMES.minutes]: number
-    [UNIT_NAMES.hours]: number
-    [UNIT_NAMES.days]: number
-    [UNIT_NAMES.weeks]: number
-    [UNIT_NAMES.months]: number
-    [UNIT_NAMES.years]: number
-  }
+  type Units = Partial<Fragments<TIME_UNIT>>
 
   //conversions.js
   export function asMicroseconds(isoString: string): number
@@ -273,7 +265,11 @@ declare module 'pomeranian-durations' {
 
   //transformations.js
   export function toIso(fragments: Units, options?: { includeZeroValues: true }): string
-  export function toFragments(isoString: string | null | undefined): Fragments
+  export function toFragments<DEFAULT_VALUE>(
+      isoString: string | null | undefined,
+      config?: { defaultValue: DEFAULT_VALUE }
+  ): Fragments<typeof config extends undefined ? number : DEFAULT_VALUE>
+
   export function unitNamesAsc(isoString: string): Array<keyof typeof UNIT_NAMES>
   export function unitNamesDesc(isoString: string): Array<keyof typeof UNIT_NAMES>
 
