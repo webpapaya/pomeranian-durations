@@ -58,7 +58,7 @@ addToDate('P1M', new Date('2000-01-01T00:00:00Z')) // => new Date('2000-02-01T00
 <a name="category-ceil"></a>
 ## ceil
 
-[ceil](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L32) | [ceilSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L41) | [ceilMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L49) | [ceilHours](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L57) | [ceilDays](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L65) | [ceilWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L73) | [ceilMonths](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L81) | [ceilYears](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L89)
+[ceil](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L28) | [ceilSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L37) | [ceilMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L45) | [ceilHours](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L53) | [ceilDays](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L61) | [ceilWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L69) | [ceilMonths](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L77) | [ceilYears](https://github.com/webPapaya/pomeranian/blob/master/src/ceil.js#L85)
 
 Helpers to ceil an ISO8601 duration to a particular granularity.
 
@@ -79,7 +79,7 @@ ceilYears('P1.1Y') // => 'P2Y'
 <a name="category-compare"></a>
 ## compare
 
-[gte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L66) | [gt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L80) | [lt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L94) | [lte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L108) | [eq](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L117)
+[gte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L45) | [gt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L59) | [lt](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L73) | [lte](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L87) | [eq](https://github.com/webPapaya/pomeranian/blob/master/src/compare.js#L96)
 
 Helpers to compare 2 iso durations with each other. Only time parts can be compared
 as otherwise the comparison might be wrong. When any of the functions is partially
@@ -113,7 +113,7 @@ eq('PT2S', 'PT2S') // => true
 <a name="category-conversions"></a>
 ## conversions
 
-[asMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L48) | [asMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L67) | [asSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L77) | [asMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L87) | [asHours](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L97) | [asDecimalMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L107) | [asDecimalMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L117) | [asDecimalSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L127) | [asDecimalMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L137) | [asDecimalHours](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L147)
+[asMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L45) | [asMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L63) | [asSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L73) | [asMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L83) | [asHours](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L93) | [asDecimalMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L103) | [asDecimalMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L113) | [asDecimalSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L123) | [asDecimalMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L133) | [asDecimalHours](https://github.com/webPapaya/pomeranian/blob/master/src/conversions.js#L143)
 
 Helpers to convert between different units.
 
@@ -134,7 +134,7 @@ asDecimalHours('PT1m1s') // => 0.016944444444444443
 <a name="category-find"></a>
 ## find
 
-[findSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L54) | [findMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L65) | [findHours](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L76) | [findDays](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L87) | [findWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L98) | [findMonths](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L109) | [findYears](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L120)
+[findSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L56) | [findMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L67) | [findHours](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L78) | [findDays](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L89) | [findWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L100) | [findMonths](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L111) | [findYears](https://github.com/webPapaya/pomeranian/blob/master/src/find.js#L122)
 
 Helpers for finding particular units in a given ISO8601 duration
 
@@ -332,7 +332,7 @@ all given durations that is not an issue.
 <a name="category-subtract"></a>
 ## subtract
 
-[subtract](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L33) | [subtractMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L49) | [subtractMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L58) | [subtractSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L67) | [subtractMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L76) | [subtractHours](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L85) | [subtractDays](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L94) | [subtractWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L103) | [subtractMonths](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L112) | [subtractYears](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L121) | [subtractFromDate](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L130)
+[subtract](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L34) | [subtractMilliseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L50) | [subtractMicroseconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L59) | [subtractSeconds](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L68) | [subtractMinutes](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L77) | [subtractHours](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L86) | [subtractDays](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L95) | [subtractWeeks](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L104) | [subtractMonths](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L113) | [subtractYears](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L122) | [subtractFromDate](https://github.com/webPapaya/pomeranian/blob/master/src/subtract.js#L131)
 
 Helpers to subtract from a duration.
 
@@ -394,7 +394,7 @@ toSql('P1Y2DT1M') // => '1-0 2 0:01:00'
 <a name="category-transformations"></a>
 ## transformations
 
-[toIso](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L56) | [toFragments](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L69) | [unitNamesAsc](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L89) | [unitNamesDesc](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L103)
+[toIso](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L56) | [toFragments](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L69) | [unitNamesAsc](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L89) | [unitNamesDesc](https://github.com/webPapaya/pomeranian/blob/master/src/transformations.js#L105)
 
 ```javascript
 toIso({ seconds: 1, hours: 2 }) // => 'PT2H1S'
