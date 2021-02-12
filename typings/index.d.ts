@@ -265,10 +265,15 @@ declare module 'pomeranian-durations' {
 
   //transformations.js
   export function toIso(fragments: Units, options?: { includeZeroValues: true }): string
+
+  export function toFragments<DEFAULT_VALUE>(
+    isoString: string | null | undefined
+): Fragments<number>
+
   export function toFragments<DEFAULT_VALUE>(
       isoString: string | null | undefined,
-      config?: { defaultValue: DEFAULT_VALUE }
-  ): Fragments<typeof config extends undefined ? number : DEFAULT_VALUE>
+      config: { defaultValue: DEFAULT_VALUE }
+  ): Fragments<DEFAULT_VALUE>
 
   export function unitNamesAsc(isoString: string): Array<keyof typeof UNIT_NAMES>
   export function unitNamesDesc(isoString: string): Array<keyof typeof UNIT_NAMES>
