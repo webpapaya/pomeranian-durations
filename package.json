@@ -8,7 +8,7 @@
   "sideEffects": false,
   "scripts": {
     "rebuild-docs-index": "node src/_generate_docs.js > README.md && node src/_generate_index.js > src/index.js && git commit -m 'Regenerate docs and index' README.md src/index.js || true",
-    "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js && npm run build esm",
+    "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js && npm run build:esm",
     "build:esm": "esbuild src/index.js --bundle --format=esm --outfile=lib/index.esm.js --minify",
     "lint": "eslint-crewmeister src",
     "gen-test-report": "stryker run",
