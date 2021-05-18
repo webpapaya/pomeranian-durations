@@ -3,11 +3,13 @@
   "version": "1.11.4",
   "description": "An immutable duration library based on the ISO-8601 format for durations.",
   "main": "lib/index.js",
+  "module": "lib/index.esm.js",
   "readme": "README.md",
   "sideEffects": false,
   "scripts": {
     "rebuild-docs-index": "node src/_generate_docs.js > README.md && node src/_generate_index.js > src/index.js && git commit -m 'Regenerate docs and index' README.md src/index.js || true",
-    "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js",
+    "build": "npm run rebuild-docs-index && babel src/ --out-dir lib/ --ignore *.spec.js && npm run build esm",
+    "build:esm": "esbuild src/index.js --bundle --format=esm --outfile=lib/index.esm.js --minify",
     "lint": "eslint-crewmeister src",
     "gen-test-report": "stryker run",
     "circular": "madge src --circular",
@@ -33,6 +35,7 @@
     "@types/mocha": "^7.0.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "common-tags": "^1.8.0",
+    "esbuild": "^0.11.2",
     "eslint-config-crewmeister": "latest",
     "hamjest": "^3.5.0",
     "husky": "^4.2.5",
@@ -57,6 +60,5 @@
     "url": "https://github.com/webPapaya/pomeranian/issues"
   },
   "homepage": "https://github.com/webPapaya/pomeranian",
-  "types": "./typings/index.d.ts",
-  "dependencies": {}
+  "types": "./typings/index.d.ts"
 }
