@@ -40,7 +40,7 @@
     "hamjest": "^3.5.0",
     "husky": "^4.2.5",
     "jsdoc-to-markdown": "^5.0.3",
-    "madge": "^3.8.0",
+    "madge": "^4.0.1",
     "mocha": "^6.2.3",
     "stryker-cli": "^1.0.0",
     "ts-node": "^8.9.1",
